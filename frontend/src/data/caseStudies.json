@@ -1,0 +1,498 @@
+[
+  {
+    "category": "erp-tech",
+    "service": "sap-business-one-hana",
+    "slug": "sap-ecommerce-integration",
+    "title": "SAP Integration with E-Commerce Platform",
+    "industry": "Retail",
+    "sapLandscape": "SAP ECC",
+    "thirdPartySystem": "E-Commerce Platform",
+    "challenge": "Manual order and inventory updates caused delays and data mismatches.",
+    "solution": [
+      "Designed real-time SAP-to-eCommerce integration",
+      "Automated order processing and inventory synchronization",
+      "Implemented monitoring and error handling"
+    ],
+    "outcome": [
+      "99% order accuracy",
+      "Faster order fulfillment",
+      "Improved customer experience"
+    ]
+  },
+  {
+    "category": "data-science",
+    "service": "real-time-analytics",
+    "slug": "real-time-analytics-operations",
+    "title": "Real-Time Analytics for Smart Operations",
+    "client": "Large Logistics Provider",
+    "challenge": "Fragmented data sources and delayed visibility into fleet performance affected delivery reliability.",
+    "solution": [
+      "Designed a real-time analytics platform ingesting IoT sensor feeds, GPS telemetry, and logistics events",
+      "Implemented live dashboards for delays, performance, and exception alerts"
+    ],
+    "outcome": [
+      "35% reduction in delivery delays",
+      "50% faster operational response time",
+      "Real-time SLA monitoring across regions"
+    ],
+    "quote": "With real-time analytics, we see our operations live — and we fix issues before they affect customers."
+  },
+  {
+  "category": "data-science",
+  "service": "data-visualization",
+  "slug": "real-time-sales-visualization-retailer",
+  "title": "Real-Time Sales Visualization for Retailer",
+  "client": "National Retail Chain",
+  "challenge": "Disparate data from sales, inventory, and POS systems made reporting slow and unreliable.",
+  "solution": [
+    "Implemented a real-time interactive dashboard integrating ERP, POS, and eCommerce data"
+    ],
+  "outcome": [
+    "30% reduction in reporting cycle time",
+    "Instant visibility into stock availability and sales performance",
+    "Enhanced alignment between store operations and management"
+  ],
+  "quote": "Atorix’s dashboards gave us clarity we never had — now we see performance as it happens, and decisions are faster and more confident."
+},
+{
+  "category": "sap-application",
+  "service": "upgrade-services",
+  "slug": "sap-ecc-supported-release-upgrade",
+  "title": "SAP ECC to Supported Release Upgrade",
+  "clientType": "National Logistics Company",
+  "industry": "Logistics & Transportation",
+  "engagementDuration": "6 months",
+  "challenge": "The client was running an outdated SAP ECC environment with custom code issues and performance bottlenecks that impacted reporting and operations.",
+  "solution": [
+    "Assessment of custom code, interfaces, and data",
+    "Upgrade roadmap with risk mitigation",
+    "Sandbox upgrade and reconciliation testing",
+    "Production cutover with hypercare support"
+  ],
+  "outcome": [
+    "40% faster reporting speeds",
+    "Elimination of unsupported code errors",
+    "Improved user adoption with updated screens"
+  ],
+  "quote": "Atorix’s structured upgrade execution helped us modernize without business disruption. Their expertise was invaluable."
+},
+{
+  "category": "erp-tech",
+  "service": "sap-s4-hana-cloud",
+  "slug": "sap-s4hana-cloud-adoption-global-retailer",
+  "title": "SAP S/4HANA Cloud Adoption for a Global Retailer",
+  "clientType": "Multinational Retail Chain",
+  "industry": "Retail & Distribution",
+  "engagementDuration": "6 months",
+  "challenge": "The client had fragmented legacy systems, inconsistent reporting, and scalability challenges that slowed decision-making.",
+  "solution": [
+    "Assessed current ERP footprint",
+    "Built a phased cloud adoption roadmap",
+    "Executed seamless data migration and integration",
+    "Delivered role-based training and post-go-live care"
+  ],
+  "outcome": [
+    "40% improvement in real-time reporting",
+    "25% reduction in operational overhead",
+    "Faster financial consolidation and analytics"
+  ],
+  "quote": "Atorix helped us transition confidently to S/4HANA Cloud — without business disruption and with measurable results."
+},
+{
+  "category": "erp-tech",
+  "service": "sap-s4-hana-ecc",
+  "slug": "sap-ecc-to-s4hana-migration-enterprise",
+  "title": "SAP ECC to S/4HANA Migration for an Enterprise Client",
+  "clientType": "Large Enterprise",
+  "industry": "Manufacturing & Distribution",
+  "engagementDuration": "7 months",
+  "challenge": "The client was running a highly customized SAP ECC system with performance limitations, manual reporting, and increasing maintenance costs.",
+  "solution": [
+    "Conducted SAP ECC readiness and custom code analysis",
+    "Defined a phased S/4HANA migration roadmap",
+    "Executed system conversion with data validation and testing",
+    "Trained users and provided go-live support"
+  ],
+  "outcome": [
+    "Successful migration with zero critical downtime",
+    "30% improvement in reporting and process efficiency",
+    "Reduced system maintenance complexity and costs"
+  ],
+  "quote": "Atorix delivered our SAP migration with precision and clarity. Their expertise ensured a smooth transition with measurable business benefits."
+},
+{
+  "category": "sap-application",
+  "service": "sap-s4-hana-migration",
+  "slug": "sap-ecc-to-s4hana-migration-national-retailer",
+  "title": "SAP ECC to S/4HANA Migration for a National Retailer",
+  "clientType": "National Retail Chain",
+  "industry": "Retail & Distribution",
+  "engagementDuration": "8 months",
+  "challenge": "Fragmented legacy systems slowed reporting cycles and limited real-time visibility.",
+  "solution": [
+    "Conducted in-depth readiness assessment",
+    "Designed a phased migration roadmap",
+    "Executed system conversion and integration",
+    "Comprehensive testing and go-live support"
+  ],
+  "outcome": [
+    "42% faster reporting and analytics",
+    "30% improvement in order processing",
+    "Significant reduction in operational costs"
+  ],
+  "quote": "Atorix ensured our SAP migration was smooth, predictable, and aligned to business goals. Their methodology minimized disruption and maximized outcomes."
+},
+{
+  "category": "sap-application",
+  "service": "sap-integration",
+  "slug": "sap-integration-ecommerce-platform",
+  "title": "SAP Integration with E-Commerce Platform",
+  "industry": "Retail",
+  "sapLandscape": "SAP ECC",
+  "thirdPartySystem": "E-Commerce Platform",
+  "challenge": "Manual order and inventory updates caused delays and data mismatches.",
+  "solution": [
+    "Designed real-time SAP-to-eCommerce integration",
+    "Automated order processing and inventory synchronization",
+    "Implemented monitoring and error handling"
+  ],
+  "outcome": [
+    "99% order accuracy",
+    "Faster order fulfillment",
+    "Improved customer experience"
+  ]
+},
+{
+  "category": "sap-application",
+  "service": "implementation-rollout",
+  "slug": "sap-s4hana-implementation-mid-size-enterprise",
+  "title": "SAP S/4HANA Implementation for a Mid-Size Enterprise",
+  "clientType": "Mid-Size Enterprise",
+  "industry": "Retail & Distribution",
+  "engagementDuration": "9 months",
+  "challenge": "Legacy systems with fragmented processes were slowing decision-making and delaying reporting.",
+  "solution": [
+    "Discovery & process alignment",
+    "SAP S/4HANA configuration & data migration",
+    "Integration with POS, CRM, and BI tools",
+    "Role-based training & hypercare"
+  ],
+  "outcome": [
+    "35% improvement in operational efficiency",
+    "50% faster financial close",
+    "25% reduction in manual reconciliation tasks"
+  ],
+  "quote": "We delivered our SAP rollout with clarity and execution rigor. The team’s expertise ensured a smooth transition and measurable business gains."
+},
+{
+  "category": "sap-application",
+  "service": "sap-ecc-s4-hana-support",
+  "slug": "sap-ecc-s4hana-application-support",
+  "title": "SAP ECC & S/4HANA Application Support",
+  "clientType": "MultiLocation Enterprise",
+  "industry": "Manufacturing & Distribution",
+  "challenge": "Frequent SAP incidents, delayed issue resolution, and limited internal support capacity.",
+  "solution": [
+    "Established SLAdriven SAP support model",
+    "Provided functional and technical support",
+    "Implemented proactive monitoring and reporting"
+  ],
+  "outcome": [
+    "40% reduction in recurring SAP issues",
+    "Improved system availability",
+    "Higher business user satisfaction"
+  ],
+  "quote": "Atorix’s SAP support team brought structure, responsiveness, and reliability to our daily operations."
+},
+{
+  "category": "sap-application",
+  "service": "discovery-evaluation",
+  "slug": "sap-discovery-multilocation-enterprise",
+  "title": "SAP Discovery for a MultiLocation Enterprise",
+  "clientType": "Enterprise Organization",
+  "industry": "Manufacturing & Distribution",
+  "engagementDuration": "4 weeks",
+  "challenge": "The client planned an SAP S/4HANA migration but lacked clarity on scope, data readiness, and integration complexity.",
+  "solution": [
+    "Conducted stakeholder workshops",
+    "Evaluated SAP ECC landscape and custom code",
+    "Performed business process and data assessment",
+    "Defined a phased migration roadmap"
+  ],
+  "outcome": [
+    "Clear S/4HANA adoption strategy",
+    "Identified highrisk customizations early",
+    "Accurate budget and timeline estimates"
+  ],
+  "quote": "The discovery phase helped us avoid costly mistakes and align leadership before starting implementation."
+},
+{
+  "category": "sap-application",
+  "service": "sap-business-one-addon",
+  "slug": "custom-sap-business-one-addon-inventory-automation",
+  "title": "Custom SAP Business One Add-On for Inventory Automation",
+  "clientType": "Manufacturing Company",
+  "challenge": "Manual inventory reconciliation and approval delays",
+  "solution": [
+    "Custom SAP Business One add-on automating inventory workflows, approvals, and alerts"
+  ],
+  "outcome": [
+    "40% reduction in inventory errors",
+    "Faster decision-making with real-time visibility",
+    "Improved audit compliance"
+  ]
+},
+{
+  "category": "erp-tech",
+  "service": "sap-analytics",
+  "slug": "sap-analytics-retail-enterprise",
+  "title": "SAP Analytics for a Retail Enterprise",
+  "clientType": "National Retail Chain",
+  "industry": "Retail & Consumer Goods",
+  "engagementDuration": "5 months",
+  "challenge": "The client struggled with delayed sales reporting, fragmented data, and lack of predictive planning capabilities.",
+  "solution": [
+    "Conducted analytics maturity assessment",
+    "Designed unified data model",
+    "Implemented SAP Analytics Cloud with real-time dashboards",
+    "Delivered user training programs"
+  ],
+  "outcome": [
+    "50% reduction in report turnaround time",
+    "30% improvement in sales trend visibility",
+    "Faster planning cycles backed by predictive models"
+  ],
+  "quote": "Atorix helped us unlock insights trapped in our data. Decisions are now proactive, not reactive."
+},
+{
+  "category": "data-science",
+  "service": "real-time-analytics",
+  "slug": "real-time-analytics-smart-operations",
+  "title": "Real-Time Analytics for Smart Operations",
+  "client": "Large Logistics Provider",
+  "challenge": "Fragmented data sources and delayed visibility into fleet performance affected delivery reliability.",
+  "solution": [
+    "Designed a real-time analytics platform that ingested IoT sensor feeds, GPS telemetry, and logistics events. We implemented dashboards that updated performance, delays, and exception alerts instantly for operations teams."
+  ],
+  "outcome": [
+    "35% reduction in delivery delays",
+    "50% faster operational response time",
+    "Real-time SLA monitoring across regions"
+  ],
+  "quote": "With real-time analytics, we see our operations live — and we fix issues before they affect customers."
+},
+{
+  "category": "consulting",
+  "service": "process-consulting",
+  "slug": "real-time-analytics-smart-operations-consulting",
+  "title": "Real-Time Analytics for Smart Operations",
+  "client": "Large Logistics Provider",
+  "challenge": "Fragmented data sources and delayed visibility into fleet performance affected delivery reliability.",
+  "solution": [
+    "Designed a real-time analytics platform that ingested IoT sensor feeds, GPS telemetry, and logistics events. We implemented dashboards that updated performance, delays, and exception alerts instantly for operations teams."
+  ],
+  "outcome": [
+    "35% reduction in delivery delays",
+    "50% faster operational response time",
+    "Real-time SLA monitoring across regions"
+  ],
+  "quote": "With real-time analytics, we see our operations live — and we fix issues before they affect customers."
+},
+{
+  "category": "microsoft-dynamics",
+  "service": "dynamics-365",
+  "slug": "dynamics-365-implementation-manufacturing-enterprise",
+  "title": "Dynamics 365 Implementation for Manufacturing Enterprise",
+  "client": "National Manufacturing Company",
+  "challenge": "Disparate systems, siloed data, and slow decision processes.",
+  "solution": [
+    "We implemented Dynamics 365 Finance & Supply Chain, integrated CRM and analytics, and delivered role-based dashboards."
+  ],
+  "outcome": [
+    "35% improvement in operational efficiency",
+    "Real-time financial & inventory insights",
+    "Enhanced customer service performance"
+  ],
+  "quote": "Atorix helped us transform our business with a connected Dynamics 365 solution that delivers operational clarity and strategic agility."
+},
+{
+  "category": "data-science",
+  "service": "data-engineering",
+  "slug": "enterprise-data-platform-streaming-analytics",
+  "title": "Enterprise Data Platform & Streaming Analytics",
+  "client": "National Logistics Provider",
+  "challenge": "Siloed systems, delayed reporting, inconsistent data quality, lack of real-time visibility",
+  "solution": [
+    "Designed and deployed an enterprise data platform with real-time streaming and centralized governance. We built automated pipelines from multiple source systems, implemented master data frameworks, and delivered real-time dashboards for operational teams."
+  ],
+  "outcome": [
+    "50% faster reporting turnaround",
+    "Real-time operational visibility across warehouses",
+    "Consolidated data governance with lineage and audit capabilities"
+  ],
+  "quote": "Atorix helped us upgrade our data foundation from fragmented reports to real-time intelligence that drives daily decisions."
+},
+{
+  "category": "security",
+  "service": "cyber-security",
+  "slug": "enterprise-cyber-defense-manufacturing",
+  "title": "Enterprise Cyber Defense for Manufacturing",
+  "client": "Large Manufacturing Organization",
+  "challenge": "Multiple security alerts, inconsistent monitoring, and insufficient incident response readiness.",
+  "solution": [
+    "After a comprehensive risk assessment, we implemented network security hardening, SIEM-based threat detection, endpoint security, and an incident response playbook."
+  ],
+  "outcome": [
+    "60% reduction in false positives",
+    "Faster detection & containment",
+    "Improved audit posture and risk visibility"
+  ],
+  "quote": "Atorix transformed our cybersecurity maturity — threats are now caught early and mitigated effectively."
+},
+{
+  "category": "information-technology",
+  "service": "software-development",
+  "slug": "custom-software-operational-efficiency",
+  "title": "Custom Software for Operational Efficiency",
+  "client": "Mid-Size Enterprise",
+  "challenge": "Disconnected systems and manual processes",
+  "solution": [
+    "Custom web application with system integration and automation"
+  ],
+  "outcome": [
+    "35% improvement in operational efficiency",
+    "Reduced manual errors",
+    "Faster decision-making with real-time data"
+  ],
+  "quote": "Atorix doesn’t just build software — we build solutions that grow with your business."
+},
+{
+  "category": "information-technology",
+  "service": "cloud-services",
+  "slug": "cloud-driven-modernization-retail-enterprise",
+  "title": "Cloud-Driven Modernization for a Retail Enterprise",
+  "client": "National Retail Chain",
+  "challenge": "Legacy infrastructure limiting scalability and performance peaks during events",
+  "solution": [
+    "We designed a hybrid cloud architecture with auto-scaling, real-time analytics integration, and CI/CD automation."
+  ],
+  "outcome": [
+    "60% improvement in application performanc",
+    "Seamless scalability during high traffic seasons",
+    "30% reduction in infrastructure costs",
+    "Enhanced customer experience with faster response times"
+  ],
+  "quote": "Atorix helped us modernize without disruption — scaling our systems to match customer expectations."
+},
+{
+  "category": "data-science",
+  "service": "data-analytics",
+  "slug": "predictive-analytics-retail-planning",
+  "title": "Predictive Analytics for Retail Planning",
+  "client": "National Retail Chain",
+  "engagementDuration": "5 months",
+  "challenge": "Inconsistent inventory levels, stock outs, and excess holding costs due to reactive planning.",
+  "solution": [
+    "Atorix implemented a predictive analytics solution that used historical POS data, seasonal trends, and external variables to forecast demand. Advanced dashboards delivered real-time insights to planners."
+  ],
+  "outcome": [
+    "35% reduction in stock-outs",
+    "28% reduction in excess inventory",
+    "Improved forecast accuracy and faster planning cycles"
+  ],
+  "quote": "Atorix’s analytics solution transformed our planning — we now forecast demand with confidence and act with precision."
+},
+{
+  "category": "consulting",
+  "service": "technology-consulting",
+  "slug": "technology-modernization-cloud-enablement",
+  "title": "Technology Modernization & Cloud Enablement",
+  "clientType": "Mid-sized Enterprise",
+  "industry": "Professional Services",
+  "engagementDuration": "6 months",
+  "challenge": "The client relied on legacy infrastructure causing performance issues, security risks, and high operational costs.",
+  "solution": [
+    "Conducted IT and security assessments",
+    "Designed a cloud-first technology roadmap",
+    "Guided phased migration and system integration",
+    "Established performance and security KPIs"
+  ],
+  "outcome": [
+    "35% reduction in infrastructure costs",
+    "Improved system performance and uptime",
+    "Enhanced security posture and compliance readiness"
+  ],
+  "quote": "Atorix helped us modernize our technology with clarity and confidence. Their guidance delivered measurable improvements without disruption."
+},
+{
+  "category": "consulting",
+  "service": "business-consulting",
+  "slug": "operational-strategy-transformation-mid-sized-enterprise",
+  "title": "Operational & Strategy Transformation for a Mid-Sized Enterprise",
+  "clientType": "Mid-sized IT services company",
+  "industry": "Technology & Professional Services",
+  "engagementDuration": "4 months",
+  "challenge": "The client was facing fragmented internal processes, unclear KPIs, and slow decision-making across departments, which was impacting delivery timelines and customer satisfaction.",
+  "solution": [
+    "Conducted a detailed business and process assessment across key functions",
+    "Designed a unified strategic roadmap aligned with business goals",
+    "Optimized core operational workflows to remove inefficiencies",
+    "Implemented role-based KPIs and performance dashboards"
+  ],
+  "outcome": [
+    "28% improvement in operational efficiency",
+    "Faster leadership decision-making through clear KPI visibility",
+    "Improved cross-team alignment and accountability",
+    "Enhanced customer satisfaction and delivery predictability"
+  ],
+  "quote": "Atorix IT helped us bring structure and clarity to our business. Their practical consulting approach delivered measurable improvements within months."
+},
+{
+  "category": "sap-application",
+  "service": "sap-business-one-implementation",
+  "slug": "sap-business-one-implementation-growing-distributor",
+  "title": "SAP Business One Implementation for a Growing Distributor",
+  "clientType": "Mid-size distribution company",
+  "industry": "Supply Chain & Logistics",
+  "engagementDuration": "5 months",
+  "challenge": "The client struggled with fragmented systems, manual inventory reconciliation, and delayed financial reporting.",
+  "solution": [
+    "Conducted a discovery workshop to understand operational challenges and business goals",
+    "Redesigned key business processes to improve efficiency and control",
+    "Configured SAP Business One to align with demand management and inventory control principles",
+    "Migrated critical data from legacy tools into SAP"
+  ],
+  "outcome": [
+    "40% reduction in inventory discrepancies",
+    "35% faster financial close process",
+    "Improved decision-making with real-time dashboards"
+  ],
+  "quote": "Atorix guided us through a seamless implementation. Their industry knowledge and hands-on support made all the difference."
+},
+{
+  "category": "sap-application",
+  "service": "sap-business-one-support",
+  "slug": "sap-business-one-support-growing-retail-chain",
+  "title": "SAP Business One Support for a Growing Retail Chain",
+  "clientType": "Mid-size retail business",
+  "industry": "Retail & Distribution",
+  "engagementDuration": "12+ months",
+  "challenge": "Frequent user queries, inability to resolve inventory errors quickly, and delayed reporting were creating operational friction.",
+  "solution": [
+    "Initiated structured onboarding for users and support processes",
+    "Established SLA-aligned support queues for faster response and resolution",
+    "Implemented performance monitoring dashboards to track incidents and system health",
+    "Defined user helpdesk processes to enable rapid query resolution"
+  ],
+  "outcome": [
+    "45% reduction in recurring user issues",
+    "30% faster incident resolution",
+    "Higher user confidence and lower business disruption"
+  ],
+  "quote": "The support team at Atorix helped stabilize our SAP Business One environment and gave our users the confidence to leverage the system better."
+}
+
+
+
+
+]

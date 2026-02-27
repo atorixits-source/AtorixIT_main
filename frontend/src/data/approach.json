@@ -1,0 +1,525 @@
+{
+  "sap-application:sap-integration": {
+    "heading": "Our SAP Integration Delivery Approach",
+    "steps": [
+      {
+        "title": "Discovery & Integration Assessment",
+        "points": [
+          "Business and technical requirement analysis",
+          "Application landscape review",
+          "Integration complexity and risk assessment"
+        ],
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp",
+        "alt": "Discovery & Integration Assessment"
+      },
+      {
+        "title": "Architecture & Design",
+        "points": [
+          "Integration blueprint creation",
+          "Data mapping and transformation design",
+          "Security and compliance planning"
+        ],
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/architecture_l1mzde.webp",
+        "alt": "Architecture & Design"
+      },
+      {
+        "title": "Development & Configuration",
+        "points": [
+          "Connector and API development",
+          "Middleware configuration",
+          "Data validation and transformation setup"
+        ],
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+        "alt": "Development & Configuration"
+      },
+      {
+        "title": "Testing & Quality Assurance",
+        "points": [
+          "Unit, integration, and performance testing",
+          "Error handling and failover validation",
+          "End-to-end process testing"
+        ],
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170669/360_F_949878784_X6eVmbQV1uzBPPvTu2llQe6qZw5GriK6_e0mlc0.webp",
+        "alt": "Testing & Quality Assurance"
+      },
+      {
+        "title": "Deployment & Ongoing Support",
+        "points": [
+          "Controlled production rollout",
+          "Monitoring and performance optimization",
+          "Post-go-live support and enhancements"
+        ],
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170860/240_F_1880974822_YcQ7DRk43wIOnMCsgw1PzeOKSxn7c8me_igj64g.webp",
+        "alt": "Deployment & Ongoing Support"
+      }
+    ]
+  },
+
+  "consulting:business-consulting": {
+    "heading": "Data-Driven & Measurable Approach",
+    "intro": "Every consulting engagement is backed by data, benchmarks, and performance metrics. We define clear KPIs from the start so progress is measurable, transparent, and aligned with your business objectives.",
+    "steps": [
+      {
+        "title": "Strategic Clarity with Execution Support",
+        "description": "Unlike traditional consulting firms that stop at recommendations, Atorix actively supports implementation. We work closely with leadership and teams to ensure strategies are adopted, executed, and optimized over time.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T3_c8jqgo.webp",
+        "alt": "Strategic Clarity with Execution Support"
+      },
+      {
+        "title": "Customer-Centric & Scalable Solutions",
+        "description": "We design business strategies and processes that improve internal efficiency while enhancing customer experience. Our solutions are scalable, enabling businesses to grow without operational bottlenecks.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+        "alt": "Customer-Centric & Scalable Solutions"
+      },
+      {
+        "title": "Trust, Transparency & Long-Term Partnership",
+        "description": "We believe in honest communication, realistic timelines, and sustainable growth. Our goal is to build long-term partnerships based on trust, accountability, and consistent value delivery.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+        "alt": "Trust, Transparency & Long-Term Partnership"
+      }
+    ]
+  },
+
+  "sap-application:sap-business-one-support": {
+    "heading": "Support Delivery Model — Your Success, Our Responsibility",
+    "intro": "Our SAP Business One support services follow a structured, transparent engagement model:",
+    "steps": [
+      {
+        "title": "Onboarding & Knowledge Transfer",
+        "description": "We begin with support onboarding to understand your system landscape, user roles, workflows, and pain points. This helps accelerate first response times and reduce resolution cycles.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647811/workshop-setup-overview_t12mt2.webp",
+        "alt": "Onboarding & Knowledge Transfer"
+      },
+      {
+        "title": "SLA-Driven Incident Management",
+        "description": "We operate under defined SLAs that match your business criticality — ensuring rapid response, consistent tracking, and clear resolution timelines.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648048/evaluation_yfkp17.webp",
+        "alt": "SLA-Driven Incident Management"
+      },
+      {
+        "title": "Proactive Monitoring & Alerts",
+        "description": "Our team configures monitoring and alerting to identify system anomalies and performance degradation early, reducing business impact.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649164/tracking-vs-monitoring_lprghx.webp",
+        "alt": "Proactive Monitoring & Alerts"
+      },
+      {
+        "title": "Continuous Improvement & Reporting",
+        "description": "Regular support reviews and actionable metrics help refine your SAP Business One environment and reduce recurring issues.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp",
+        "alt": "Continuous Improvement & Reporting"
+      }
+    ]
+  },
+  "sap-application:sap-ecc-s4-hana-support": {
+  "heading": "Our SAP Support Delivery Model",
+  "intro": "Atorix follows a structured, transparent, and scalable support framework:",
+  "steps": [
+    {
+      "title": "Support Onboarding",
+      "description": "Knowledge transfer, system walkthroughs, and SLA alignment",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171097/close-image-2-business-people-600nw-2612364111_guhrkn.webp",
+      "alt": "Support Onboarding"
+    },
+    {
+      "title": "Stabilization Phase",
+      "description": "Immediate issue resolution and environment familiarization",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171291/gettyimages-1472975703-612x612_dlpc9b.webp",
+      "alt": "Stabilization Phase"
+    },
+    {
+      "title": "SteadyState Support",
+      "description": "Proactive monitoring, incident management, and user support",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649164/tracking-vs-monitoring_lprghx.webp",
+      "alt": "SteadyState Support"
+    },
+    {
+      "title": "Continuous Improvement",
+      "description": "Performance insights, minor enhancements, and process refinement",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp",
+      "alt": "Continuous Improvement"
+    }
+  ]
+},
+"sap-application:sap-business-one-implementation": {
+  "heading": "Our SAP Business One Implementation Approach",
+  "intro": "Atorix follows a structured, experience-driven implementation methodology that ensures predictable outcomes, minimal risk, and high user adoption.",
+  "steps": [
+    {
+      "title": "Discovery & Business Needs Analysis",
+      "description": "We begin by understanding your current processes, pain points, and business goals. Through workshops and stakeholder discussions, we map your process flows, chart key requirements, and define success criteria. This phase creates a solid foundation for all implementation activities.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768646174/discovery_eiuhac.webp",
+      "alt": "Discovery & Business Needs Analysis"
+    },
+    {
+      "title": "Solution Design & Blueprinting",
+      "description": "Based on the discovery insights, we design a detailed blueprint that covers system configuration, master data structure, reporting needs, user roles, and integration points. Our focus is to preserve business context while leveraging SAP Business One best practices.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp",
+      "alt": "Solution Design & Blueprinting"
+    },
+    {
+      "title": "Configuration & Setup",
+      "description": "Our consultants configure SAP Business One to match your business model — including financial structures, inventory parameters, sales logic, purchasing processes, and production rules. We ensure the system setup aligns with your governance, compliance, and growth strategy.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp",
+      "alt": "Configuration & Setup"
+    },
+    {
+      "title": "Data Migration & Validation",
+      "description": "Accurate data is critical for ERP success. We assist with data extraction, cleansing, transformation, and migration from legacy systems, spreadsheets, or other sources. Rigorous validation ensures data integrity and continuity post go-live.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T3_c8jqgo.webp",
+      "alt": "Data Migration & Validation"
+    },
+    {
+      "title": "Testing & Quality Assurance",
+      "description": "To ensure reliability, we conduct multiple levels of testing — unit, integration, and user acceptance testing (UAT). We validate configurations, workflows, master data integrity, and transactional accuracy before production deployment.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648048/evaluation_yfkp17.webp",
+      "alt": "Testing & Quality Assurance"
+    },
+    {
+      "title": "User Training & Adoption",
+      "description": "We deliver structured training programs tailored to user roles and job functions. Our training ensures your teams are confident using SAP Business One effectively from day one, enhancing productivity and reducing support overhead.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "alt": "User Training & Adoption"
+    },
+    {
+      "title": "Go-Live & Stabilization Support",
+      "description": "Our team provides hands-on support during go-live and early operations. We monitor system performance, validate critical processes, and quickly resolve any issues to ensure a smooth transition. Post-go-live tuning and hypercare support ensure stability and user confidence.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T6_ddewn2.webp",
+      "alt": "Go-Live & Stabilization Support"
+    }
+  ]
+},
+"information-technology:it-consulting": {
+  "heading": "Our IT Consulting Approach",
+  "intro": "Atorix follows a structured, business-first consulting methodology:",
+  "steps": [
+    {
+      "title": "Assess",
+      "description": "Analyze business goals, IT landscape, risks, and opportunities.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170669/360_F_949878784_X6eVmbQV1uzBPPvTu2llQe6qZw5GriK6_e0mlc0.webp",
+      "alt": "Assess"
+    },
+    {
+      "title": "Define",
+      "description": "Create a tailored IT strategy and solution roadmap.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T2_c9svju.avif",
+      "alt": "Define"
+    },
+    {
+      "title": "Design",
+      "description": "Architect scalable, secure, and efficient technology solutions.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/architecture_l1mzde.webp",
+      "alt": "Design"
+    },
+    {
+      "title": "Implement",
+      "description": "Support execution with technical guidance and governance.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+      "alt": "Implement"
+    },
+    {
+      "title": "Optimize",
+      "description": "Continuously improve performance, costs, and outcomes. This approach ensures sustainable, value-driven results.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "alt": "Optimize"
+    }
+  ]
+},
+"security:cyber-security": {
+  "heading": "Our Cyber Security Approach",
+  "intro": "Atorix follows a multi-layered, defense-in-depth methodology that is aligned with industry frameworks such as NIST, ISO, and CIS Controls:",
+  "steps": [
+    {
+      "title": "Discover",
+      "description": "Understand assets, threats, and business goals.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768646174/discovery_eiuhac.webp",
+      "alt": "Discover"
+    },
+    {
+      "title": "Protect",
+      "description": "Implement security controls, hardening, and architecture.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800941/what-is-network-security-definition-types-and-best-practices-in-2024_dqfhy8.webp",
+      "alt": "Protect"
+    },
+    {
+      "title": "Detect",
+      "description": "Establish monitoring and threat intelligence.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800878/tdr_e2nptj.webp",
+      "alt": "Detect"
+    },
+    {
+      "title": "Respond",
+      "description": "Contain and remediate active threats.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801042/device_security_AdobeStockImages_cropped-scaled_qbatbm.webp",
+      "alt": "Respond"
+    },
+    {
+      "title": "Recover",
+      "description": "Rebuild, learn, and improve resilience. This iterative",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801042/device_security_AdobeStockImages_cropped-scaled_qbatbm.webp",
+      "alt": "Recover"
+    }
+  ]
+},
+"information-technology:software-development": {
+  "heading": "Our Software Development Approach",
+  "steps": [
+    {
+      "title": "Discovery & Planning",
+      "description": "We understand your business goals, users, and technical requirements.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp",
+      "alt": "Discovery & Planning"
+    },
+    {
+      "title": "Solution Architecture & Design",
+      "description": "We design scalable, secure, and future-ready architectures.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp",
+      "alt": "Solution Architecture & Design"
+    },
+    {
+      "title": "Agile Development",
+      "description": "Iterative development with transparency and continuous feedback.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/Event-Driven-Architecture_hxk6ip.webp",
+      "alt": "Agile Development"
+    },
+    {
+      "title": "Quality Assurance",
+      "description": "Rigorous testing to ensure performance, security, and reliability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645890/checklist_uu94on.webp",
+      "alt": "Quality Assurance"
+    },
+    {
+      "title": "Deployment & Support",
+      "description": "Smooth deployment with ongoing maintenance and enhancements. ve model ensures continual improvement and measurable security outcomes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170860/240_F_1880974822_YcQ7DRk43wIOnMCsgw1PzeOKSxn7c8me_igj64g.webp",
+      "alt": "Deployment & Support"
+    }
+  ]
+},
+"erp-tech:sap-s4-hana-ecc": {
+  "heading": "Our SAP Services",
+  "steps": [
+    {
+      "title": "SAP S/4HANA Implementation",
+      "description": "Greenfield and brownfield implementations designed to modernize core business processes and enable real-time analytics.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648728/images_kkbbgx.webp",
+      "alt": "SAP S/4HANA Implementation"
+    },
+    {
+      "title": "SAP ECC to S/4HANA Migration",
+      "description": "Safe and structured migration approaches including system conversion, landscape transformation, and selective data transition.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+      "alt": "SAP ECC to S/4HANA Migration"
+    },
+    {
+      "title": "SAP Upgrade & Optimization",
+      "description": "Upgrade existing SAP systems to improve performance, stability, and functionality.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "alt": "SAP Upgrade & Optimization"
+    },
+    {
+      "title": "SAP Integration Services",
+      "description": "Seamless integration of SAP with third-party systems, cloud platforms, and enterprise applications.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+      "alt": "SAP Integration Services"
+    },
+    {
+      "title": "SAP Support & Managed Services",
+      "description": "Ongoing SAP application support, enhancements, and performance monitoring to ensure system stability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+      "alt": "SAP Support & Managed Services"
+    },
+    {
+      "title": "SAP Business One Consulting",
+      "description": "ERP solutions tailored for small and mid-sized businesses looking for scalability and control.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+      "alt": "SAP Business One Consulting"
+    }
+  ]
+},
+"erp-tech:sap-business-one-hana": {
+  "heading": "Our SAP Business One & HANA Services",
+  "steps": [
+    {
+      "title": "Cloud & On-Premise Implementation",
+      "description": "Design, configure, and deploy SAP Business One on HANA — whether you choose cloud, on-prem, or hybrid setups.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800768/cloud-managed-services2_fwcf56.webp",
+      "alt": "Cloud & On-Premise Implementation"
+    },
+    {
+      "title": "Business Process Mapping & Configuration",
+      "description": "We align the system with your business processes for finance, operations, procurement, and reporting.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp",
+      "alt": "Business Process Mapping & Configuration"
+    },
+    {
+      "title": "Data Migration & Validation",
+      "description": "We perform safe and accurate migration from legacy systems, spreadsheets, or disconnected databases.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T3_c8jqgo.webp",
+      "alt": "Data Migration & Validation"
+    },
+    {
+      "title": "Customization & Add-Ons",
+      "description": "Extend Business One with bespoke enhancements, reports, and dashboard solutions tailored to your workflows.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "alt": "Customization & Add-Ons"
+    },
+    {
+      "title": "Third-Party Integrations",
+      "description": "Ensure your SAP Business One environment connects with CRM, eCommerce, BI, payment gateways, and other systems.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "alt": "Third-Party Integrations"
+    },
+    {
+      "title": "User Training & Support",
+      "description": "Structured onboarding, role-based training, and ongoing support to maximize user adoption and ROI.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+      "alt": "User Training & Support"
+    }
+  ]
+},
+"sap-application:sap-business-one-addon": {
+  "heading": "Our SAP Business One Add-On Development Services",
+  "steps": [
+    {
+      "title": "Custom Add-On Design & Development",
+      "description": "We design custom SAP Business One add-ons based on deep business analysis and system architecture review. Each solution is developed to meet specific operational needs while ensuring performance, security, and scalability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171686/360_F_219080081_A5mBeAc8gnKEwM8wb0dLSAOS3tZMTQsT_elwmqx.webp",
+      "alt": "Custom Add-On Design & Development"
+    },
+    {
+      "title": "Process Automation Add-Ons",
+      "description": "Our add-ons eliminate manual processes by automating approvals, document handling, inventory workflows, pricing logic, and financial operations — improving efficiency and reducing errors.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp",
+      "alt": "Process Automation Add-Ons"
+    },
+    {
+      "title": "Reporting & Analytics Add-Ons",
+      "description": "We build advanced reporting and dashboard add-ons that provide real-time visibility into KPIs, financials, inventory, sales, and operations, enabling data-driven decision-making.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+      "alt": "Reporting & Analytics Add-Ons"
+    },
+    {
+      "title": "Integration Add-Ons",
+      "description": "Atorix develops add-ons that integrate SAP Business One with third-party applications such as CRM systems, eCommerce platforms, logistics providers, banking systems, tax solutions, and analytics tools.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp",
+      "alt": "Integration Add-Ons"
+    },
+    {
+      "title": "Industry-Specific Add-Ons",
+      "description": "We develop vertical-focused add-ons tailored to manufacturing, distribution, retail, healthcare, logistics, and professional services — ensuring compliance and process alignment.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+      "alt": "Industry-Specific Add-Ons"
+    },
+    {
+      "title": "Enhancement & Optimization of Existing Add-Ons",
+      "description": "If you already use SAP Business One add-ons, we enhance, optimize, or modernize them for better performance, compatibility, and usability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "alt": "Enhancement & Optimization of Existing Add-Ons"
+    }
+  ]
+},
+"microsoft-dynamics:dynamics-365": {
+  "heading": "Dynamics 365 Applications We Support",
+  "steps": [
+    {
+      "title": "Dynamics 365 Sales",
+      "description": "Close deals faster with intelligent forecasting, pipeline visualization, and automated workflows.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171686/360_F_219080081_A5mBeAc8gnKEwM8wb0dLSAOS3tZMTQsT_elwmqx.webp",
+      "alt": "Dynamics 365 Sales"
+    },
+    {
+      "title": "Dynamics 365 Customer Service",
+      "description": "Deliver exceptional support with omni-channel tools and advanced case management capabilities.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp",
+      "alt": "Dynamics 365 Customer Service"
+    },
+    {
+      "title": "Dynamics 365 Marketing",
+      "description": "Create personalized customer journeys, manage leads, and track campaign performance.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+      "alt": "Dynamics 365 Marketing"
+    },
+    {
+      "title": "Dynamics 365 Finance & Supply Chain",
+      "description": "Streamline financial management, inventory, and supply chain operations with real-time insights.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp",
+      "alt": "Dynamics 365 Finance & Supply Chain"
+    },
+    {
+      "title": "Dynamics 365 Field Service",
+      "description": "Optimize service delivery with real-time technician scheduling, asset tracking, and mobile tools.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+      "alt": "Dynamics 365 Field Service"
+    },
+    {
+      "title": "Dynamics 365 Human Resources",
+      "description": "Centralize employee data, optimize HR processes, and improve talent management.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "alt": "Dynamics 365 Human Resources"
+    },
+    {
+      "title": "Dynamics 365 Commerce",
+      "description": "Deliver unified shopping experiences across channels for seamless customer engagement.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp",
+      "alt": "Dynamics 365 Commerce"
+    },
+    {
+      "title": "Dynamics 365 Project Operations",
+      "description": "Manage projects end-to-end from planning and execution to billing and financial control.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "alt": "Dynamics 365 Project Operations"
+    }
+  ]
+},
+"sap-application:discovery-evaluation": {
+  "heading": "Navigate Success with SAP Discovery & Evaluation",
+  "intro": "Our Discovery & Evaluation offerings help organizations make informed SAP decisions by aligning technology choices with business objectives before execution begins.",
+  "steps": [
+    {
+      "title": "Solution Envisioning",
+      "description": "Define the right SAP vision aligned with business goals, future growth plans, and digital transformation objectives.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768646174/discovery_eiuhac.webp",
+      "alt": "Solution Envisioning"
+    },
+    {
+      "title": "Business Case & Cost Analysis",
+      "description": "Evaluate ROI, cost drivers, financial feasibility, and value realization to justify SAP investments.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp",
+      "alt": "Business Case and Cost Analysis"
+    },
+    {
+      "title": "Business Process Analysis",
+      "description": "Assess current business processes and identify optimization opportunities aligned with SAP best practices.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp",
+      "alt": "Business Process Analysis"
+    },
+    {
+      "title": "IT / IS Planning",
+      "description": "Align SAP initiatives with overall IT strategy, governance frameworks, and enterprise architecture.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171570/advanced-industrial-monitoring-dashboard-futuristic-image-showcases-high-tech-industrial-monitoring-dashboard-398124514_rwmgfe.webp",
+      "alt": "IT and IS Planning"
+    },
+    {
+      "title": "Gap & Fitment Analysis",
+      "description": "Identify gaps and measure alignment between SAP standard capabilities and existing business processes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp",
+      "alt": "Gap and Fitment Analysis"
+    },
+    {
+      "title": "Migration & Integration Studies",
+      "description": "Assess feasibility, risks, migration approaches, and integration needs with third-party and legacy systems to ensure a smooth SAP transition.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+      "alt": "Migration and Integration Study"
+    },
+    {
+      "title": "Project Scoping & Sizing",
+      "description": "Define project scope, effort estimation, timelines, and resource requirements to ensure predictable SAP delivery.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+      "alt": "Project Scoping and Sizing"
+    }
+  ]
+}
+
+
+
+}

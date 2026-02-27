@@ -1,0 +1,1077 @@
+{
+  "data-analytics": {
+    "title": "Industries We Serve",
+    "intro": "Our advanced analytics solutions support enterprises across industries such as:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Public Sector",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+
+  "machine-learning": {
+    "title": "Industries We Serve",
+    "intro": "Machine Learning and Deep Learning solutions deliver value in multiple sectors, including:",
+    "industries": [
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "banking",
+        "name": "Banking & Financial Services",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "public-sector",
+        "name": "Public Sector & Education",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+
+  "sap-upgrades": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & Distribution",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "We align SAP upgrades with industry-specific needs, regulatory requirements, data complexities, and integration landscapes.",
+        "icon": "/images/industries/healthcare.png"
+      }
+    ]
+  },
+
+   "sap-s4hana-cloud": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Distribution",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Logistics",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Training",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/education.png"
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprises & Corporates",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/enterprise.png"
+      }
+    ]
+  },
+  "sap-s4hana": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Distribution",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Logistics",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Training",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/education.png"
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprises & Corporates",
+        "description": "We tailor SAP S/4HANA Cloud solutions to industry-specific processes, compliance needs, and growth objectives.",
+        "icon": "/images/industries/enterprise.png"
+      }
+    ]
+  },
+  
+  "sap-solutions": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Distribution",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-commerce",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprises & Corporates",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/enterprise.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Training",
+        "description": "Our SAP solutions are tailored to industry-specific processes, compliance requirements, and scalability needs.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+
+  "sap-s4hana-migration": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Consumer Goods",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Operations",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Supply Chain",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "finance",
+        "name": "Financial Services",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Our SAP S/4HANA migration strategies are tailored to industry-specific process requirements, compliance standards, and growth objectives.",
+        "icon": "/images/industries/healthcare.png"
+      }
+    ]
+  },
+  "sap-implementation-rollout": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Supply Chain",
+        "description": "We tailor SAP implementation and rollout strategies to industry-specific needs, regulatory requirements, and business complexity.",
+        "icon": "/images/industries/logistics.png"
+      }
+    ]
+  },
+
+   "sap-business-one-support": {
+    "title": "Industries We Support",
+    "intro": "Atorix provides SAP Business One support across multiple industries including:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "distribution",
+        "name": "Distribution & Supply Chain",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Accounting",
+        "description": "We tailor support practices to industry nuances, workflows, compliance, and reporting expectations.",
+        "icon": "/images/industries/finance.png"
+      }
+    ]
+  },
+   "sap-business-one-implementation": {
+    "title": "Industries We Serve",
+    "intro": "We tailor SAP Business One implementations for diverse industries, including:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "distribution",
+        "name": "Distribution & Supply Chain",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Accounting Firms",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare-education",
+        "name": "Healthcare & Education",
+        "description": "Our industry-specific templates, process models, and dashboards ensure faster deployment and relevant business outcomes.",
+        "icon": "/images/industries/healthcare.png"
+      }
+    ]
+  },
+   "sap-business-one-addon-development": {
+    "title": "Industries We Serve",
+    "intro": "Atorix delivers SAP Business One Add-On Development across industries including:",
+    "industries": [
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "distribution",
+        "name": "Distribution & Supply Chain",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each solution is aligned with industry-specific compliance, reporting, and operational needs.",
+        "icon": "/images/industries/professional.png"
+      }
+    ]
+  },
+  "analytics-services": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Consumer Goods",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Public Sector",
+        "description": "Our analytics services are tailored to industry-specific KPIs, compliance needs, and performance goals.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+   "industrial-iot-analytics": {
+    "title": "Industries We Serve",
+    "intro": "Atorix helps businesses in sectors such as:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Industrial IoT",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "telecom",
+        "name": "Telecom & Technology",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/telecom.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each solution is tailored to the industry’s specific data velocity, compliance, and scale requirements.",
+        "icon": "/images/industries/professional.png"
+      }
+    ]
+  },
+  "it-technology-services": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "it-technology",
+        "name": "IT & Technology",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/technology.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Training",
+        "description": "Our approach is tailored to your industry’s unique operations, goals, and customer expectations.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+  "enterprise-digital-solutions": {
+    "title": "Industries We Serve",
+    "intro": "We serve enterprise and mid-market clients across industries such as:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Ecommerce",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Distribution",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "telecommunications",
+        "name": "Telecommunications",
+        "description": "Each solution is customized to industry workflows, regulations, and competitive challenges.",
+        "icon": "/images/industries/telecom.png"
+      }
+    ]
+  },
+  "machine-learning-deep-learning": {
+    "title": "Industries We Serve",
+    "intro": "Machine Learning and Deep Learning solutions deliver value in multiple sectors, including:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "banking",
+        "name": "Banking & Financial Services",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "telecommunications",
+        "name": "Telecommunications",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/telecom.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "public-sector",
+        "name": "Public Sector & Education",
+        "description": "Each implementation is adapted to industry-specific KPIs, regulatory environments, and performance requirements.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+  "it-consulting-services": {
+    "title": "Industries We Serve",
+    "intro": "Our IT consulting expertise spans multiple industries:",
+    "industries": [
+      {
+        "id": "banking",
+        "name": "Banking & Financial Services",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Engineering",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & EdTech",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/education.png"
+      },
+      {
+        "id": "technology",
+        "name": "Technology & SaaS",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/technology.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Supply Chain",
+        "description": "Each engagement is customized to industry-specific challenges and regulations.",
+        "icon": "/images/industries/logistics.png"
+      }
+    ]
+  },
+  "data-visualization-solutions": {
+    "title": "Industries We Support",
+    "intro": "Atorix delivers visualization solutions for sectors such as:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & Consumer Goods",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "telecom",
+        "name": "Telecom & Technology",
+        "description": "Each solution is tailored to industry-specific KPIs, compliance requirements, and operational goals.",
+        "icon": "/images/industries/telecom.png"
+      }
+    ]
+  },
+  "data-engineering-architecture": {
+    "title": "Industries We Serve",
+    "intro": "Our data engineering and architecture capabilities span multiple sectors, including:",
+    "industries": [
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Industrial Operations",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "telecommunications",
+        "name": "Telecommunications",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/telecom.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Transportation",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "Each implementation is tailored to industry-specific requirements, compliance, and scale.",
+        "icon": "/images/industries/professional.png"
+      }
+    ]
+  },
+  "industry-security-solutions": {
+    "title": "Industry-Focused Security Solutions",
+    "intro": "Atorix secures businesses across sectors including:",
+    "industries": [
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Industrial",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "education",
+        "name": "Education",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/education.png"
+      },
+      {
+        "id": "technology",
+        "name": "Technology & SaaS",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "/images/industries/technology.png"
+      },
+      {
+        "id": "public-sector",
+        "name": "Government & Public Sector",
+        "description": "Each industry faces specific threats and compliance norms — we tailor security design accordingly.",
+        "icon": "https://res.cloudinary.com/dfmiavhld/image/upload/v1769515445/Government___Public_Secto_hpesxc.png"
+      }
+    ]
+  },
+   "technology-engineering-services": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "banking",
+        "name": "Banking & Financial Services",
+        "description": "",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Engineering",
+        "description": "",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Supply Chain",
+        "description": "",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & EdTech",
+        "description": "",
+        "icon": "/images/industries/education.png"
+      },
+      {
+        "id": "technology",
+        "name": "Technology & SaaS",
+        "description": "",
+        "icon": "/images/industries/technology.png"
+      }
+    ]
+  },"cloud-solutions": {
+    "title": "Industries We Serve",
+    "intro": "Atorix serves organizations across multiple sectors including:",
+    "industries": [
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "retail",
+        "name": "Retail & E-Commerce",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "telecom",
+        "name": "Telecom & Technology",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/telecom.png"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Supply Chain",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/logistics.png"
+      },
+      {
+        "id": "public-sector",
+        "name": "Government & Public Sector",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "https://res.cloudinary.com/dfmiavhld/image/upload/v1769515445/Government___Public_Secto_hpesxc.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "We tailor cloud solutions based on industry-specific compliance, workloads, and performance needs.",
+        "icon": "/images/industries/manufacture.png"
+      }
+    ]
+  },
+  "advanced-analytics-solutions": {
+    "title": "Industries We Serve",
+    "intro": "Our advanced analytics solutions support enterprises across industries such as:",
+    "industries": [
+      {
+        "id": "retail",
+        "name": "Retail & eCommerce",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/retail.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & Supply Chain",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Banking",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Life Sciences",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/healthcare.png"
+      },
+      {
+        "id": "professional-services",
+        "name": "Professional Services",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/professional.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Public Sector",
+        "description": "We tailor analytics models to industry-specific KPIs, regulatory constraints, and customer expectations.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  },
+  "startup-enterprise-solutions": {
+    "title": "Industries We Serve",
+    "intro": "",
+    "industries": [
+      {
+        "id": "it-technology",
+        "name": "IT & Technology",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/technology.png"
+      },
+      {
+        "id": "startups",
+        "name": "Startups & Scaleups",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/startup.png"
+      },
+      {
+        "id": "enterprises",
+        "name": "Enterprises",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/enterprise.png"
+      },
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/manufacture.png"
+      },
+      {
+        "id": "finance",
+        "name": "Financial Services",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/finance.png"
+      },
+      {
+        "id": "education",
+        "name": "Education & Training",
+        "description": "Our solutions are tailored to your industry context, business maturity, and growth stage.",
+        "icon": "/images/industries/education.png"
+      }
+    ]
+  }
+
+
+}

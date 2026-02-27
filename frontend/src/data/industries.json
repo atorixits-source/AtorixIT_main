@@ -1,0 +1,439 @@
+[
+  {
+    "id": "healthcare",
+    "name": "Healthcare",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769665601/4352123-hd_1920_1080_25fps_tkoxi1.mp4",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769594268/AdobeStock_168196575-scaled-1-1536x1024_wnjzd8.webp",
+    "icon":"stethoscope",
+    "alt": "Healthcare industry solutions",
+    "description": "Transform patient care and operational efficiency with SAP solutions tailored for healthcare providers and organizations.",
+    "challenges": [
+      "Complex regulatory compliance requirements",
+      "Patient data management and security",
+      "Integration with specialized medical systems",
+      "Revenue cycle management",
+      "Operational efficiency in resource allocation"
+    ],
+    "solutions": [
+      "SAP Healthcare industry solutions",
+      "Electronic medical records integration",
+      "Compliance-focused implementations",
+      "Patient management systems",
+      "Healthcare analytics and reporting"
+    ]
+  },
+  {
+    "id": "manufacturing",
+    "name": "Manufacturing",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769666788/13814842_1280_720_50fps_cb7xbt.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769594418/gettyimages-1320950393-612x612_flpz7y.webp",
+    "icon":"Factory",
+    "alt": "Manufacturing industry solutions",
+    "description": "Streamline production processes and optimize supply chains with comprehensive SAP solutions for manufacturers.",
+    "challenges": [
+      "Complex supply chain management",
+      "Production planning and scheduling",
+      "Quality management and compliance",
+      "Inventory optimization",
+      "Equipment maintenance and reliability"
+    ],
+    "solutions": [
+      "SAP S/4HANA Manufacturing solutions",
+      "Production planning and execution systems",
+      "Supply chain optimization",
+      "Quality management modules",
+      "Predictive maintenance solutions"
+    ]
+  },
+  {
+    "id": "finance",
+    "name": "Financial Services",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769688397/7821807-sd_960_540_30fps_bvc5eo.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769594434/shutterstock_264989507_wt7drt.webp",
+    "icon":"Landmark",
+    "alt": "Financial services industry solutions",
+    "description": "Enhance financial operations, reporting, and compliance with specialized SAP solutions for financial institutions.",
+    "challenges": [
+      "Regulatory compliance and reporting",
+      "Risk management",
+      "Customer relationship management",
+      "Transaction processing efficiency",
+      "Fraud detection and prevention"
+    ],
+    "solutions": [
+      "SAP Financial Services solutions",
+      "Regulatory reporting automation",
+      "Customer experience platforms",
+      "Financial analytics and dashboards",
+      "Risk management systems"
+    ]
+  },
+  {
+    "id": "retail",
+    "name": "Retail",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769682410/4477603-sd_960_540_30fps_xjwpfz.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769594564/What-is-Retail-and-Why-Does-It-Matter-in-Todays-Economy_-1-1536x927_gwafu0.webp",
+    "icon":"ShoppingBag",
+    "alt": "Retail industry solutions",
+    "description": "Transform customer experiences and streamline retail operations with SAP solutions designed for modern retailers.",
+    "challenges": [
+      "Omnichannel customer experience",
+      "Inventory and supply chain management",
+      "Point of sale integration",
+      "Pricing and promotion management",
+      "Customer loyalty programs"
+    ],
+    "solutions": [
+      "SAP Retail solutions",
+      "Omnichannel commerce platforms",
+      "Merchandise management systems",
+      "Customer experience solutions",
+      "Retail analytics and forecasting"
+    ]
+  },
+  {
+    "id": "energy",
+    "name": "Energy",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769685326/7832757-sd_960_540_30fps_vhjbsg.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769597630/sunset-sky-powers-wind-solar-energy-generated-by-ai_188544-26193_yfqg4q.webp",
+    "icon":"Zap",
+    "alt": "Energy industry solutions",
+    "description": "Optimize operations and manage assets efficiently with SAP solutions tailored for energy companies.",
+    "challenges": [
+      "Asset management and maintenance",
+      "Commodity trading and risk management",
+      "Regulatory compliance",
+      "Supply chain optimization",
+      "Sustainability reporting"
+    ],
+    "solutions": [
+      "SAP for Energy & Natural Resources",
+      "Asset management solutions",
+      "Trading and risk management platforms",
+      "Regulatory compliance systems",
+      "Sustainability reporting frameworks"
+    ]
+  },
+  {
+    "id": "automotive",
+    "name": "Automotive",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769667392/11957136_960_540_60fps_u6gdh6.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769597740/Single-insight-8-1536x882_jzugvn.webp",
+    "icon":"Car",
+    "alt": "Automotive industry solutions",
+    "description": "Drive innovation and efficiency in automotive manufacturing and supply chains with specialized SAP solutions.",
+    "challenges": [
+      "Complex global supply chains",
+      "Just-in-time manufacturing",
+      "Quality management and recalls",
+      "Product lifecycle management",
+      "Dealership management"
+    ],
+    "solutions": [
+      "SAP Automotive solutions",
+      "Supply chain visibility systems",
+      "Quality management modules",
+      "Manufacturing execution systems",
+      "Dealership management platforms"
+    ]
+  },
+  {
+    "id": "pharmaceuticals",
+    "name": "Pharmaceuticals",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769685869/8666765-sd_960_506_25fps_ikfv9m.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769594160/louis-reed-pwcKF7L4-no-unsplash_cwbiu9.webp",
+    "icon":"Pill",
+    "alt": "Pharmaceutical industry solutions",
+    "description": "Address regulatory compliance and streamline research and development with SAP solutions for pharmaceutical companies.",
+    "challenges": [
+      "Complex regulatory compliance",
+      "R&D management and tracking",
+      "Clinical trial management",
+      "Supply chain integrity",
+      "Patent management"
+    ],
+    "solutions": [
+      "SAP Life Sciences solutions",
+      "Compliance and validation tools",
+      "R&D management platforms",
+      "Supply chain traceability",
+      "Patent and intellectual property management"
+    ]
+  },
+  {
+    "id": "telecom",
+    "name": "Telecommunications",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769684684/2954002-sd_960_540_30fps_pwpiwl.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769597833/hero-challengers-in-the-telecom-sector_p8wq2h.webp",
+    "icon":"Phone",
+    "alt": "Telecommunications industry solutions",
+    "description": "Enhance service delivery and customer experience with SAP solutions designed for telecommunications providers.",
+    "challenges": [
+      "Complex billing and subscription management",
+      "Network asset management",
+      "Customer experience and retention",
+      "Service provisioning",
+      "Regulatory compliance"
+    ],
+    "solutions": [
+      "SAP Telecommunications solutions",
+      "Billing and revenue management",
+      "Customer experience platforms",
+      "Network asset management",
+      "Service delivery optimization"
+    ]
+  },
+  {
+    "id": "logistics",
+    "name": "Logistics",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769680615/6585382-sd_960_540_30fps_c7cio0.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769597991/1700646631_b8e10239c6d7e20db5a8_as3nc3.webp",
+    "icon":"Truck",
+    "alt": "Logistics industry solutions",
+    "description": "Optimize transportation, warehousing, and distribution with SAP solutions for logistics companies.",
+    "challenges": [
+      "Real-time tracking and visibility",
+      "Route optimization",
+      "Warehouse management",
+      "Cross-border compliance",
+      "Fleet management"
+    ],
+    "solutions": [
+      "SAP Transportation Management",
+      "SAP Extended Warehouse Management",
+      "Supply chain visibility platforms",
+      "Fleet management solutions",
+      "Logistics analytics and planning"
+    ]
+  },
+  {
+    "id": "construction",
+    "name": "Construction",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769682161/7825557-sd_960_540_30fps_zp9kwl.mp4",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598184/Construction-industry-statistics-1536x864_z7aebs.webp",
+    "icon":"Building2",
+    "alt": "Construction industry solutions",
+    "description": "Manage complex projects, resources, and compliance with SAP solutions tailored for construction companies.",
+    "challenges": [
+      "Project management and scheduling",
+      "Resource allocation",
+      "Compliance and safety management",
+      "Subcontractor management",
+      "Equipment tracking and maintenance"
+    ],
+    "solutions": [
+      "SAP for Engineering, Construction & Operations",
+      "Project management solutions",
+      "Resource planning and allocation",
+      "Compliance tracking and reporting",
+      "Equipment management systems"
+    ]
+  },
+  {
+    "id": "media",
+    "name": "Media & Entertainment",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769666099/19233861-sd_960_540_30fps_s01xoh.mp4",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598334/Digitalization_w6duse.webp",
+    "icon":"Film",
+    "alt": "Media and entertainment industry solutions",
+    "description": "Manage content, monetize assets, and engage audiences with SAP solutions for media companies.",
+    "challenges": [
+      "Content management and rights",
+      "Audience engagement and analytics",
+      "Digital asset management",
+      "Subscription and revenue models",
+      "Multi-channel delivery"
+    ],
+    "solutions": [
+      "SAP for Media solutions",
+      "Content management systems",
+      "Digital asset management",
+      "Audience analytics platforms",
+      "Subscription management systems"
+    ]
+  },
+  {
+    "id": "food",
+    "name": "Food & Beverage",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769681356/8675103-sd_960_540_30fps_umzhec.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598535/food-and-beverages_zehga3.webp",
+    "icon":"Utensils",
+    "alt": "Food and beverage industry solutions",
+    "description": "Ensure quality, safety, and supply chain integrity with SAP solutions for food and beverage companies.",
+    "challenges": [
+      "Quality control and safety",
+      "Supply chain traceability",
+      "Regulatory compliance",
+      "Inventory management",
+      "Recipe and formula management"
+    ],
+    "solutions": [
+      "SAP for Consumer Products",
+      "Quality management systems",
+      "Track and trace solutions",
+      "Recipe management platforms",
+      "Compliance and documentation management"
+    ]
+  },
+  {
+    "id": "shipping",
+    "name": "Shipping",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769668269/2231802-sd_960_540_30fps_ihaobw.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598661/innovation-sails-into-the-shipping-industry.tmb-1920x690_drcpxo.webp",
+    "icon":"ship",
+    "alt": "Shipping industry solutions",
+    "description": "Optimize maritime operations and supply chains with SAP solutions for shipping companies.",
+    "challenges": [
+      "Fleet management",
+      "Port operations",
+      "International compliance",
+      "Cargo tracking",
+      "Crew management"
+    ],
+    "solutions": [
+      "SAP for Transportation & Logistics",
+      "Maritime operations management",
+      "International trade compliance",
+      "Cargo tracking systems",
+      "Crew scheduling and management"
+    ]
+  },
+  {
+    "id": "trading",
+    "name": "Trading",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769683989/14003933-sd_960_540_30fps_kjydpf.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598750/pexels-romulo-queiroz-2079642-11798250-1536x1024_oh0z9u.webp",
+    "icon":"BarChart2",
+    "alt": "Trading industry solutions",
+    "description": "Enhance trading operations, risk management, and compliance with specialized SAP solutions.",
+    "challenges": [
+      "Real-time data processing",
+      "Risk management",
+      "Regulatory compliance",
+      "Transaction processing",
+      "Market analysis"
+    ],
+    "solutions": [
+      "SAP Treasury and Risk Management",
+      "Trading platforms integration",
+      "Regulatory reporting automation",
+      "Risk analytics solutions",
+      "Market data integration"
+    ]
+  },
+  {
+    "id": "chemical",
+    "name": "Chemical",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769668875/10186780-sd_960_540_25fps_ygjhe8.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598816/10-3_dz2aox.webp",
+    "icon":"Beaker",
+    "alt": "Chemical industry solutions",
+    "description": "Streamline production processes and ensure compliance with SAP solutions for chemical manufacturers.",
+    "challenges": [
+      "Safety and environmental compliance",
+      "Process manufacturing optimization",
+      "Product formulation management",
+      "Quality control",
+      "Supply chain transparency"
+    ],
+    "solutions": [
+      "SAP for Chemicals",
+      "Process manufacturing management",
+      "Formula and recipe management",
+      "Quality control systems",
+      "Compliance and documentation management"
+    ]
+  },
+  {
+    "id": "hospitality",
+    "name": "Hospitality",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769684224/7820512-sd_960_540_25fps_h1zaoc.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769598859/Website-blog-cover-jpg_lgvlrd.webp",
+    "icon":"Bed",
+    "alt": "Hospitality industry solutions",
+    "description": "Enhance guest experiences and streamline operations with SAP solutions for hospitality companies.",
+    "challenges": [
+      "Guest experience management",
+      "Property management",
+      "Revenue optimization",
+      "Staff scheduling and management",
+      "Inventory and procurement"
+    ],
+    "solutions": [
+      "SAP for Travel and Transportation",
+      "Property management integration",
+      "Revenue management systems",
+      "Staff scheduling solutions",
+      "Inventory and procurement management"
+    ]
+  },
+  {
+    "id": "agriculture",
+    "name": "Agriculture",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769669075/10744335-sd_960_540_24fps_s4ykum.mp4",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769599065/GettyImages-1276830891_dm9mpy.webp",
+    "icon":"Wheat",
+    "alt": "Agriculture industry solutions",
+    "description": "Optimize farming operations and supply chains with SAP solutions for agricultural businesses.",
+    "challenges": [
+      "Crop planning and management",
+      "Weather integration and risk management",
+      "Supply chain traceability",
+      "Equipment management",
+      "Compliance and reporting"
+    ],
+    "solutions": [
+      "SAP for Agribusiness",
+      "Farm management systems",
+      "Weather data integration",
+      "Supply chain tracking",
+      "Equipment maintenance and scheduling"
+    ]
+  },
+  {
+    "id": "insurance",
+    "name": "Insurance",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769685815/7732811-sd_960_540_25fps_adg1gz.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769599238/banner-insurance-industry-blog-924x480_zcwqeu.webp",
+    "icon":"Shield",
+    "alt": "Insurance industry solutions",
+    "description": "Streamline policy management, claims processing, and customer service with SAP solutions for insurance companies.",
+    "challenges": [
+      "Policy management",
+      "Claims processing efficiency",
+      "Risk assessment and pricing",
+      "Customer relationship management",
+      "Fraud detection"
+    ],
+    "solutions": [
+      "SAP Insurance solutions",
+      "Policy administration systems",
+      "Claims automation platforms",
+      "Risk assessment tools",
+      "Customer engagement solutions"
+    ]
+  },
+  {
+    "id": "education",
+    "name": "Education",
+    "video":"https://res.cloudinary.com/doolzc5sv/video/upload/v1769669103/5198155-sd_960_540_25fps_knpwrc.webm",
+    "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769599274/christian-lendl-nxBucBB_ihQ-unsplash_dbh1ay.webp",
+    "icon":"Graduation",
+    "alt": "Education industry solutions",
+    "description": "Enhance administrative efficiency and student experiences with SAP solutions for educational institutions.",
+    "challenges": [
+      "Student lifecycle management",
+      "Financial aid processing",
+      "Faculty and staff management",
+      "Campus operations",
+      "Compliance and reporting"
+    ],
+    "solutions": [
+      "SAP for Higher Education & Research",
+      "Student information systems",
+      "Financial management solutions",
+      "Human capital management",
+      "Campus management platforms"
+    ]
+  }
+]

@@ -1,0 +1,1722 @@
+
+{
+  "cloud-services": {
+    "title": "Our Cloud Services Portfolio",
+    "description": "Atorix IT Solutions offers a full spectrum of cloud services across strategy, deployment, migration, and managed operations.",
+    "steps": [
+      {
+        "id": "strategy",
+        "step": "01",
+        "title": "Cloud Strategy & Advisory",
+        "summary": "We begin with a business-aligned cloud assessment to determine the optimal cloud path — public, private, hybrid, or multi-cloud.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp",
+        "points": [
+          "Cloud readiness assessment",
+          "Business case & TCO analysis",
+          "Architecture & governance framework",
+          "Cloud roadmap planning"
+        ]
+      },
+      {
+        "id": "migration",
+        "step": "02",
+        "title": "Cloud Migration & Deployment",
+        "summary": "We help you migrate applications, data, and workloads with minimal disruption and optimal performance.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+        "points": [
+          "Application & database migration",
+          "Rehosting, replatforming, and refactoring",
+          "Zero-downtime deployment planning",
+          "Secure data transfer"
+        ]
+      },
+      {
+        "id": "architecture",
+        "step": "03",
+        "title": "Cloud Architecture & Engineering",
+        "summary": "Designing a secure, resilient, and scalable cloud architecture is key to success.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp",
+        "points": [
+          "Cloud-native architecture design",
+          "High availability & auto-scaling patterns",
+          "Containerization & microservices (Docker, Kubernetes)",
+          "API-first cloud integrations"
+        ]
+      },
+      {
+        "id": "security",
+        "step": "04",
+        "title": "Cloud Security & Compliance",
+        "summary": "Security is foundational in every cloud engagement.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800312/Cloud-Computing-Security_ajzjg0.webp",
+        "points": [
+          "Identity & access management (IAM)",
+          "Encryption at rest and in transit",
+          "Threat monitoring & automated response",
+          "Compliance frameworks (ISO, GDPR, PCI, HIPAA)"
+        ]
+      },
+      {
+        "id": "devops",
+        "step": "05",
+        "title": "DevOps & Automation",
+        "summary": "Automation improves velocity and reliability.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp",
+        "points": [
+          "CI/CD pipelines",
+          "Infrastructure as Code (IaC)",
+          "Automated testing & deployments",
+          "Monitoring & log analytics"
+        ]
+      },
+      {
+        "id": "managed",
+        "step": "06",
+        "title": "Managed Cloud Services",
+        "summary": "Once live, your cloud environment needs continuous tuning and operational support.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800768/cloud-managed-services2_fwcf56.webp",
+        "points": [
+          "24/7 monitoring & incident management",
+          "Performance optimization",
+          "Patch management",
+          "Cost monitoring and optimization"
+        ]
+      }
+    ]
+  },
+
+  "cyber-security": {
+    "title": "Our Cyber Security Services",
+    "description": "Atorix provides a comprehensive suite of services to protect your digital ecosystem across people, processes, and technology.",
+    "steps": [
+      {
+        "id": "strategy",
+        "step": "01",
+        "title": "Security Strategy & Risk Assessment",
+        "summary": "Assess your current security posture to identify vulnerabilities, threats, and business-critical risks.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649033/istockphoto-1646518190-612x612_vhejrb.webp",
+        "points": [
+          "Security maturity evaluation",
+          "Threat landscape mapping",
+          "Vulnerability scoring",
+          "Risk prioritization"
+        ]
+      },
+      {
+        "id": "incident-response",
+        "step": "02",
+        "title": "Threat Detection & Incident Response",
+        "summary": "Rapid detection and response to limit damage from cyber attacks.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800878/tdr_e2nptj.webp",
+        "points": [
+          "24/7 threat monitoring",
+          "Real-time alerting",
+          "Incident containment & remediation",
+          "Forensic analysis",
+          "Root cause investigation"
+        ]
+      },
+      {
+        "id": "network-security",
+        "step": "03",
+        "title": "Network & Infrastructure Security",
+        "summary": "Secure networks, infrastructure, endpoints, and connected devices.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800941/what-is-network-security-definition-types-and-best-practices-in-2024_dqfhy8.webp",
+        "points": [
+          "Perimeter defense architecture",
+          "Micro-segmentation",
+          "Zero Trust configuration",
+          "Secure VPN & remote access controls"
+        ]
+      },
+      {
+        "id": "cloud-security",
+        "step": "04",
+        "title": "Cloud Security & DevSecOps",
+        "summary": "Protect cloud assets and embed security into development pipelines.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800312/Cloud-Computing-Security_ajzjg0.webp",
+        "points": [
+          "Secure architecture for AWS, Azure, GCP",
+          "Identity & access management (IAM)",
+          "Cloud workload protection",
+          "Shift-left security practices (DevSecOps)",
+          "Container & Kubernetes security"
+        ]
+      },
+      {
+        "id": "application-security",
+        "step": "05",
+        "title": "Application & API Security",
+        "summary": "Strengthen application and API defenses against modern threats.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/API_rfagw1.webp",
+        "points": [
+          "Static and dynamic code analysis (SAST/DAST)",
+          "Runtime application protection (RASP)",
+          "API security testing",
+          "Secure SDLC integration",
+          "OWASP Top 10 controls"
+        ]
+      },
+      {
+        "id": "endpoint-security",
+        "step": "06",
+        "title": "Endpoint Protection & Mobile Security",
+        "summary": "Reduce attack surface by securing end-user devices.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801042/device_security_AdobeStockImages_cropped-scaled_qbatbm.webp",
+        "points": [
+          "Endpoint Detection & Response (EDR)",
+          "Anti-malware & anti-ransomware",
+          "Patch management",
+          "Mobile application threat defense"
+        ]
+      },
+      {
+        "id": "compliance",
+        "step": "07",
+        "title": "Compliance, Governance & Policy",
+        "summary": "Align security programs with regulatory and governance frameworks.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+        "points": [
+          "GDPR / Data privacy norms",
+          "PCI DSS",
+          "ISO 27001",
+          "SOC 2",
+          "NIST Cybersecurity Framework"
+        ]
+      },
+      {
+        "id": "awareness",
+        "step": "08",
+        "title": "Security Awareness & Training",
+        "summary": "Build human-centric security awareness across the organization.",
+        "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp",
+        "points": [
+          "Phishing simulations",
+          "Role-based training",
+          "Secure coding awareness",
+          "Executive briefings"
+        ]
+      }
+    ]
+  },
+
+  "data-engineering": {
+    "title": "Our Data Engineering & Architecture Services",
+    "description": "Atorix provides an end-to-end suite of services that enable your organization to extract maximum value from data, with an architecture that is scalable, secure, and aligned to your business strategy.",
+    "steps": [
+      {
+        "id": "strategy",
+        "step": "01",
+        "title": "Data Strategy & Architecture Planning",
+        "summary": "Define a future-ready data strategy and architectural blueprint aligned to business and technology goals.",
+        "image": "/images/process/T1.webp",
+        "points": [
+          "Overall business objectives",
+          "Analytics and AI ambitions",
+          "Security and compliance requirements",
+          "Infrastructure and platform preferences"
+        ]
+      },
+      {
+        "id": "platform",
+        "step": "02",
+        "title": "Data Platform Design & Implementation",
+        "summary": "Design and implement scalable data platforms optimized for performance, cost, and governance.",
+        "image": "/images/process/T2.avif",
+        "points": [
+          "Cloud data warehouses (Snowflake, Redshift, BigQuery)",
+          "Data lakes (AWS S3, Azure Data Lake, GCP)",
+          "Operational data stores",
+          "Streaming data platforms"
+        ]
+      },
+      {
+        "id": "pipelines",
+        "step": "03",
+        "title": "Data Pipeline Engineering",
+        "summary": "Build reliable ETL/ELT pipelines to automate data ingestion and transformation.",
+        "image": "/images/process/T3.jpg",
+        "points": [
+          "ERP systems",
+          "CRM platforms",
+          "IoT and sensor feeds",
+          "Transaction systems",
+          "External APIs and partner data"
+        ]
+      },
+      {
+        "id": "mdm",
+        "step": "04",
+        "title": "Master Data Management & Data Quality",
+        "summary": "Implement data quality and master data frameworks to improve trust in analytics.",
+        "image": "/images/process/T4.webp",
+        "points": [
+          "Eliminate duplicates",
+          "Standardize key entities",
+          "Ensure accuracy across systems",
+          "Improve trust in analytics outputs"
+        ]
+      },
+      {
+        "id": "governance",
+        "step": "05",
+        "title": "Data Governance & Security",
+        "summary": "Ensure secure, compliant, and governed data architecture.",
+        "image": "/images/process/T5.webp",
+        "points": [
+          "Access controls and roles",
+          "Lineage and change tracking",
+          "Policy enforcement",
+          "Audit trails for compliance"
+        ]
+      },
+      {
+        "id": "realtime",
+        "step": "06",
+        "title": "Real-Time & Streaming Data Architecture",
+        "summary": "Enable real-time insights with scalable streaming data architectures.",
+        "image": "/images/process/T6.jpg",
+        "points": [
+          "Real-time dashboards",
+          "Event-driven analytics",
+          "Operational alerts",
+          "Streaming machine learning"
+        ]
+      }
+    ]
+  },
+"implementation-rollout": {
+  "title": "Our SAP Implementation & Rollout Capabilities",
+  "description": "A structured execution model to implement SAP efficiently while minimizing risk and disruption.",
+  "steps": [
+    {
+      "id": "discovery-planning",
+      "step": "01",
+      "title": "Discovery & Planning",
+      "summary": "Foundation work to define scope, objectives, and risks.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768646174/discovery_eiuhac.webp",
+      "points": [
+        "SAP readiness assessment",
+        "Business process analysis",
+        "Define success criteria & KPIs",
+        "Roadmap & implementation plan"
+      ]
+    },
+    {
+      "id": "configuration",
+      "step": "02",
+      "title": "SAP Configuration & Customization",
+      "summary": "Align SAP with your business model while preserving best practices.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648274/SAP_otanxn.webp",
+      "points": [
+        "Core SAP module configuration",
+        "Custom development (UI, reports, extensions)",
+        "Business rule setup",
+        "Authorization & security setup"
+      ]
+    },
+    {
+      "id": "data-migration",
+      "step": "03",
+      "title": "Data Migration & Validation",
+      "summary": "Move your legacy data securely and accurately.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+      "points": [
+        "Data mapping & cleansing",
+        "Migration strategy",
+        "Validation & reconciliation",
+        "Cutover planning"
+      ]
+    },
+    {
+      "id": "integration",
+      "step": "04",
+      "title": "Integration & Automation",
+      "summary": "Connect SAP with other systems and automate workflows.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648477/Shutterstock_1133982038_b6cstv.webp",
+      "points": [
+        "API integration with CRM, HRMS, POS, BI, etc.",
+        "Middleware setup (if needed)",
+        "Automation & workflow orchestration"
+      ]
+    },
+    {
+      "id": "training",
+      "step": "05",
+      "title": "User Training & Adoption",
+      "summary": "Prepare your organization with structured training.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647657/OrgStructure1_lqfirl.webp",
+      "points": [
+        "Role-based training programs",
+        "Training manuals & learning artifacts",
+        "Super-user coaching"
+      ]
+    },
+    {
+      "id": "golive",
+      "step": "06",
+      "title": "Go-Live & Stabilization",
+      "summary": "Support through launch and early operations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T6_ddewn2.webp",
+      "points": [
+        "Production deployment",
+        "Performance tuning",
+        "Hypercare support",
+        "Transition to support teams"
+      ]
+    }
+  ]
+},
+"it-infrastructure-management": {
+  "title": "Our IT Infrastructure Management Services",
+  "description": "Atorix provides end-to-end Infrastructure Management Services designed for enterprise-scale environments.",
+  "steps": [
+    {
+      "id": "monitoring",
+      "step": "01",
+      "title": "Infrastructure Monitoring & Management",
+      "summary": "We continuously monitor your IT infrastructure to identify issues before they impact operations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649164/tracking-vs-monitoring_lprghx.webp",
+      "points": [
+        "Real-time infrastructure monitoring",
+        "Performance and capacity tracking",
+        "Alerting and proactive issue detection",
+        "Root cause analysis"
+      ]
+    },
+    {
+      "id": "servers",
+      "step": "02",
+      "title": "Server & Data Center Management",
+      "summary": "Ensure stability and performance across physical and virtual environments.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T3_c8jqgo.webp",
+      "points": [
+        "Windows & Linux server management",
+        "Virtualization management",
+        "Data center operations support",
+        "Patch management & system hardening"
+      ]
+    },
+    {
+      "id": "network",
+      "step": "03",
+      "title": "Network Infrastructure Management",
+      "summary": "Maintain secure, high-availability network environments.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800941/what-is-network-security-definition-types-and-best-practices-in-2024_dqfhy8.webp",
+      "points": [
+        "Network monitoring & optimization",
+        "LAN, WAN, VPN management",
+        "Firewall & security device management",
+        "Network performance and fault resolution"
+      ]
+    },
+    {
+      "id": "cloud",
+      "step": "04",
+      "title": "Cloud & Hybrid Infrastructure Management",
+      "summary": "Support modern, distributed IT ecosystems.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800768/cloud-managed-services2_fwcf56.webp",
+      "points": [
+        "Public cloud infrastructure management",
+        "Hybrid and multi-cloud operations",
+        "Cloud performance optimization",
+        "Governance and cost optimization support"
+      ]
+    },
+    {
+      "id": "operations",
+      "step": "05",
+      "title": "IT Operations & Incident Management",
+      "summary": "Structured IT operations aligned with best practices.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+      "points": [
+        "Incident, problem, and change management",
+        "SLA-based service delivery",
+        "Automated ticketing & escalation",
+        "Continuous service improvement"
+      ]
+    },
+    {
+      "id": "dr",
+      "step": "06",
+      "title": "Backup, Disaster Recovery & Business Continuity",
+      "summary": "Protect business-critical data and systems.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801636/799b3825-53d9-4b05-8923-ed92faa19f8f_d3t9bc.webp",
+      "points": [
+        "Backup strategy design and execution",
+        "Disaster recovery planning & testing",
+        "High-availability architecture support",
+        "Business continuity readiness"
+      ]
+    }
+  ]
+},
+"sap-integration": {
+  "title": "Our SAP Third-Party Integration Capabilities",
+  "description": "Robust, secure, and scalable SAP integrations that ensure seamless data exchange across enterprise systems.",
+  "steps": [
+    {
+      "id": "application-integration",
+      "step": "01",
+      "title": "Application-to-Application Integration",
+      "summary": "We integrate SAP with internal and external applications to enable seamless data flow and process continuity.",
+      "image": "/images/process/T1.webp",
+      "points": [
+        "CRM systems (Salesforce, Microsoft Dynamics)",
+        "eCommerce platforms (Shopify, Magento, WooCommerce)",
+        "HR & payroll systems (Workday, SuccessFactors)",
+        "BI & reporting tools (Power BI, Tableau)",
+        "Custom enterprise applications"
+      ]
+    },
+    {
+      "id": "realtime-integration",
+      "step": "02",
+      "title": "Real-Time & Event-Driven Integration",
+      "summary": "Enable real-time data exchange for critical business processes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp",
+      "points": [
+        "Order processing",
+        "Inventory updates",
+        "Financial postings",
+        "Customer and vendor master synchronization"
+      ]
+    },
+    {
+      "id": "api-integration",
+      "step": "03",
+      "title": "API-Led & Service-Based Integration",
+      "summary": "We design and implement secure APIs using modern integration standards.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/API_rfagw1.webp",
+      "points": [
+        "REST & OData services",
+        "SOAP web services",
+        "Secure API gateways"
+      ]
+    },
+    {
+      "id": "middleware",
+      "step": "04",
+      "title": "Middleware & Integration Platforms",
+      "summary": "We leverage proven integration platforms to build scalable architectures.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/Event-Driven-Architecture_hxk6ip.webp",
+      "points": [
+        "SAP Integration Suite",
+        "SAP PI/PO",
+        "Cloud-based integration tools",
+        "Hybrid integration frameworks"
+      ]
+    },
+    {
+      "id": "edi",
+      "step": "05",
+      "title": "EDI & B2B Integration",
+      "summary": "Enable electronic data exchange with customers, vendors, and partners.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+      "points": [
+        "Purchase orders",
+        "Invoices",
+        "Shipping notifications",
+        "Business confirmations"
+      ]
+    }
+  ]
+},
+"sap-business-one-implementation": {
+  "title": "Our SAP Business One Implementation Process",
+  "description": "A structured, business-driven approach to deploy SAP Business One efficiently and ensure long-term value.",
+  "steps": [
+    {
+      "id": "assessment",
+      "step": "01",
+      "title": "Assessment & Strategy",
+      "summary": "Define business goals, system scope, and implementation roadmap.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp",
+      "points": [
+        "Business process review",
+        "Current system assessment",
+        "Data readiness evaluation",
+        "Implementation roadmap planning"
+      ]
+    },
+    {
+      "id": "technical",
+      "step": "02",
+      "title": "Technical Preparation",
+      "summary": "Prepare system infrastructure, data, and integrations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/Event-Driven-Architecture_hxk6ip.webp",
+      "points": [
+        "System sizing & deployment planning",
+        "Security and user access design",
+        "Data cleansing and validation",
+        "Integration requirements review"
+      ]
+    },
+    {
+      "id": "implementation",
+      "step": "03",
+      "title": "Implementation & Configuration",
+      "summary": "Configure SAP Business One to match business needs.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+      "points": [
+        "Core system configuration",
+        "Add-on and customization setup",
+        "Master data migration",
+        "Functional and UAT testing"
+      ]
+    },
+    {
+      "id": "optimization",
+      "step": "04",
+      "title": "Business Process Optimization",
+      "summary": "Enhance efficiency through best practices and automation.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "points": [
+        "Process refinement",
+        "Reporting and dashboard setup",
+        "Automation opportunities",
+        "Performance tuning"
+      ]
+    },
+    {
+      "id": "golive",
+      "step": "05",
+      "title": "Training & Go-Live Support",
+      "summary": "Ensure smooth adoption and operational continuity.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/banner1_unpoek.webp",
+      "points": [
+        "End-user training",
+        "Go-live execution",
+        "Post go-live support",
+        "Stabilization and handover"
+      ]
+    }
+  ]
+},
+"sap-ecc-s4-hana-support": {
+  "title": "Our SAP ECC & S/4HANA Support Services",
+  "description": "Comprehensive functional and technical SAP support to ensure system stability, performance, and business continuity.",
+  "steps": [
+    {
+      "id": "application-support",
+      "step": "01",
+      "title": "Application Support & Incident Management",
+      "summary": "We provide structured support to quickly resolve SAP issues and maintain business continuity.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649033/istockphoto-1646518190-612x612_vhejrb.webp",
+      "points": [
+        "Incident and problem management",
+        "Root cause analysis and resolution",
+        "Functional and technical issue handling",
+        "SLAbased response and resolution times"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "step": "02",
+      "title": "SAP System Monitoring & Performance Support",
+      "summary": "Proactive monitoring helps prevent disruptions before they affect users.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649164/tracking-vs-monitoring_lprghx.webp",
+      "points": [
+        "System health checks",
+        "Performance monitoring",
+        "Background job and interface monitoring",
+        "Early issue detection and preventive actions"
+      ]
+    },
+    {
+      "id": "functional-support",
+      "step": "03",
+      "title": "Functional Support",
+      "summary": "Our SAP functional consultants support daily business operations across core SAP modules.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "points": [
+        "Finance (FI/CO)",
+        "Sales & Distribution (SD)",
+        "Materials Management (MM)",
+        "Production Planning (PP)",
+        "Human Capital Management (HCM)"
+      ]
+    },
+    {
+      "id": "technical-support",
+      "step": "04",
+      "title": "Technical Support",
+      "summary": "We ensure technical stability across the SAP landscape.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T4_zc8tc8.webp",
+      "points": [
+        "ABAP support and troubleshooting",
+        "Interface and IDoc monitoring",
+        "Authorization and role management",
+        "Transport and landscape coordination"
+      ]
+    },
+    {
+      "id": "change-support",
+      "step": "05",
+      "title": "Change & Enhancement Support",
+      "summary": "We help businesses adapt SAP systems to evolving requirements without disruption.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/interaction_lw6sl4.webp",
+      "points": [
+        "Minor enhancements and configuration changes",
+        "Reports, forms, and workflow adjustments",
+        "Controlled change management",
+        "Documentation and knowledge transfer"
+      ]
+    },
+    {
+      "id": "integration-support",
+      "step": "06",
+      "title": "Integration Support",
+      "summary": "Seamless data flow between SAP and connected systems is critical.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp",
+      "points": [
+        "SAPtoSAP integrations",
+        "Thirdparty system interfaces",
+        "Error handling and reconciliation",
+        "Ongoing integration monitoring"
+      ]
+    }
+  ]
+},
+"sap-s4-hana-cloud": {
+  "title": "Our SAP S/4HANA Cloud Implementation Process ",
+  "description": "A structured, cloud-first approach to deploy SAP S/4HANA Cloud with speed, security, and business alignment.",
+  "steps": [
+    {
+      "id": "assessment",
+      "step": "01",
+      "title": "Assessment & Strategy",
+      "summary": "We evaluate your existing ERP landscape, business goals, and technical readiness to define the best path to SAP S/4HANA Cloud. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T2_c9svju.avif",
+      "points": [
+        "System landscape evaluation",
+        "Business process analysis",
+        "Cloud readiness assessment",
+        "Roadmap & use-case prioritization"
+      ]
+    },
+    {
+      "id": "technical",
+      "step": "02",
+      "title": "Technical Preparation",
+      "summary": "Prepare infrastructure, connectivity, and integrations to ensure a smooth migration. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645564/preparation_ikmvro.webp",
+      "points": [
+        "Security & compliance checks",
+        "Data quality assessment",
+        "Connectivity & access planning ",
+        "Custom code and add-on readiness "
+      ]
+    },
+    {
+      "id": "implementation",
+      "step": "03",
+      "title": "Implementation & Migration",
+      "summary": "We execute the migration with proven cloud delivery methodologies. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+      "points": [
+        "System provisioning & configuration ",
+        "Master & transactional data migration ",
+        "API and third-party integrations ",
+        "Sandbox & UAT testing "
+      ]
+    },
+    {
+      "id": "optimization",
+      "step": "04",
+      "title": "Business Process Optimization",
+      "summary": "Align core processes to cloud best practices and optimize user workflows.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "points": [
+        "Process redesign & automations ",
+        "Analytics & KPI setup ",
+        "Fiori personalization",
+        "Operational efficiency improvements "
+      ]
+    },
+    {
+      "id": "golive",
+      "step": "05",
+      "title": "Training & Go-Live Support",
+      "summary": "We ensure a smooth transition to live operation with focused enablement and support. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T6_ddewn2.webp",
+      "points": [
+        "Role-based training programs ",
+        "Go-live planning and cutover execution ",
+        "Post-migration stabilization (Hypercare) "
+      ]
+    }
+  ]
+},
+"sap-s4-hana-ecc": {
+  "title": "Our SAP S/4 HANA – ECC Services Process",
+  "description": "A structured approach to modernize, optimize, and support SAP ECC environments with stability and scalability.",
+  "steps": [
+    {
+      "id": "assessment",
+      "step": "01",
+      "title": "Assessment & Strategy",
+      "summary": "We analyze your existing SAP landscape and business objectives to define a tailored S/4HANA adoption strategy. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp",
+      "points": [
+        "System landscape evaluation ",
+        "Business process analysis ",
+        "Migration approach determination ",
+        "Detailed roadmap development "
+      ]
+    },
+    {
+      "id": "optimization",
+      "step": "02",
+      "title": "Technical Preparation",
+      "summary": "We prepare your systems, data, and infrastructure for a smooth S/4HANA transition. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/banner1_unpoek.webp",
+      "points": [
+        "Technical prerequisite validation ",
+        "Custom code and add-on analysis ",
+        "Data volume and quality assessment ",
+        "Infrastructure and architecture planning "
+      ]
+    },
+    {
+      "id": "integration",
+      "step": "03",
+      "title": "Implementation & Migration",
+      "summary": "We execute the implementation using SAP best practices and proven delivery methodologies. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp",
+      "points": [
+        "System installation and configuration ",
+        "Data migration and validation ",
+        "Custom code remediation ",
+        "End-to-end integration testing "
+      ]
+    },
+    {
+      "id": "testing",
+      "step": "04",
+      "title": "Business Process Optimization ",
+      "summary": "We optimize and redesign processes to unlock the full potential of S/4HANA. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+      "points": [
+        "Process redesign for operational efficiency ",
+        "SAP Fiori app implementation ",
+        "Embedded analytics and reporting setup ",
+        "User experience enhancement "
+      ]
+    },
+    {
+      "id": "support",
+      "step": "05",
+      "title": "Training & Go-Live",
+      "summary": "We prepare users and support a controlled, successful go-live. ",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/testing_qidlhq.webp",
+      "points": [
+        "Role-based user training programs ",
+        "Go-live and cutover planning ",
+        "Production deployment ",
+        "Hypercare and stabilization support "
+      ]
+    }
+  ]
+},
+"sap-s4-hana-migration": {
+  "title": "Our SAP S/4HANA Migration Services",
+  "description": "Atorix delivers end-to-end SAP migration services that ensure predictability, traceability, and business continuity. We support all approaches to S/4HANA migration.",
+  "steps": [
+    {
+      "id": "readiness",
+      "step": "01",
+      "title": "Migration Readiness Assessment",
+      "summary": "Identify gaps, dependencies, and migration feasibility.",
+      "image": "/images/process/T1.webp",
+      "points": [
+        "System landscape review",
+        "Custom code analysis",
+        "Data quality assessment",
+        "Integration evaluation",
+        "Business process fitness"
+      ]
+    },
+    {
+      "id": "strategy",
+      "step": "02",
+      "title": "Migration Strategy & Roadmap",
+      "summary": "Define the right path based on business priorities.",
+      "image": "/images/process/T2.avif",
+      "points": [
+        "System conversion (brownfield)",
+        "New implementation (greenfield)",
+        "Landscape transformation",
+        "Hybrid migration approaches",
+        "Cost and timeline estimates"
+      ]
+    },
+    {
+      "id": "data",
+      "step": "03",
+      "title": "Data Migration & Validation",
+      "summary": "Ensure data accuracy and completeness.",
+      "image": "/images/process/T3.jpg",
+      "points": [
+        "Data profiling & cleansing",
+        "Master and transaction data mapping",
+        "Migration runs & reconciliation cycles",
+        "Validation and quality assurance"
+      ]
+    },
+    {
+      "id": "setup",
+      "step": "04",
+      "title": "SAP S/4HANA System Setup",
+      "summary": "Technical execution of migration.",
+      "image": "/images/process/T4.webp",
+      "points": [
+        "Installation and configuration",
+        "Transport setup",
+        "Custom code remediation",
+        "Performance tuning"
+      ]
+    },
+    {
+      "id": "testing",
+      "step": "05",
+      "title": "Integration & Testing",
+      "summary": "Ensure systems interact flawlessly.",
+      "image": "/images/process/T5.webp",
+      "points": [
+        "API and system integration testing",
+        "Regression testing",
+        "Performance testing",
+        "User acceptance testing (UAT)"
+      ]
+    },
+    {
+      "id": "golive",
+      "step": "06",
+      "title": "Go-Live Planning & Execution",
+      "summary": "Minimize business disruption during switch-over.",
+      "image": "/images/process/T6.jpg",
+      "points": [
+        "Cutover planning",
+        "Go-live rehearsal",
+        "Production migration",
+        "Hypercare support"
+      ]
+    },
+    {
+      "id": "optimization",
+      "step": "07",
+      "title": "Post-Migration Optimization",
+      "summary": "Drive long-term adoption and improvements.",
+      "image": "/images/process/T7.jpg",
+      "points": [
+        "Performance monitoring",
+        "Feature enhancement",
+        "Analytics enablement",
+        "User experience optimization"
+      ]
+    }
+  ]
+},
+"software-development": {
+  "title": "Our Custom Software Development Services",
+  "description": "End-to-End Software Development",
+  "steps": [
+    {
+      "id": "end-to-end",
+      "step": "01",
+      "title": "End-to-End Software Development",
+      "summary": "We provide full-cycle development services from concept to deployment and support.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+      "points": [
+        "Requirement analysis & solution design",
+        "UI/UX design and prototyping",
+        "Application development",
+        "Testing & quality assurance",
+        "Deployment and post-launch support"
+      ]
+    },
+    {
+      "id": "enterprise",
+      "step": "02",
+      "title": "Enterprise Software Development",
+      "summary": "Build robust enterprise-grade applications that support complex workflows and high transaction volumes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp",
+      "points": [
+        "ERP & CRM solutions",
+        "Workflow automation systems",
+        "Internal business applications",
+        "Data-driven enterprise platforms",
+        "Legacy system modernization"
+      ]
+    },
+    {
+      "id": "web",
+      "step": "03",
+      "title": "Web Application Development",
+      "summary": "Develop secure, high-performance web applications.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768802138/1_rGiHBnlqf6-koapA2DzUoA_bufvye.webp",
+      "points": [
+        "Custom web portals",
+        "SaaS platforms",
+        "B2B & B2C applications",
+        "Progressive web applications (PWA)",
+        "API-driven architectures"
+      ]
+    },
+    {
+      "id": "mobile",
+      "step": "04",
+      "title": "Mobile Application Development",
+      "summary": "Create user-centric mobile experiences across platforms.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801042/device_security_AdobeStockImages_cropped-scaled_qbatbm.webp",
+      "points": [
+        "Android & iOS applications",
+        "Cross-platform development",
+        "Enterprise mobility solutions",
+        "Secure backend integration",
+        "App performance optimization"
+      ]
+    },
+    {
+      "id": "cloud-native",
+      "step": "05",
+      "title": "Cloud-Native Application Development",
+      "summary": "Leverage the power of cloud technologies.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800768/cloud-managed-services2_fwcf56.webp",
+      "points": [
+        "Cloud-first application design",
+        "Microservices architecture",
+        "Serverless development",
+        "Cloud migration & optimization",
+        "High availability & disaster recovery design"
+      ]
+    },
+    {
+      "id": "modernization",
+      "step": "06",
+      "title": "Application Modernization & Re-Engineering",
+      "summary": "Upgrade outdated systems to modern architectures.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/architecture_l1mzde.webp",
+      "points": [
+        "Legacy application assessment",
+        "Technology stack upgrade",
+        "Performance and scalability improvements",
+        "Security enhancement",
+        "UI/UX modernization"
+      ]
+    },
+    {
+      "id": "integration",
+      "step": "07",
+      "title": "API Development & System Integration",
+      "summary": "Enable seamless communication across systems.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/API_rfagw1.webp",
+      "points": [
+        "REST & GraphQL APIs",
+        "Third-party integrations",
+        "Enterprise system integration",
+        "Data synchronization",
+        "Secure middleware solutions"
+      ]
+    }
+  ]
+},
+"upgrade-services": {
+  "title": "Our SAP Upgrade Services Capabilities",
+  "description": "A structured and risk-mitigated approach to upgrade your SAP systems while ensuring stability, performance, and business continuity.",
+  "steps": [
+    {
+      "id": "assessment",
+      "step": "01",
+      "title": "Upgrade Assessment & Planning",
+      "summary": "Evaluate your current SAP landscape and define a reliable upgrade strategy.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648048/evaluation_yfkp17.webp",
+      "points": [
+        "Version readiness analysis",
+        "Custom code evaluation",
+        "Integration impact assessment",
+        "Dependency and risk mapping"
+      ]
+    },
+    {
+      "id": "roadmap",
+      "step": "02",
+      "title": "SAP Upgrade Roadmap",
+      "summary": "Create a clear roadmap with phases, milestones, and mitigation plans.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T2_c9svju.avif",
+      "points": [
+        "Recommended upgrade approach",
+        "Resource and skill planning",
+        "Budget clarity and timeline estimates"
+      ]
+    },
+    {
+      "id": "execution",
+      "step": "03",
+      "title": "Technical Upgrade Execution",
+      "summary": "Execute the SAP upgrade using best practices and proven methodologies.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648775/upgrade_tfgnyo.webp",
+      "points": [
+        "System preparation",
+        "Version upgrade execution",
+        "Transport and code adaptation",
+        "Integration retesting"
+      ]
+    },
+    {
+      "id": "data",
+      "step": "04",
+      "title": "Data Migration & Validation",
+      "summary": "Ensure data accuracy and integrity throughout the upgrade.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp",
+      "points": [
+        "Pre-upgrade migration strategy",
+        "Data cleansing and validation",
+        "Reconciliation testing"
+      ]
+    },
+    {
+      "id": "testing",
+      "step": "05",
+      "title": "Testing & Quality Assurance",
+      "summary": "Validate system stability and business continuity through testing.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645890/checklist_uu94on.webp",
+      "points": [
+        "Functional testing",
+        "Integration testing",
+        "User acceptance testing (UAT)",
+        "Performance and regression testing"
+      ]
+    },
+    {
+      "id": "golive",
+      "step": "06",
+      "title": "Cutover & Go-Live Support",
+      "summary": "Execute a smooth cutover with minimal disruption.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T6_ddewn2.webp",
+      "points": [
+        "Cutover planning",
+        "Go-live coordination",
+        "Stabilization support",
+        "Post-upgrade hypercare"
+      ]
+    },
+    {
+      "id": "optimization",
+      "step": "07",
+      "title": "Post-Upgrade Optimization",
+      "summary": "Optimize performance and security after the upgrade.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "points": [
+        "System performance tuning",
+        "Security audits",
+        "Feature validation and enhancements"
+      ]
+    }
+  ]
+},
+"it-consulting": {
+  "title": "Our IT Consulting Services Capabilities",
+  "description": "End-to-end IT consulting services covering strategy, architecture, optimization, and digital transformation to align technology with business outcomes.",
+  "steps": [
+    {
+      "id": "strategy",
+      "step": "01",
+      "title": "IT Strategy & Roadmap Consulting",
+      "summary": "Define a clear, actionable IT strategy aligned with your business vision.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T2_c9svju.avif",
+      "points": [
+        "IT maturity assessment",
+        "Technology gap analysis",
+        "Digital transformation roadmap",
+        "Cost optimization planning",
+        "Future-ready architecture design"
+      ]
+    },
+    {
+      "id": "digital-transformation",
+      "step": "02",
+      "title": "Digital Transformation Consulting",
+      "summary": "Modernize operations with digital-first strategies while minimizing disruption.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+      "points": [
+        "Legacy system modernization",
+        "Cloud and hybrid transformation",
+        "Process automation & workflow optimization",
+        "Data-driven decision frameworks",
+        "AI & analytics advisory"
+      ]
+    },
+    {
+      "id": "architecture",
+      "step": "03",
+      "title": "Technology Architecture & Advisory",
+      "summary": "Design scalable, secure, and high-performance IT architectures built for growth.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/architecture_l1mzde.webp",
+      "points": [
+        "Enterprise & solution architecture",
+        "Cloud-native and hybrid architecture",
+        "Application modernization planning",
+        "Integration & interoperability strategy",
+        "Performance and scalability optimization"
+      ]
+    },
+    {
+      "id": "cloud",
+      "step": "04",
+      "title": "Cloud Consulting & Optimization",
+      "summary": "Adopt and optimize cloud platforms with confidence, security, and cost control.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp",
+      "points": [
+        "Cloud readiness assessment",
+        "Cloud migration strategy",
+        "Multi-cloud & hybrid advisory",
+        "Cloud cost optimization (FinOps)",
+        "Security and compliance alignment"
+      ]
+    },
+    {
+      "id": "operations",
+      "step": "05",
+      "title": "IT Operations & Infrastructure Consulting",
+      "summary": "Improve reliability, efficiency, and resilience across IT operations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+      "points": [
+        "Infrastructure assessment",
+        "IT service management (ITSM) advisory",
+        "Network and system optimization",
+        "Disaster recovery & business continuity planning",
+        "Operational cost reduction strategies"
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "step": "06",
+      "title": "Cybersecurity & Risk Advisory",
+      "summary": "Embed security and risk management into your IT strategy and operations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800941/what-is-network-security-definition-types-and-best-practices-in-2024_dqfhy8.webp",
+      "points": [
+        "Security posture assessment",
+        "Risk management frameworks",
+        "Compliance advisory (ISO, GDPR, SOC, etc.)",
+        "Security architecture consulting",
+        "Governance & policy development"
+      ]
+    },
+    {
+      "id": "vendor-selection",
+      "step": "07",
+      "title": "Vendor Selection & Technology Evaluation",
+      "summary": "Make informed, future-proof technology and vendor decisions.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "points": [
+        "Vendor evaluation & comparison",
+        "RFP/RFQ support",
+        "Proof-of-concept validation",
+        "Contract and licensing advisory",
+        "Long-term scalability assessment"
+      ]
+    }
+  ]
+},
+"discovery-evaluation": {
+  "title": "What We Evaluate During SAP Discovery",
+  "description": "Our consultants perform a comprehensive, structured evaluation covering both business and technology dimensions.",
+  "steps": [
+    {
+      "id": "business-process-assessment",
+      "step": "01",
+      "title": "Business Process Assessment",
+      "summary": "We analyze core and supporting processes across finance, supply chain, sales, procurement, manufacturing, and reporting.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp",
+      "points": [
+        "Process maturity assessment",
+        "Pain point identification",
+        "Efficiency and automation opportunities",
+        "Industry bestpractice benchmarking"
+      ]
+    },
+    {
+      "id": "sap-system-landscape-evaluation",
+      "step": "02",
+      "title": "SAP System & Landscape Evaluation",
+      "summary": "We review your existing SAP and nonSAP systems to understand complexity, dependencies, and readiness.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647926/istockphoto-1455004192-612x612_prpaml.webp",
+      "points": [
+        "SAP ECC, S/4HANA, Business One review",
+        "Custom code and addon assessment",
+        "Integration landscape analysis",
+        "Data quality and volume evaluation"
+      ]
+    },
+    {
+      "id": "sap-readiness-fitgap-analysis",
+      "step": "03",
+      "title": "SAP Readiness & FitGap Analysis",
+      "summary": "We determine how well your current environment aligns with SAP best practices and future requirements.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp",
+      "points": [
+        "Fitgap analysis against SAP standards",
+        "Functional and technical readiness",
+        "Migration feasibility assessment",
+        "Cloud readiness evaluation"
+      ]
+    },
+    {
+      "id": "architecture-deployment-evaluation",
+      "step": "04",
+      "title": "Architecture & Deployment Evaluation",
+      "summary": "We assess the most suitable deployment model for your business.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/architecture_l1mzde.webp",
+      "points": [
+        "Onpremise vs cloud vs hybrid analysis",
+        "Security and compliance considerations",
+        "Scalability and performance needs",
+        "Infrastructure and connectivity readiness"
+      ]
+    },
+    {
+      "id": "sap-solutions-covered",
+      "step": "05",
+      "title": "SAP Solutions Covered",
+      "summary": "Our Discovery & Evaluation Services apply across the SAP ecosystem:",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645890/checklist_uu94on.webp",
+      "points": [
+        "SAP S/4HANA (OnPremise)",
+        "SAP S/4HANA Cloud",
+        "SAP ECC Optimization & Migration",
+        "SAP Business One",
+        "SAP Analytics (SAC, BW/4HANA, Embedded Analytics)"
+      ]
+    },
+    {
+      "id": "key-deliverables",
+      "step": "06",
+      "title": "Key Deliverables You Receive",
+      "summary": "At the end of the engagement, you receive clear, actionable outputs — not generic reports.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp",
+      "points": [
+        "SAP Discovery & Evaluation Report",
+        "Currentstate and futurestate architecture",
+        "Business process gap analysis",
+        "SAP solution recommendations",
+        "Migration or implementation roadmap",
+        "Highlevel cost and effort estimation",
+        "Risk identification and mitigation plan",
+        "These deliverables provide leadership teams with the confidence to proceed."
+      ]
+    }
+  ]
+},
+"technology-consulting": {
+  "title": "Our Technology Consulting Capabilities",
+  "description": "",
+  "steps": [
+    {
+      "id": "it-strategy-roadmap",
+      "step": "01",
+      "title": "IT Strategy & Roadmap Development",
+      "summary": "Define a clear technology vision aligned with business goals, budgets, and growth plans.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T2_c9svju.avif"
+    },
+    {
+      "id": "digital-transformation",
+      "step": "02",
+      "title": "Digital Transformation Consulting",
+      "summary": "Modernize legacy systems and adopt digital solutions that improve agility and customer experience.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp"
+    },
+    {
+      "id": "cloud-infrastructure",
+      "step": "03",
+      "title": "Cloud & Infrastructure Advisory",
+      "summary": "Assess, plan, and optimize cloud and hybrid infrastructure for performance, scalability, and cost efficiency.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800768/cloud-managed-services2_fwcf56.webp"
+    },
+    {
+      "id": "enterprise-systems-erp",
+      "step": "04",
+      "title": "Enterprise Systems & ERP Advisory",
+      "summary": "Guide selection, optimization, and integration of ERP and enterprise platforms.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647811/workshop-setup-overview_t12mt2.webp"
+    },
+    {
+      "id": "cybersecurity-risk",
+      "step": "05",
+      "title": "Cybersecurity & Risk Advisory",
+      "summary": "Evaluate security posture, identify vulnerabilities, and design risk mitigation strategies.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800941/what-is-network-security-definition-types-and-best-practices-in-2024_dqfhy8.webp"
+    },
+    {
+      "id": "architecture-integration",
+      "step": "06",
+      "title": "Technology Architecture & Integration",
+      "summary": "Design scalable architectures and ensure seamless integration across systems and platforms.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp"
+    }
+  ]
+},
+"sap-business-one-support": {
+  "title": "Our SAP Business One Support Capabilities",
+  "description": "Atorix delivers a comprehensive support model tailored to your business needs, SLA expectations, and operational priorities.",
+  "steps": [
+    {
+      "id": "application-functional-support",
+      "step": "01",
+      "title": "Application & Functional Support",
+      "summary": "We provide functional support across core SAP Business One modules, including financials, sales order management, purchasing, inventory control, and reporting. Our team troubleshoots and resolves transactional issues, configuration challenges, and system behavior concerns to keep your operations smooth.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp"
+    },
+    {
+      "id": "incident-problem-management",
+      "step": "02",
+      "title": "Incident & Problem Management",
+      "summary": "We handle incident reporting, investigation, root cause analysis, and resolution tracking. Our structured support methodology ensures issues are captured, prioritized, and resolved in alignment with your service expectations.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649033/istockphoto-1646518190-612x612_vhejrb.webp"
+    },
+    {
+      "id": "user-helpdesk-guidance",
+      "step": "03",
+      "title": "User Helpdesk & Guidance",
+      "summary": "Support isn’t just technical — it’s about empowering your users. We offer a responsive helpdesk to assist users with questions, guidance on standard processes, and step-by-step resolution of common SAP Business One queries.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp"
+    },
+    {
+      "id": "performance-monitoring-health-checks",
+      "step": "04",
+      "title": "Performance Monitoring & Health Checks",
+      "summary": "Regular system monitoring identifies performance bottlenecks and data issues before they impact business operations. Periodic health checks ensure optimal system responsiveness, reduced downtime, and early identification of risk areas.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768649164/tracking-vs-monitoring_lprghx.webp"
+    },
+    {
+      "id": "configuration-minor-enhancements",
+      "step": "05",
+      "title": "Configuration & Minor Enhancements",
+      "summary": "If your business requirements evolve, we help with minor configuration changes, forms and report adjustments, workflow tweaks, and small enhancements that improve efficiency without disrupting system stability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp"
+    },
+    {
+      "id": "integration-addon-support",
+      "step": "06",
+      "title": "Integration & Add-On Support",
+      "summary": "For customers using add-ons or integrated solutions (e.g., CRM, eCommerce, analytics), we provide ongoing support for these extensions and ensure they work seamlessly with your SAP Business One environment.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/T1_ugttqg.webp"
+    }
+  ]
+},
+"process-consulting": {
+  "title": "Our Process Consulting Capabilities",
+  "description": "",
+  "steps": [
+    {
+      "id": "process-mapping-diagnosis",
+      "step": "01",
+      "title": "Process Mapping & Diagnosis",
+      "summary": "We document your current workflows to understand bottlenecks, redundancies, and gaps that impede efficiency.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp"
+    },
+    {
+      "id": "process-reengineering",
+      "step": "02",
+      "title": "Process Reengineering",
+      "summary": "Optimizing business processes from end-to-end to reduce cycle times, eliminate wastes, and improve outcomes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/Designing_z6nakc.webp"
+    },
+    {
+      "id": "workflow-automation-advisory",
+      "step": "03",
+      "title": "Workflow Automation Advisory",
+      "summary": "Assessing opportunities to integrate automation tools and digital solutions that enhance speed and accuracy.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648477/Shutterstock_1133982038_b6cstv.webp"
+    },
+    {
+      "id": "performance-metrics-kpi-design",
+      "step": "04",
+      "title": "Performance Metrics & KPI Design",
+      "summary": "Defining actionable KPIs and dashboards that ensure process improvements are measurable and sustainable.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648048/evaluation_yfkp17.webp"
+    },
+    {
+      "id": "change-management-adoption",
+      "step": "05",
+      "title": "Change Management & Adoption Support",
+      "summary": "Helping teams embrace new process ways with structured change management planning and execution.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif"
+    }
+  ]
+},
+"data-visualization": {
+  "title": "Our Data Visualization & Dashboarding Services",
+  "description": "Atorix IT Solutions delivers end-to-end visualization services, from strategy to deployment and ongoing adoption.",
+  "steps": [
+    {
+      "id": "visualization-strategy-assessment",
+      "step": "01",
+      "title": "Data Visualization Strategy & Assessment",
+      "summary": "We begin with a strategic assessment to understand your business goals, reporting needs, existing data architecture, and decision workflows. A well-defined visualization strategy ensures that dashboards are not just visually appealing, but deeply aligned with business outcomes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp"
+    },
+    {
+      "id": "dashboard-design-development",
+      "step": "02",
+      "title": "Dashboard Design & Development",
+      "summary": "Our team designs highly interactive, user-centric dashboards that reveal KPIs, performance metrics, and trends in ways that are intuitive and relevant. Whether for executives, operations teams, sales leaders, or finance stakeholders, each dashboard is purpose-built.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768802138/1_rGiHBnlqf6-koapA2DzUoA_bufvye.webp"
+    },
+    {
+      "id": "interactive-visual-reports",
+      "step": "03",
+      "title": "Interactive Visual Reports",
+      "summary": "We transform static reports into interactive visualizations that allow end users to explore data, filter views, and derive insights on demand. Interactivity empowers business users to answer their own questions without technical assistance.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801274/68b074ed3f64c3f3e02cbef3_sat-hero_uwomkm.webp"
+    },
+    {
+      "id": "custom-charting-visual-elements",
+      "step": "04",
+      "title": "Custom Charting & Visual Elements",
+      "summary": "Beyond standard bar and line charts, we craft advanced visualization elements such as:",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif",
+      "points": [
+        "Heatmaps",
+        "Sankey diagrams",
+        "Geographic maps",
+        "Waterfall charts",
+        "Funnel and flow visualizations",
+        "These visuals highlight complex relationships and drive faster comprehension."
+      ]
+    },
+    {
+      "id": "self-service-data-exploration",
+      "step": "05",
+      "title": "Self-Service Data Exploration",
+      "summary": "We enable business users with self-service visualization tools so they can explore datasets, build custom views, and access insights without IT dependency. A self-service model accelerates insight adoption and mitigates bottlenecks.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768647558/development_amcu4m.webp"
+    },
+    {
+      "id": "performance-optimization-integration",
+      "step": "06",
+      "title": "Performance Optimization & Integration",
+      "summary": "Visualizations are most effective when backed by optimized data structures. We ensure dashboards integrate seamlessly with your data platforms — including ERP, CRM, analytics engines, cloud sources, and data warehouses — while delivering responsive performance.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp"
+    },
+    {
+      "id": "training-adoption-support",
+      "step": "07",
+      "title": "Training & Adoption Support",
+      "summary": "Implementing dashboards is not enough — user adoption determines success. We provide focused training programs and documentation to ensure your teams are comfortable with dashboards, learn how to interpret insights, and use them effectively.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/banner1_unpoek.webp"
+    }
+  ]
+},
+"business-consulting": {
+  "title": "Our Business Consulting Capabilities",
+  "description": "",
+  "steps": [
+    {
+      "id": "strategic-business-planning",
+      "step": "01",
+      "title": "Strategic Business Planning",
+      "summary": "We help organizations define clear goals, evaluate market opportunities, and build execution-ready strategic roadmaps.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp"
+    },
+    {
+      "id": "business-process-optimization",
+      "step": "02",
+      "title": "Business Process Optimization",
+      "summary": "Identify bottlenecks, redesign workflows, and eliminate inefficiencies to reduce costs and improve operational speed.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp"
+    },
+    {
+      "id": "change-management-transformation",
+      "step": "03",
+      "title": "Change Management & Transformation",
+      "summary": "We guide leadership and teams through organizational change to ensure smooth adoption and sustainable results.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768645389/tech-business_dnafoz.webp"
+    },
+    {
+      "id": "kpi-performance-frameworks",
+      "step": "04",
+      "title": "KPI & Performance Frameworks",
+      "summary": "Design and implement measurable KPIs, dashboards, and governance models to track progress and drive accountability.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801886/programming-background-with-person-working-with-codes-computer_23-2150010125_qyqy6d.avif"
+    },
+    {
+      "id": "market-competitive-analysis",
+      "step": "05",
+      "title": "Market & Competitive Analysis",
+      "summary": "Gain actionable insights into competitors, industry trends, and growth opportunities.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768801132/istockphoto-2206985932-612x612_rc67n4.webp"
+    }
+  ]
+},
+"sap-analytics": {
+  "title": "Our SAP Analytics Services",
+  "description": "",
+  "steps": [
+    {
+      "id": "analytics-strategy-roadmap",
+      "step": "01",
+      "title": "Analytics Strategy & Roadmap",
+      "summary": "We help you define a tailored analytics strategy aligned with business goals, data maturity, and performance KPIs.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp"
+    },
+    {
+      "id": "sap-analytics-implementation",
+      "step": "02",
+      "title": "SAP Analytics Implementation",
+      "summary": "Deploy SAP BW/4HANA, SAP Analytics Cloud, or embedded S/4HANA analytics — configured for your data landscape and user personas.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171453/istockphoto-2205527447-612x612_ztsuny.webp"
+    },
+    {
+      "id": "data-modelling-integration",
+      "step": "03",
+      "title": "Data Modelling & Integration",
+      "summary": "Design semantic data models, unify data sources, and develop robust integrations that fuel accurate reporting and analytics.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170669/360_F_949878784_X6eVmbQV1uzBPPvTu2llQe6qZw5GriK6_e0mlc0.webp"
+    },
+    {
+      "id": "dashboard-report-development",
+      "step": "04",
+      "title": "Dashboard & Report Development",
+      "summary": "Build intuitive dashboards and reports that empower business users — from operational monitoring to executive insights.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp"
+    },
+    {
+      "id": "predictive-modelling-machine-learning",
+      "step": "05",
+      "title": "Predictive Modelling & Machine Learning",
+      "summary": "Enable forecasting, predictive scoring, and smarter planning using embedded SAP intelligence.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp"
+    },
+    {
+      "id": "training-adoption",
+      "step": "06",
+      "title": "Training & Adoption",
+      "summary": "User enablement and training programs to accelerate adoption and drive self-service analytics maturity.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/banner1_unpoek.webp"
+    }
+  ]
+},
+"data-analytics": {
+  "title": "Our Advanced Data Analytics Services",
+  "description": "Atorix IT Solutions provides a comprehensive suite of analytics services, designed to address the needs of enterprises across industries.",
+  "steps": [
+    {
+      "id": "data-assessment-analytics-strategy",
+      "step": "01",
+      "title": "Data Assessment & Analytics Strategy",
+      "summary": "We begin with a deep evaluation of your current data landscape, business objectives, and analytics maturity. Our analytics strategy aligns data capabilities with strategic goals, defining how analytics can drive measurable outcomes.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp"
+    },
+    {
+      "id": "data-engineering-integration",
+      "step": "02",
+      "title": "Data Engineering & Integration",
+      "summary": "We ensure your data is clean, consistent, accessible, and integrated across sources such as ERP, CRM, marketing platforms, databases, and external feeds. This includes ETL/ELT pipelines and modern data architecture design.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/T3_c8jqgo.webp"
+    },
+    {
+      "id": "descriptive-diagnostic-analytics",
+      "step": "03",
+      "title": "Descriptive & Diagnostic Analytics",
+      "summary": "We develop dashboards, KPI reports, and anomaly detection systems that provide insights into historical performance and business drivers — helping you understand what happened and why.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769170442/how-to-write-technical-requirements-for-software-development-projects-1920x1005_lalwfo.webp"
+    },
+    {
+      "id": "predictive-modelling-machine-learning",
+      "step": "04",
+      "title": "Predictive Modelling & Machine Learning",
+      "summary": "We build advanced predictive models that forecast trends, customer churn, demand patterns, and risk events using machine learning algorithms and statistical techniques.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768800653/human-hand-passing-gear-robotic-hand_23-2152006116_ghyfpn.webp"
+    },
+    {
+      "id": "prescriptive-analytics-optimization",
+      "step": "05",
+      "title": "Prescriptive Analytics & Optimization",
+      "summary": "We recommend actions that optimize processes and outcomes using simulation, optimization models, and decision rules — enabling smarter business decisions.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp"
+    },
+    {
+      "id": "interactive-data-visualization-reporting",
+      "step": "06",
+      "title": "Interactive Data Visualization & Reporting",
+      "summary": "We design intuitive dashboards, interactive visualizations, and data storytelling tools that help executives and business users explore insights without technical barriers.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1769171570/advanced-industrial-monitoring-dashboard-futuristic-image-showcases-high-tech-industrial-monitoring-dashboard-398124514_rwmgfe.webp"
+    },
+    {
+      "id": "ai-driven-insights-advanced-analytics",
+      "step": "07",
+      "title": "AI-Driven Insights & Advanced Analytics Platforms",
+      "summary": "We implement AI-powered systems capable of natural language queries, automated pattern detection, and real-time intelligence for organizations ready to lead in analytics maturity.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/interaction_lw6sl4.webp"
+    }
+  ]
+},
+"dynamics-365": {
+  "title": "Our Microsoft Dynamics 365 Service Offerings",
+  "description": "Atorix IT Solutions provides end-to-end services across the entire Dynamics 365 lifecycle, ensuring a business-aligned implementation that drives real business value.",
+  "steps": [
+    {
+      "id": "dynamics-365-strategy-roadmap",
+      "step": "01",
+      "title": "Dynamics 365 Strategy & Roadmap",
+      "summary": "We begin with in-depth business and technology assessments to define the right Dynamics 365 roadmap, including application selection, KPI definition, deployment sequencing, and ROI planning to align the platform with your digital strategy.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/strategy_i9zort.webp"
+    },
+    {
+      "id": "dynamics-365-implementation-deployment",
+      "step": "02",
+      "title": "Dynamics 365 Implementation & Deployment",
+      "summary": "Our certified consultants implement Dynamics 365 using best practices, covering environment setup and configuration, data migration and validation, role-based security and access control, and cloud or hybrid deployment readiness.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644531/middleware_rjm8am.webp"
+    },
+    {
+      "id": "customization-extension",
+      "step": "03",
+      "title": "Customization & Extension",
+      "summary": "We tailor Dynamics 365 to your unique processes and workflows through custom entities, business logic, automation, dashboards, and deep integration with Power Platform tools such as Power Apps and Power Automate.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644529/optimization_efspej.webp"
+    },
+    {
+      "id": "integration-services",
+      "step": "04",
+      "title": "Integration Services",
+      "summary": "We design seamless integrations with ERP, CRM, HRMS, ecommerce platforms, and reporting tools to enable real-time data flow, reduce manual effort, and improve data consistency.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/app-integration_szl7zg.webp"
+    },
+    {
+      "id": "ai-analytics-reporting",
+      "step": "05",
+      "title": "AI, Analytics & Reporting",
+      "summary": "Leverage embedded intelligence, real-time dashboards, and predictive analytics using Power BI and AI to gain actionable insights and enable faster, data-driven decisions.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/interaction_lw6sl4.webp"
+    },
+    {
+      "id": "training-change-management",
+      "step": "06",
+      "title": "Training & Change Management",
+      "summary": "We provide hands-on training, documentation, and structured change management support to drive user adoption and ensure operational enablement from day one.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768644530/banner1_unpoek.webp"
+    },
+    {
+      "id": "upgrade-support-managed-services",
+      "step": "07",
+      "title": "Upgrade, Support & Managed Services",
+      "summary": "We offer ongoing managed services including version upgrades, system health checks, optimization, and SLA-based support to keep your Dynamics 365 platform secure and performing at peak efficiency.",
+      "image": "https://res.cloudinary.com/doolzc5sv/image/upload/v1768648728/images_kkbbgx.webp"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,651 @@
+{
+  "data-science:data-engineering": {
+    "heading": "Our Delivery Methodology — Reliable, Scalable, and Predictable",
+    "intro": "Atorix uses a structured methodology that minimizes risk and delivers measurable business value:",
+    "steps": [
+      {
+        "title": "Discovery & Assessment",
+        "description": "We conduct a comprehensive analysis of your data landscape, business goals, system dependencies, and compliance needs."
+      },
+      {
+        "title": "Architecture Blueprint & Roadmap",
+        "description": "Based on the discovery, we build a strategic data architecture blueprint with phased delivery plans and impact assessments."
+      },
+      {
+        "title": "Platform & Pipeline Development",
+        "description": "We implement platforms and data pipelines in iterative phases with continuous validation and QA testing."
+      },
+      {
+        "title": "Integration & Optimization",
+        "description": "Systems are integrated with reliable APIs, connectors, and orchestration frameworks; performance and cost are optimized."
+      },
+      {
+        "title": "Governance & Security Enablement",
+        "description": "Data governance, compliance, privacy, and role-based access are built into the architecture."
+      },
+      {
+        "title": "Continuous Monitoring & Support",
+        "description": "We provide ongoing monitoring, improvements, and operational support to ensure your data platform evolves with your business."
+      }
+    ]
+  },
+  "sap-application:sap-s4-hana-migration": {
+  "heading": "SAP S/4HANA Migration Methodology",
+  "intro": "Atorix follows a proven, SAP-aligned, enterprise migration framework that blends technical rigor with business priority alignment:",
+  "steps": [
+    {
+      "title": "Phase 1: Discover & Plan",
+      "description": "Detailed discovery workshops, landscape health checks, and migration feasibility analysis."
+    },
+    {
+      "title": "Phase 2: Prepare & Prototype",
+      "description": "Sandbox environment setup, initial migrations, and pilot run."
+    },
+    {
+      "title": "Phase 3: Execute & Test",
+      "description": "Full migration cycles, integration and regression testing, stakeholder validation."
+    },
+    {
+      "title": "Phase 4: Transition & Go-Live",
+      "description": "Production migration, cutover support, and rapid stabilization."
+    },
+    {
+      "title": "Phase 5: Optimize & Scale",
+      "description": "Ongoing system performance monitoring, business process tuning, and advanced analytics adoption."
+    }
+  ]
+},
+"sap-application:upgrade-services": {
+  "heading": "Upgrade Methodology — Experience You Can Trust",
+  "intro": "Atorix IT Solutions follows a field-tested SAP upgrade methodology that aligns with SAP Activate principles and industry best practices:",
+  "steps": [
+    {
+      "title": "Discovery & Impact Assessment",
+      "description": "We assess your current SAP landscape — including custom code, integrations, and data — to quantify the upgrade impact."
+    },
+    {
+      "title": "Risk & Remediation Planning",
+      "description": "Identify upgrade challenges early and plan remediation activities with clear risk mitigation."
+    },
+    {
+      "title": "Sandbox Testing",
+      "description": "Perform upgrades in isolated environments to validate feasibility before production moves."
+    },
+    {
+      "title": "Reconciliation & UAT",
+      "description": "Ensure that upgraded functions work as expected and business users validate results."
+    },
+    {
+      "title": "Production Upgrade & Support",
+      "description": "Execute the upgrade with minimal downtime and comprehensive post-go-live support."
+    }
+  ]
+},
+"sap-application:implementation-rollout": {
+  "heading": "Implementation & Rollout Methodology",
+  "intro": "Our approach follows structured phases aligned with SAP best practices and industry standards:",
+  "steps": [
+    {
+      "title": "Initiation & Requirement Gathering",
+      "description": "We align stakeholders, collect business needs, and define success metrics."
+    },
+    {
+      "title": "Blueprint & Design",
+      "description": "We design solution blueprints that capture functional requirements and system behavior."
+    },
+    {
+      "title": "Build & Configure",
+      "description": "SAP modules are configured and enhanced per business specifications."
+    },
+    {
+      "title": "Test & Validate",
+      "description": [
+        "Unit testing",
+        "Integration testing",
+        "UAT (User Acceptance Testing)",
+        "Performance & security testing"
+      ]
+    },
+    {
+      "title": "Go-Live & Cutover",
+      "description": "Smooth deployment with minimized business disruption."
+    },
+    {
+      "title": "Support & Continuous Improvement",
+      "description": "Post-implementation support and roadmap for future enhancements."
+    }
+  ]
+},
+"sap-application:sap-business-one-addon": {
+  "heading": "Our Add-On Development Methodology",
+  "intro": "Atorix follows a structured, transparent, and SAP-aligned development approach to ensure high-quality outcomes.",
+  "steps": [
+    {
+      "title": "Requirement Discovery & Feasibility Analysis",
+      "description": "We collaborate with stakeholders to understand business challenges, define functional and technical requirements, and assess feasibility within SAP Business One architecture."
+    },
+    {
+      "title": "Solution Architecture & Design",
+      "description": "Our SAP architects design add-on solutions that integrate cleanly with existing modules while maintaining upgrade safety and system performance."
+    },
+    {
+      "title": "Development & Unit Testing",
+      "description": "Add-ons are developed using SAP-approved frameworks and APIs, followed by thorough unit testing to ensure stability and accuracy."
+    },
+    {
+      "title": "Integration & User Acceptance Testing",
+      "description": "We conduct integration and UAT cycles to validate functionality, usability, and data consistency across business scenarios."
+    },
+    {
+      "title": "Deployment & Go-Live Support",
+      "description": "Add-ons are deployed with minimal disruption, supported by documentation, training, and go-live assistance."
+    },
+    {
+      "title": "Ongoing Support & Enhancements",
+      "description": "Post-deployment, we provide maintenance, enhancements, and compatibility updates as SAP Business One evolves."
+    }
+  ]
+},
+"erp-tech:sap-business-one-hana": {
+  "heading": "Our SAP Business One Implementation Methodology",
+  "steps": [
+    {
+      "title": "Assessment & Requirements Gathering",
+      "description": [
+        "We start with an in-depth review of your current systems, data, and business goals.",
+        "Process mapping",
+        "Data analysis",
+        "Fit-gap identification",
+        "Roadmap development"
+      ]
+    },
+    {
+      "title": "Design & Blueprinting",
+      "description": [
+        "We define configuration options, reports, user roles, and interfaces based on your needs.",
+        "System design",
+        "UX planning",
+        "Permission roles",
+        "Analytics dashboard design"
+      ]
+    },
+    {
+      "title": "Implementation & Integration",
+      "description": [
+        "We configure SAP Business One and integrate it with third-party systems.",
+        "ERP setup",
+        "Data migration",
+        "Integration testing",
+        "Sandbox & user acceptance"
+      ]
+    },
+    {
+      "title": "Training & Adoption",
+      "description": [
+        "Focused training ensures your users become productive quickly.",
+        "Role-based training",
+        "User manuals",
+        "Post-go-live support"
+      ]
+    },
+    {
+      "title": "Optimization & Support",
+      "description": [
+        "We help you refine processes, add dashboards, and scale capabilities.",
+        "Performance tuning",
+        "Custom enhancements",
+        "Managed support"
+      ]
+    }
+  ]
+},
+"erp-tech:sap-analytics": {
+  "heading": "Our SAP Analytics Engagement Methodology",
+  "steps": [
+    {
+      "title": "Discovery & Assessment",
+      "description": [
+        "We start with an analytics maturity assessment and business goal alignment.",
+        "Current data ecosystem review",
+        "User requirements gathering",
+        "KPI and metric definition",
+        "Data quality evaluation"
+      ]
+    },
+    {
+      "title": "Architecture & Data Strategy",
+      "description": [
+        "Design an analytics backbone that supports real-time insights and scalability.",
+        "Data modeling architecture",
+        "Source system integration strategy",
+        "Cloud or hybrid roadmap",
+        "Security & governance planning"
+      ]
+    },
+    {
+      "title": "Implementation & Development",
+      "description": [
+        "We implement the analytics platform, build models, and deploy dashboards.",
+        "SAP Analytics configuration",
+        "Semantic model development",
+        "Dashboard & story creation",
+        "Performance tuning"
+      ]
+    },
+    {
+      "title": "User Enablement & Training",
+      "description": [
+        "Drive adoption with structured training and documentation.",
+        "Role-based training workshops",
+        "Self-service analytics enablement",
+        "Support handover toolkit"
+      ]
+    },
+    {
+      "title": "Optimization & Continuous Improvement",
+      "description": [
+        "Monitoring, enhancement, and analytics capability scaling.",
+        "KPI refinement",
+        "Dashboard evolution",
+        "Predictive model tuning"
+      ]
+    }
+  ]
+},
+"consulting:process-consulting": {
+  "heading": "How We Work — Our Proven Methodology",
+  "steps": [
+    {
+      "title": "Discovery & Assessment",
+      "description": "Understand your workflows, stakeholder pain points, and performance gaps."
+    },
+    {
+      "title": "Analysis & Diagnosis",
+      "description": "Map processes, identify root causes, and benchmark with industry best practices."
+    },
+    {
+      "title": "Design & Redesign",
+      "description": "Architect optimized process flows and improvement frameworks."
+    },
+    {
+      "title": "Implementation Guidance",
+      "description": "Support implementation, stakeholder alignment, and technology enablement."
+    },
+    {
+      "title": "Measure, Improve & Sustain",
+      "description": "Establish performance tracking and continuous improvement loops."
+    }
+  ]
+},
+"microsoft-dynamics:dynamics-365": {
+  "heading": "Our Dynamics 365 Implementation Framework",
+  "intro": "Atorix applies a structured delivery methodology that ensures predictability, quality, and business alignment:",
+  "steps": [
+    {
+      "title": "Discover & Define Requirements",
+      "description": "We engage stakeholders to map pain points, business processes, and success criteria."
+    },
+    {
+      "title": "Design & Blueprint",
+      "description": "Technical architects and business analysts create a solution design aligned with strategic goals."
+    },
+    {
+      "title": "Build & Configure",
+      "description": "Applications are configured, integrated, and customized."
+    },
+    {
+      "title": "Test & Validate",
+      "description": "Extensive user acceptance and performance testing ensure the solution is ready for production."
+    },
+    {
+      "title": "Deploy & Enable",
+      "description": "Go-live with minimal disruption and strong change management support."
+    },
+    {
+      "title": "Support & Optimize",
+      "description": "Ongoing performance monitoring, enhancements, and managed service support."
+    }
+  ]
+},
+"information-technology:it-infrastructure-management": {
+  "heading": "How Atorix IT Delivers Value",
+  "intro": "Our infrastructure management approach is built around proactive operations, automation, and enterprise governance.",
+  "steps": [
+    {
+      "title": "Proactive Monitoring",
+      "description": "We detect and resolve issues before they disrupt business operations."
+    },
+    {
+      "title": "Automation-Driven Operations",
+      "description": "Routine tasks are automated to reduce human error and accelerate response times."
+    },
+    {
+      "title": "SLA-Based Service Delivery",
+      "description": "Clear service levels ensure accountability, transparency, and predictable outcomes."
+    },
+    {
+      "title": "24/7 Support Model",
+      "description": "Round-the-clock infrastructure monitoring and incident response."
+    },
+    {
+      "title": "ITIL-Aligned Processes",
+      "description": "Industry-recognized frameworks ensure operational maturity and consistency."
+    }
+  ]
+},
+"information-technology:cloud-services": {
+  "heading": "Our Cloud Implementation Methodology",
+  "steps": [
+    {
+      "title": "Discover & Assess",
+      "description": "Understand current infrastructure, business goals, and risk profile."
+    },
+    {
+      "title": "Plan & Architect",
+      "description": "Design a tailored cloud blueprint with security, compliance, and scalability."
+    },
+    {
+      "title": "Migrate & Modernize",
+      "description": "Execute a phased, secure migration with minimal business disruption."
+    },
+    {
+      "title": "Optimize & Scale",
+      "description": "Continuously monitor and fine-tune performance and costs."
+    },
+    {
+      "title": "Ongoing Support",
+      "description": "Provide SLA-driven management, governance, and enhancements."
+    }
+  ],
+  "footer": "This structured approach ensures predictable outcomes and measurable value."
+},
+"consulting:business-consulting": {
+  "heading": "Our Consulting Methodology",
+  "steps": [
+    {
+      "title": "Discovery & Assessment",
+      "description": "We analyze your current processes, challenges, and business objectives."
+    },
+    {
+      "title": "Strategy & Solution Design",
+      "description": "Customized consulting blueprints aligned with your organization’s goals."
+    },
+    {
+      "title": "Implementation Support",
+      "description": "Hands-on guidance to ensure execution, adoption, and stakeholder alignment."
+    },
+    {
+      "title": "Measurement & Optimization",
+      "description": "Continuous performance tracking and refinement for long-term success."
+    }
+  ]
+},
+"consulting:technology-consulting": {
+  "heading": "Our Technology Consulting Methodology",
+  "steps": [
+    {
+      "title": "Discovery & Technology Assessment",
+      "description": "Review current IT landscape, business needs, and pain points."
+    },
+    {
+      "title": "Strategy & Roadmap Design",
+      "description": "Create a phased, business-aligned technology roadmap."
+    },
+    {
+      "title": "Implementation Guidance",
+      "description": "Support execution, vendor coordination, and change management."
+    },
+    {
+      "title": "Optimization & Continuous Improvement",
+      "description": "Monitor performance, security, and scalability for sustained value."
+    }
+  ]
+},
+"data-science:machine-learning": {
+  "heading": "How We Deliver Value — Our ML Implementation Framework",
+  "intro": "Atorix follows a structured and proven delivery framework designed to reduce risk and maximize business impact:",
+  "steps": [
+    {
+      "title": "Discovery & Problem Framing",
+      "description": "Deep analysis of business context, data readiness, KPIs, and performance goals."
+    },
+    {
+      "title": "Data Preparation & Feature Engineering",
+      "description": "Designing resilient data structures and feature sets to improve model quality and relevance."
+    },
+    {
+      "title": "Model Training & Evaluation",
+      "description": "Rigorous training cycles with parallel experimentation and robust validation metrics."
+    },
+    {
+      "title": "Integration & Deployment",
+      "description": "Embedding models into decision systems, dashboards, or real-time pipelines."
+    },
+    {
+      "title": "Monitoring & Continuous Improvement",
+      "description": "Ongoing performance tracking and retraining to adapt to data drift and business changes."
+    }
+  ]
+},
+"data-science:data-analytics": {
+  "heading": "Our Analytics Delivery Framework",
+  "intro": "Atorix uses a structured analytics delivery framework built on best practices:",
+  "steps": [
+    {
+      "title": "Discover & Define",
+      "description": "We identify business goals, define analytics KPIs, and set success criteria."
+    },
+    {
+      "title": "Data Preparation & Architecture",
+      "description": "We build scalable data pipelines, model data structures, and ensure accessibility."
+    },
+    {
+      "title": "Analytics Modelling & Development",
+      "description": "Advanced models are developed, validated, and tuned for accuracy."
+    },
+    {
+      "title": "Visualization & Insights Delivery",
+      "description": "Interactive dashboards and reports are deployed to stakeholders."
+    },
+    {
+      "title": "Adoption & Continuous Improvement",
+      "description": "We support user training, analytics refinement, and performance monitoring."
+    }
+  ]
+},
+"sap-application:discovery-evaluation": {
+  "heading": "Our SAP Discovery & Evaluation Methodology",
+  "steps": [
+    {
+      "title": "Stakeholder Alignment & Workshops",
+      "description": [
+        "We conduct structured workshops with business and IT stakeholders to understand goals and challenges.",
+        "Business objectives definition",
+        "Success criteria alignment",
+        "Scope confirmation"
+      ]
+    },
+    {
+      "title": "Landscape & Process Analysis",
+      "description": [
+        "Our consultants perform deepdive analysis across systems and processes.",
+        "System landscape review",
+        "Process walkthroughs",
+        "Data and integration analysis"
+      ]
+    },
+    {
+      "title": "Evaluation & FitGap Assessment",
+      "description": [
+        "We assess alignment with SAP best practices and future requirements.",
+        "Functional and technical fitgap",
+        "Cloud and innovation readiness",
+        "Customization impact analysis"
+      ]
+    },
+    {
+      "title": "Strategy & Roadmap Definition",
+      "description": [
+        "We translate insights into a clear execution plan.",
+        "Recommended SAP solution and approach",
+        "Phased roadmap with milestones",
+        "Risk and dependency mapping"
+      ]
+    },
+    {
+      "title": "Executive Review & Recommendations",
+      "description": [
+        "We present findings in a businessfriendly, decisionready format.",
+        "Executive summary",
+        "Recommendation options",
+        "Nextstep guidance"
+      ]
+    }
+  ]
+},
+"erp-tech:sap-s4-hana-ecc": {
+  "heading": "SAP S/4HANA Implementation & Migration Services",
+  "intro": "At Atorix IT Solutions, we deliver comprehensive SAP S/4HANA services designed to minimize risk and maximize business value.",
+  "steps": [
+    {
+      "title": "Business Process Configuration",
+      "description": "We configure SAP S/4HANA to align with your unique business processes while adopting SAP best practices for efficiency and scalability."
+    },
+    {
+      "title": "Custom Development & Enhancements",
+      "description": "Our SAP developers modernize and optimize custom code to ensure compatibility, performance, and future maintainability."
+    },
+    {
+      "title": "Integration with Other Systems",
+      "description": "We enable seamless integration between SAP S/4HANA and third-party applications, legacy systems, and cloud platforms."
+    },
+    {
+      "title": "Performance Optimization",
+      "description": "We fine-tune system performance, data models, and workflows to deliver faster processing and stable operations."
+    },
+    {
+      "title": "User Training & Support",
+      "description": "We ensure user adoption through structured training programs, documentation, and post-go-live support."
+    }
+  ]
+},
+"erp-tech:sap-s4-hana-cloud": {
+  "heading": "Our SAP S/4HANA Cloud Services",
+  "intro": "At Atorix IT Solutions, we deliver secure, scalable, and future-ready SAP S/4HANA Cloud services designed to accelerate digital transformation and maximize business agility.",
+  "steps": [
+    {
+      "title": "Cloud Strategy & Roadmap",
+      "description": "We help you define the optimal cloud adoption strategy aligned to your business goals, TCO targets, and security requirements."
+    },
+    {
+      "title": "Cloud Migration & Implementation",
+      "description": "Smoothly transition from legacy ERP or on-premise systems to SAP S/4HANA Cloud using a structured, risk-mitigated approach."
+    },
+    {
+      "title": "Business Process Configuration",
+      "description": "Configure S/4HANA Cloud to support key process flows — procurement, finance, planning, supply chain, and reporting."
+    },
+    {
+      "title": "Custom Enhancements & Extensions",
+      "description": "Deliver tailored cloud extensions, Fiori applications, and API integrations without disrupting core cloud updates."
+    }
+  ]
+},
+"sap-application:sap-integration": {
+  "heading": "Common SAP Integration Use Cases",
+  "intro": "At Atorix IT Solutions, we design and implement seamless SAP integrations that unify enterprise systems, automate workflows, and deliver real-time business insights.",
+  "steps": [
+    {
+      "title": "SAP + CRM Integration",
+      "description": "Unify sales, service, and customer data to improve customer experience and forecasting accuracy."
+    },
+    {
+      "title": "SAP + eCommerce Integration",
+      "description": "Automate order-to-cash, inventory updates, pricing synchronization, and fulfillment workflows."
+    },
+    {
+      "title": "SAP + HR Systems",
+      "description": "Ensure consistent employee, payroll, and organizational data across SAP and HR platforms."
+    },
+    {
+      "title": "SAP + Cloud Platforms",
+      "description": "Integrate SAP with AWS, Azure, or Google Cloud for analytics, AI, and scalable processing."
+    },
+    {
+      "title": "SAP + Analytics & BI Tools",
+      "description": "Enable real-time reporting and dashboards for faster, data-driven decision-making."
+    }
+  ]
+},
+"data-science:data-visualization": {
+  "heading": "Our Visualization Framework",
+  "intro": "Atorix follows a proven methodology that ensures quality and business relevance:",
+  "steps": [
+    {
+      "title": "Discovery & Requirements Gathering",
+      "description": "Collaborate with stakeholders to understand goals, KPIs, and dashboard expectations."
+    },
+    {
+      "title": "Data Source Analysis & Prep",
+      "description": "Assess data sources, prepare data models, and ensure data integrity."
+    },
+    {
+      "title": "Design & Prototype",
+      "description": "Create visualization mockups for review and rapid feedback before full implementation."
+    },
+    {
+      "title": "Development & Integration",
+      "description": "Build dashboards, connect data sources, and ensure performance."
+    },
+    {
+      "title": "Testing & Review",
+      "description": "Validate accuracy, response times, and usability."
+    },
+    {
+      "title": "Deployment & Adoption",
+      "description": "Roll out dashboards to stakeholders with training and documentation."
+    },
+    {
+      "title": "Continuous Improvement",
+      "description": "Enhance dashboards as business needs evolve and new data sources emerge."
+    }
+  ]
+},
+"data-science:real-time-analytics": {
+  "heading": "Our Delivery Framework",
+  "intro": "We follow a structured, outcome-driven implementation approach:",
+  "steps": [
+    {
+      "title": "Discovery & Goal Alignment",
+      "description": "Understand business context, KPI requirements, and data sources."
+    },
+    {
+      "title": "Architecture & Pipeline Design",
+      "description": "Build detailed blueprints for ingestion, processing, storage, and visualization."
+    },
+    {
+      "title": "Development & Integration",
+      "description": "Develop streaming data pipelines, integrate data sources, and connect analytics platforms."
+    },
+    {
+      "title": "Dashboard Creation & Insights Delivery",
+      "description": "Deploy real-time dashboards that deliver insights across roles and functions."
+    },
+    {
+      "title": "Testing & Validation",
+      "description": "Perform end-to-end testing including latency, accuracy, and load performance."
+    },
+    {
+      "title": "Go-Live & Support",
+      "description": "Roll out with monitoring tools, alerting mechanisms, and stabilization support."
+    },
+    {
+      "title": "Continuous Enhancement",
+      "description": "Iterate and optimize analytics pipelines based on usage, performance, and business change."
+    }
+  ]
+}
+
+
+
+}
