@@ -7,12 +7,14 @@ import {
   Target, Search, Plus,
   RefreshCw, Edit2, Trash2, X, MapPin, Timer, DollarSign,
   SlidersHorizontal, ChevronRight, ArrowUpDown, ChevronDown, FileText,
+  Phone, Building2, Clock, Globe, Eye,
 } from "lucide-react";
 import RoleBasedRoute from "@/components/admin/RoleBasedRoute";
 import AdminLayout from "@/components/admin/AdminLayout";
 import LeadActions from "@/components/admin/LeadActions";
 import { trackPage } from "@/lib/activityTracker";
 import { logUIAction } from "@/lib/uiLogger";
+
 // ─── Breakpoint hook ─────────────────────────────────────────────────────────
 
 function useBreakpoint() {
@@ -59,15 +61,11 @@ const fmtShort = (d) => new Date(d).toLocaleDateString("en-US", { month: "short"
 // ─── Resume viewer helper ─────────────────────────────────────────────────────
 const openResume = (url) => {
   if (!url) return;
-  // Clean any existing fl_ transformation flags from URL
   const cleanUrl = url.replace(/\/fl_[^\/]+\//, "/");
-  // DOC/DOCX: use Google Docs viewer (browsers cannot render Word files natively)
-  // PDF: proxy through our backend so we can set Content-Type: application/pdf inline
   const isWord = /\.(docx|doc)$/i.test(cleanUrl);
   if (isWord) {
     window.open("https://docs.google.com/viewer?url=" + encodeURIComponent(cleanUrl) + "&embedded=true", "_blank");
   } else {
-    // Use backend proxy to serve PDF with correct inline headers
     const proxyUrl = process.env.NEXT_PUBLIC_API_BASE_URL + "/api/job-applications/resume-proxy?url=" + encodeURIComponent(cleanUrl);
     window.open(proxyUrl, "_blank");
   }
@@ -95,6 +93,135 @@ const StatusBadge = ({ status }) => (
     {status}
   </span>
 );
+
+// ─── Candidate Detail Modal ───────────────────────────────────────────────────
+
+function CandidateDetailModal({ app, onClose, isMobile, onOpenResume }) {
+  if (!app) return null;
+
+  const Field = ({ icon: Icon, label, value }) => {
+    if (!value && value !== 0) return null;
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <span style={{ fontSize: "10px", fontWeight: 600, color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.08em", display: "flex", alignItems: "center", gap: "4px" }}>
+          <Icon size={10} color="#c4c4c8" /> {label}
+        </span>
+        <span style={{ fontSize: "13px", color: "#3f3f46", lineHeight: 1.4 }}>{value}</span>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 60, background: "rgba(0,0,0,0.4)", backdropFilter: "blur(3px)" }} />
+      <div
+        className={isMobile ? "jpanel-sheet" : "modal-desktop"}
+        style={{
+          position: "fixed", zIndex: 61,
+          ...(isMobile
+            ? { bottom: 0, left: 0, right: 0, borderRadius: "20px 20px 0 0", maxHeight: "90dvh" }
+            : { top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "500px", maxHeight: "85vh", borderRadius: "16px" }
+          ),
+          background: "#fff", border: "1px solid #e4e4e7",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.18)",
+          display: "flex", flexDirection: "column", overflow: "hidden",
+        }}
+      >
+        {/* Drag handle */}
+        {isMobile && (
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px 0 4px", flexShrink: 0 }}>
+            <div style={{ width: "32px", height: "4px", borderRadius: "2px", background: "#e4e4e7" }} />
+          </div>
+        )}
+
+        {/* Header */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", borderBottom: "1px solid #f4f4f5", flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ width: "42px", height: "42px", borderRadius: "50%", background: "#dbeafe", display: "flex", alignItems: "center", justifyContent: "center", color: "#2563eb", fontWeight: 700, fontSize: "17px", flexShrink: 0 }}>
+              {app.fullName?.charAt(0)?.toUpperCase() || "A"}
+            </div>
+            <div>
+              <h2 style={{ fontSize: "15px", fontWeight: 700, color: "#18181b", margin: 0 }}>{app.fullName}</h2>
+              <p style={{ fontSize: "12px", color: "#a1a1aa", margin: "2px 0 0" }}>{app.email}</p>
+            </div>
+          </div>
+          <button onClick={onClose} style={{ width: "30px", height: "30px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer", color: "#a1a1aa" }}>
+            <X size={15} />
+          </button>
+        </div>
+
+        {/* Status strip */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "9px 20px", background: "#fafafa", borderBottom: "1px solid #f4f4f5", flexShrink: 0 }}>
+          <StatusBadge status={app.status} />
+          {app.createdAt && (
+            <span style={{ fontSize: "12px", color: "#a1a1aa", fontFamily: "'IBM Plex Mono',monospace" }}>
+              Applied {new Date(app.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+            </span>
+          )}
+        </div>
+
+        {/* Scrollable body */}
+        <div style={{ flex: 1, overflowY: "auto", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "20px" }}>
+
+          {/* Contact & Position */}
+          <div>
+            <p style={{ fontSize: "10px", fontWeight: 700, color: "#c4c4c8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 12px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />Contact & Position<span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 20px" }}>
+              <Field icon={Phone} label="Phone" value={app.phone} />
+              <Field icon={Briefcase} label="Position" value={app.position} />
+              {app.department && <Field icon={Users} label="Department" value={app.department} />}
+              <Field icon={Globe} label="Source" value={app.source} />
+            </div>
+          </div>
+
+          {/* Professional Details */}
+          {(app.experience || app.currentCompany || app.expectedSalary || app.noticePeriod) && (
+            <div>
+              <p style={{ fontSize: "10px", fontWeight: 700, color: "#c4c4c8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 12px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />Professional Details<span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 20px" }}>
+                <Field icon={Award} label="Experience" value={app.experience} />
+                <Field icon={Building2} label="Current Company" value={app.currentCompany} />
+                <Field icon={DollarSign} label="Expected Salary" value={app.expectedSalary ? (typeof app.expectedSalary === "number" ? `₹${Number(app.expectedSalary).toLocaleString()}` : app.expectedSalary) : null} />
+                <Field icon={Clock} label="Notice Period" value={app.noticePeriod} />
+              </div>
+            </div>
+          )}
+
+          {/* Cover Letter */}
+          {app.coverLetter && (
+            <div>
+              <p style={{ fontSize: "10px", fontWeight: 700, color: "#c4c4c8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />Cover Letter<span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />
+              </p>
+              <p style={{ fontSize: "13px", color: "#52525b", lineHeight: 1.7, margin: 0, background: "#fafafa", padding: "12px 14px", borderRadius: "10px", border: "1px solid #f4f4f5" }}>
+                {app.coverLetter}
+              </p>
+            </div>
+          )}
+
+          {/* Resume */}
+          {app.resumePath && (
+            <div>
+              <p style={{ fontSize: "10px", fontWeight: 700, color: "#c4c4c8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />Resume<span style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />
+              </p>
+              <button
+                onClick={() => onOpenResume(app.resumePath)}
+                style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 16px", borderRadius: "8px", background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1d4ed8", fontSize: "13px", fontWeight: 600, cursor: "pointer" }}
+              >
+                <FileText size={14} /> View Resume
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
 
 // ─── Job Detail Panel ─────────────────────────────────────────────────────────
 
@@ -213,6 +340,7 @@ export default function HRDashboard() {
   const [hiringData, setHiringData] = useState([]);
   const [loadingPipeline, setLoadingPipeline] = useState(true);
   const [pagination, setPagination] = useState({ page: 1, pageSize: 5, total: 0, totalPages: 1 });
+  const [viewingCandidate, setViewingCandidate] = useState(null);
 
   const fetchHiringData = async () => {
     try {
@@ -230,10 +358,7 @@ export default function HRDashboard() {
   useEffect(() => { fetchHiringData(); }, [pagination.page]);
   const handlePageChange = (n) => {
     if (n > 0 && n <= pagination.totalPages) {
-      logUIAction("HR_PIPELINE_PAGINATE", "Hiring_Pipeline", {
-        from: pagination.page,
-        to: n,
-      });
+      logUIAction("HR_PIPELINE_PAGINATE", "Hiring_Pipeline", { from: pagination.page, to: n });
       setPagination(p => ({ ...p, page: n }));
     }
   };
@@ -278,11 +403,8 @@ export default function HRDashboard() {
 
   const openAdd = () => {
     logUIAction("HR_NEW_LISTING_OPEN", "Job_Openings");
-    setEditingId(null);
-    setForm({ ...emptyForm });
-    setModalOpen(true);
+    setEditingId(null); setForm({ ...emptyForm }); setModalOpen(true);
   };
-
   const openEdit = (job) => {
     logUIAction("HR_JOB_EDIT_OPEN", "Job_Openings", { jobId: job.id, title: job.title });
     setEditingId(job.id);
@@ -345,12 +467,15 @@ export default function HRDashboard() {
           @keyframes jSlideUp  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
           @keyframes jRowIn    { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
           @keyframes spin      { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-          .jpanel-side  { animation: jSlideIn 0.2s ease forwards; }
-          .jpanel-sheet { animation: jSlideUp 0.22s ease forwards; }
-          .jrow { animation: jRowIn 0.15s ease forwards; }
+          @keyframes modalIn   { from{opacity:0;transform:translate(-50%,-46%) scale(0.96)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+          .jpanel-side   { animation: jSlideIn 0.2s ease forwards; }
+          .jpanel-sheet  { animation: jSlideUp 0.22s ease forwards; }
+          .jrow          { animation: jRowIn 0.15s ease forwards; }
+          .modal-desktop { animation: modalIn 0.18s ease forwards; }
           * { box-sizing: border-box; }
           button { transition: opacity 0.15s, transform 0.1s; }
           button:active { transform: scale(0.97); }
+          .view-btn:hover { background: #eff6ff !important; border-color: #bfdbfe !important; color: #1d4ed8 !important; }
         `}</style>
 
         {/* ── Toast ── */}
@@ -371,9 +496,7 @@ export default function HRDashboard() {
           ].map(({ Icon, label, val, bg, iconBg, ic, vc }) => (
             <div key={label} style={{ background: bg, border: "1px solid rgba(0,0,0,0.05)", borderRadius: sm("16px", "24px"), padding: sm("14px 16px", "28px"), boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div style={{ background: iconBg, padding: sm("10px", "14px"), borderRadius: "14px" }}>
-                  <Icon size={sm(18, 22)} color={ic} />
-                </div>
+                <div style={{ background: iconBg, padding: sm("10px", "14px"), borderRadius: "14px" }}><Icon size={sm(18, 22)} color={ic} /></div>
                 <span style={{ fontSize: sm("28px", "36px"), fontWeight: 600, color: vc }}>{val}</span>
               </div>
               <p style={{ marginTop: sm("14px", "22px"), fontSize: sm("11px", "13px"), fontWeight: 500, color: ic, marginBottom: 0 }}>{label}</p>
@@ -382,11 +505,9 @@ export default function HRDashboard() {
         </div>
 
         {/* ══════════════════════════════════════════
-            JOB OPENINGS
+            JOB OPENINGS  (unchanged)
         ══════════════════════════════════════════ */}
         <div style={{ background: "#fff", borderRadius: sm("16px", "20px"), border: "1px solid #e4e4e7", boxShadow: "0 1px 4px rgba(0,0,0,0.06)", overflow: "hidden", marginBottom: sm("20px", "32px") }}>
-
-          {/* Header */}
           <div style={{ padding: sm("14px 16px", "20px 24px"), borderBottom: "1px solid #f4f4f5" }}>
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "flex-start" : "center", justifyContent: "space-between", gap: "12px" }}>
               <div>
@@ -404,24 +525,16 @@ export default function HRDashboard() {
                 ))}
               </div>
             </div>
-
-            {/* Toolbar */}
             <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#fff", border: "1px solid #e4e4e7", borderRadius: "10px", padding: "8px 12px" }}>
                 <Search size={14} color="#a1a1aa" style={{ flexShrink: 0 }} />
-                <input
-                  ref={jobSearchRef}
-                  value={jobSearch}
-                  onChange={e => { setJobSearch(e.target.value); logUIAction("HR_JOB_SEARCH", "Job_Openings", { query: e.target.value }); }}
-                  placeholder="Search title, department, location…"
-                  style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: "14px", color: "#3f3f46", minWidth: 0 }} />
+                <input ref={jobSearchRef} value={jobSearch} onChange={e => { setJobSearch(e.target.value); logUIAction("HR_JOB_SEARCH", "Job_Openings", { query: e.target.value }); }} placeholder="Search title, department, location…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: "14px", color: "#3f3f46", minWidth: 0 }} />
                 {jobSearch && <button onClick={() => { setJobSearch(""); jobSearchRef.current?.focus(); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#a1a1aa", padding: 0, display: "flex" }}><X size={14} /></button>}
               </div>
               <div style={{ display: "flex", gap: "8px", flexWrap: isMobile ? "wrap" : "nowrap" }}>
                 {isMobile && (
                   <button onClick={() => setShowFilters(f => !f)} style={{ flex: 1, display: "flex", alignItems: "center", gap: "6px", background: "#fff", border: "1px solid #e4e4e7", borderRadius: "10px", padding: "8px 12px", fontSize: "13px", color: "#52525b", cursor: "pointer" }}>
-                    <SlidersHorizontal size={13} color="#a1a1aa" />
-                    Filters
+                    <SlidersHorizontal size={13} color="#a1a1aa" /> Filters
                     <ChevronDown size={13} color="#a1a1aa" style={{ marginLeft: "auto", transform: showFilters ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
                   </button>
                 )}
@@ -435,9 +548,7 @@ export default function HRDashboard() {
                     </div>
                     <div style={{ display: "flex", alignItems: "center", background: "#fff", border: "1px solid #e4e4e7", borderRadius: "10px", padding: "6px 12px" }}>
                       <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); logUIAction("HR_JOB_FILTER_STATUS", "Job_Openings", { status: e.target.value }); }} style={{ background: "transparent", border: "none", outline: "none", fontSize: "13px", color: "#52525b", cursor: "pointer" }}>
-                        <option value="All">All Status</option>
-                        <option value="active">Active</option>
-                        <option value="paused">Paused</option>
+                        <option value="All">All Status</option><option value="active">Active</option><option value="paused">Paused</option>
                       </select>
                     </div>
                   </>
@@ -456,20 +567,14 @@ export default function HRDashboard() {
                   </div>
                   <div style={{ flex: 1, display: "flex", alignItems: "center", background: "#fff", border: "1px solid #e4e4e7", borderRadius: "10px", padding: "8px 12px" }}>
                     <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); logUIAction("HR_JOB_FILTER_STATUS", "Job_Openings", { status: e.target.value }); }} style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: "13px", color: "#52525b", cursor: "pointer" }}>
-                      <option value="All">All Status</option>
-                      <option value="active">Active</option>
-                      <option value="paused">Paused</option>
+                      <option value="All">All Status</option><option value="active">Active</option><option value="paused">Paused</option>
                     </select>
                   </div>
                 </div>
               )}
             </div>
           </div>
-
-          {/* Content area */}
           <div style={{ display: "flex", gap: "16px", padding: isDesktop ? "16px" : "0", alignItems: "flex-start" }}>
-
-            {/* ── Mobile/Tablet: Card list ── */}
             {!isDesktop && (
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 16px", borderBottom: "1px solid #f4f4f5", background: "#fafafa" }}>
@@ -492,8 +597,6 @@ export default function HRDashboard() {
                 {filteredJobs.length > 0 && <div style={{ padding: "8px 16px", borderTop: "1px solid #f4f4f5", background: "#fafafa" }}><span style={{ fontSize: "11px", color: "#a1a1aa", fontFamily: "'IBM Plex Mono',monospace" }}>{filteredJobs.length} of {jobs.length} records</span></div>}
               </div>
             )}
-
-            {/* ── Desktop: Table ── */}
             {isDesktop && (
               <div style={{ flex: 1, minWidth: 0, border: "1px solid #e4e4e7", borderRadius: "12px", overflow: "hidden" }}>
                 <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "1fr 80px 72px" : "1fr 140px 120px 90px 80px 72px", gap: "12px", padding: "10px 16px", borderBottom: "1px solid #f4f4f5", background: "#fafafa" }}>
@@ -540,8 +643,6 @@ export default function HRDashboard() {
                 {filteredJobs.length > 0 && <div style={{ padding: "8px 16px", borderTop: "1px solid #f4f4f5", background: "#fafafa" }}><span style={{ fontSize: "11px", color: "#a1a1aa", fontFamily: "'IBM Plex Mono',monospace" }}>{filteredJobs.length} of {jobs.length} records</span></div>}
               </div>
             )}
-
-            {/* Desktop side panel */}
             {isDesktop && selected && (
               <div className="jpanel-side" style={{ width: "280px", flexShrink: 0, background: "#fff", border: "1px solid #e4e4e7", borderRadius: "12px", overflow: "hidden", position: "sticky", top: "16px" }}>
                 <JobDetailPanel selected={selected} onClose={() => setSelected(null)} onEdit={openEdit} onDelete={(id) => setDeleteConfirm(id)} scrollable={false} />
@@ -550,7 +651,7 @@ export default function HRDashboard() {
           </div>
         </div>
 
-        {/* Mobile/Tablet bottom sheet */}
+        {/* Mobile/Tablet bottom sheet for job detail */}
         {!isDesktop && selected && (
           <>
             <div onClick={() => setSelected(null)} style={{ position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.3)", backdropFilter: "blur(2px)" }} />
@@ -564,7 +665,7 @@ export default function HRDashboard() {
         )}
 
         {/* ══════════════════════════════════════════
-            HIRING PIPELINE
+            HIRING PIPELINE  (original table + View button)
         ══════════════════════════════════════════ */}
         <div style={{ background: "#fff", borderRadius: sm("16px", "20px"), border: "1px solid #e4e4e7", boxShadow: "0 1px 4px rgba(0,0,0,0.06)", overflow: "hidden", marginBottom: sm("20px", "32px") }}>
           <div style={{ padding: sm("14px 16px", "20px 24px"), borderBottom: "1px solid #f4f4f5" }}>
@@ -575,17 +676,10 @@ export default function HRDashboard() {
                 </h3>
                 <p style={{ fontSize: "12px", color: "#a1a1aa", margin: "4px 0 0" }}>Track candidate applications and recruitment progress</p>
               </div>
-              <div style={{ display: "flex", flexDirection: isMobile ? "row" : "row", gap: "8px", width: isMobile ? "100%" : "auto", alignItems: "center" }}>
+              <div style={{ display: "flex", flexDirection: "row", gap: "8px", width: isMobile ? "100%" : "auto", alignItems: "center" }}>
                 <div style={{ position: "relative", flex: isMobile ? 1 : "none", minWidth: 0 }}>
                   <Search size={14} color="#9ca3af" style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-                  <input
-                    type="text"
-                    placeholder="Search candidates..."
-                    value={searchTerm}
-                    onChange={(e) => { setSearchTerm(e.target.value); logUIAction("HR_CANDIDATE_SEARCH", "Hiring_Pipeline", { query: e.target.value }); }}
-                    onKeyDown={(e) => e.key === "Enter" && fetchHiringData()}
-                    style={{ width: "100%", paddingLeft: "34px", paddingRight: "12px", paddingTop: "9px", paddingBottom: "9px", borderRadius: "10px", border: "1px solid #d1d5db", background: "#f9fafb", fontSize: "13px", outline: "none" }}
-                  />
+                  <input type="text" placeholder="Search candidates..." value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); logUIAction("HR_CANDIDATE_SEARCH", "Hiring_Pipeline", { query: e.target.value }); }} onKeyDown={(e) => e.key === "Enter" && fetchHiringData()} style={{ width: "100%", paddingLeft: "34px", paddingRight: "12px", paddingTop: "9px", paddingBottom: "9px", borderRadius: "10px", border: "1px solid #d1d5db", background: "#f9fafb", fontSize: "13px", outline: "none" }} />
                 </div>
                 <Button variant="outline" size="sm" onClick={() => { logUIAction("HR_PIPELINE_REFRESH", "Hiring_Pipeline"); fetchHiringData(); }} disabled={loadingPipeline} style={{ borderRadius: "10px", flexShrink: 0, whiteSpace: "nowrap" }}>
                   <RefreshCw size={14} style={{ marginRight: "6px", animation: loadingPipeline ? "spin 1s linear infinite" : "none" }} />
@@ -621,37 +715,30 @@ export default function HRDashboard() {
                   : hiringData.length > 0
                     ? hiringData.map(app => (
                       <tr key={app._id} style={{ borderBottom: "1px solid #f4f4f5" }} onMouseEnter={e => e.currentTarget.style.background = "#fafafa"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                        {/* Candidate */}
                         <td style={{ padding: sm("12px", "14px 20px") }}>
                           <div style={{ display: "flex", alignItems: "center", gap: sm("8px", "12px") }}>
                             <div style={{ width: sm("32px", "38px"), height: sm("32px", "38px"), borderRadius: "50%", background: "#dbeafe", display: "flex", alignItems: "center", justifyContent: "center", color: "#2563eb", fontWeight: 500, fontSize: "14px", flexShrink: 0 }}>{app.fullName?.charAt(0) || "A"}</div>
                             <div style={{ minWidth: 0 }}>
                               <p style={{ fontWeight: 500, color: "#18181b", fontSize: "13px", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{app.fullName}</p>
                               <p style={{ fontSize: "11px", color: "#a1a1aa", margin: "2px 0 0", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{app.email}</p>
+                              {isMobile && app.phone && <p style={{ fontSize: "11px", color: "#71717a", margin: "2px 0 0", fontFamily: "'IBM Plex Mono',monospace" }}>{app.phone}</p>}
                               {isMobile && <p style={{ fontSize: "11px", color: "#71717a", margin: "2px 0 0" }}>{app.position}</p>}
                             </div>
                           </div>
                         </td>
+                        {/* Position */}
                         {!isMobile && (
                           <td style={{ padding: "14px 20px" }}>
                             <p style={{ fontWeight: 500, color: "#18181b", fontSize: "13px", margin: 0 }}>{app.position}</p>
                             <p style={{ fontSize: "11px", color: "#a1a1aa", margin: "2px 0 0" }}>{app.department}</p>
                           </td>
                         )}
-
-                        {/* ── Resume column (desktop only) ── */}
+                        {/* Resume */}
                         {!isMobile && (
                           <td style={{ padding: "14px 20px" }}>
                             {app.resumePath ? (
-                              <button
-                                onClick={() => {
-                                  logUIAction("VIEW_RESUME", "Hiring_Pipeline", {
-                                    applicationId: app._id,
-                                    email: app.email,
-                                  });
-                                  openResume(app.resumePath);
-                                }}
-                                style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "4px 10px", borderRadius: "6px", background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1d4ed8", fontSize: "12px", fontWeight: 500, cursor: "pointer" }}
-                              >
+                              <button onClick={() => { logUIAction("VIEW_RESUME", "Hiring_Pipeline", { applicationId: app._id, email: app.email }); openResume(app.resumePath); }} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "4px 10px", borderRadius: "6px", background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1d4ed8", fontSize: "12px", fontWeight: 500, cursor: "pointer" }}>
                                 <FileText size={12} /> View
                               </button>
                             ) : (
@@ -659,11 +746,24 @@ export default function HRDashboard() {
                             )}
                           </td>
                         )}
-
+                        {/* Status */}
                         <td style={{ padding: sm("12px", "14px 20px") }}><StatusBadge status={app.status} /></td>
+                        {/* Applied */}
                         {!isMobile && <td style={{ padding: "14px 20px", fontSize: "13px", color: "#71717a" }}>{fmtApplied(app.createdAt)}</td>}
+                        {/* Actions: View + LeadActions */}
                         <td style={{ padding: sm("12px", "14px 20px"), textAlign: "right" }}>
-                          <LeadActions lead={app} type="job" onUpdated={fetchHiringData} />
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "6px" }}>
+                            <button
+                              className="view-btn"
+                              onClick={() => { logUIAction("HR_CANDIDATE_VIEW", "Hiring_Pipeline", { applicationId: app._id, name: app.fullName }); setViewingCandidate(app); }}
+                              title="View full application details"
+                              style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: sm("5px 8px", "5px 10px"), borderRadius: "6px", background: "#f9fafb", border: "1px solid #e4e4e7", color: "#71717a", fontSize: "12px", fontWeight: 500, cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.15s" }}
+                            >
+                              <Eye size={12} />
+                              {!isMobile && <span>View</span>}
+                            </button>
+                            <LeadActions lead={app} type="job" onUpdated={fetchHiringData} />
+                          </div>
                         </td>
                       </tr>
                     ))
@@ -706,7 +806,17 @@ export default function HRDashboard() {
           </div>
         </div>
 
-        {/* ── Add/Edit Modal ── */}
+        {/* ── Candidate Detail Modal ── */}
+        {viewingCandidate && (
+          <CandidateDetailModal
+            app={viewingCandidate}
+            isMobile={isMobile}
+            onClose={() => setViewingCandidate(null)}
+            onOpenResume={(url) => { logUIAction("VIEW_RESUME", "Hiring_Pipeline", { applicationId: viewingCandidate._id }); openResume(url); }}
+          />
+        )}
+
+        {/* ── Add/Edit Job Modal ── */}
         {modalOpen && (
           <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", backdropFilter: "blur(4px)", zIndex: 50, display: "flex", alignItems: isMobile ? "flex-end" : "center", justifyContent: "center", padding: isMobile ? "0" : "16px" }} onClick={e => e.target === e.currentTarget && closeModal()}>
             <div style={{ background: "#fff", border: "1px solid #e4e4e7", boxShadow: "0 20px 60px rgba(0,0,0,0.2)", width: "100%", maxWidth: isMobile ? "100%" : "680px", borderRadius: isMobile ? "20px 20px 0 0" : "20px", maxHeight: "92dvh", display: "flex", flexDirection: "column" }}>

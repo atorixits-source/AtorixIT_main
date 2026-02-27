@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { connectLeadsDB } from '../config/database.js';
-
+ 
 // Create schema using mongoose
 const leadSchema = new mongoose.Schema({
   name: {
@@ -77,7 +77,7 @@ const leadSchema = new mongoose.Schema({
       // Normalize common source values
       if (!v) return 'website';
       const val = v.toString().toLowerCase().trim();
-      
+     
       // Map common variations to standard values
       const sourceMap = {
         'web': 'website',
@@ -93,7 +93,7 @@ const leadSchema = new mongoose.Schema({
         'admin': 'manual',
         'dashboard': 'manual'
       };
-      
+     
       return sourceMap[val] || val;
     }
   },
@@ -101,7 +101,7 @@ const leadSchema = new mongoose.Schema({
     type: String,
     default: 'new',
     enum: {
-      values: ['new', 'contacted', 'qualified', 'unqualified', 'converted', 'archived'],
+      values: ['new', 'contacted', 'reviewed', 'scheduled', 'completed', 'hired', 'cancelled'],
       message: 'Invalid status'
     }
   },
@@ -117,12 +117,13 @@ const leadSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-
+ 
 // Indexes
 leadSchema.index({ email: 1 }, { unique: true });
+leadSchema.index({ phone: 1 }, { unique: true });
 leadSchema.index({ status: 1 });
 leadSchema.index({ createdAt: -1 });
-
+ 
 // Static method to get leads by status
 leadSchema.statics.getLeadsByStatus = async function(status) {
   return this.aggregate([
@@ -141,26 +142,26 @@ leadSchema.statics.getLeadsByStatus = async function(status) {
     }
   ]);
 };
-
+ 
 // Pre-save hooks
 leadSchema.pre('save', function(next) {
   // Ensure interests is an array
   if (this.interests && !Array.isArray(this.interests)) {
     this.interests = [this.interests];
   }
-  
+ 
   // Set submittedAt if not set
   if (!this.metadata.submittedAt) {
     this.metadata = this.metadata || {};
     this.metadata.submittedAt = new Date();
   }
-  
+ 
   next();
 });
-
+ 
 // Create the model
 let Lead;
-
+ 
 try {
   // Try to get the model if it exists
   Lead = mongoose.model('Lead');
@@ -168,5 +169,5 @@ try {
   // If it doesn't exist, create it
   Lead = mongoose.model('Lead', leadSchema);
 }
-
+ 
 export default Lead;

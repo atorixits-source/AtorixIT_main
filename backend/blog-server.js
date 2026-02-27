@@ -811,9 +811,7 @@ app.delete('/api/blog/users/:id', async (req, res) => {
   }
 });
 
-// @desc    Register a new user
-// @route   POST /api/blog/register
-// @access  Public
+
 app.post('/api/blog/register', express.json(), async (req, res) => {
   try {
     const { name, email, password, role = 'user' } = req.body;

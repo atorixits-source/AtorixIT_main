@@ -3,13 +3,15 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import AdminUser from '../models/AdminUser.js';
 import { authenticate } from '../middleware/auth.js';
-
-// temporary imports 
-import Admin from '../models/Admin.js';
-
+import { logAction } from '../utils/auditLogger.js';
 
 const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key'; // Use environment variable in production
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET is not defined in environment");
+}
 
 // Login route
 router.post('/login', async (req, res) => {
@@ -45,16 +47,21 @@ router.post('/login', async (req, res) => {
     // Verify password
     const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
     if (!isPasswordValid) {
+      await logAction(req, 'FAILED_LOGIN', 'AUTH', {
+        username,
+        reason: 'wrong_password'
+      });
       return res.status(401).json({
         success: false,
         message: 'Invalid username or password'
       });
     }
 
+
     // Create JWT token
     const token = jwt.sign(
       { 
-        id: user._id,
+        userId: user._id.toString(),
         name: user.name,
         email: user.email,
         role: user.role  
@@ -69,6 +76,19 @@ router.post('/login', async (req, res) => {
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 7*24 * 60 * 60 * 1000 // 24 hours
+    });
+    
+    req.user = {
+      userId: user._id.toString(),
+      email: user.email,
+      role: user.role,
+      name: user.name
+    };
+
+    // Audit: Login
+    await logAction(req, 'LOGIN', 'AUTH', {
+      userId: user._id,
+      email: user.email
     });
 
     // Return user data (without password) and token
@@ -154,7 +174,7 @@ router.post('/reset-password', async (req, res) => {
 
     // Verify token
     const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await AdminUser.findById(decoded.userId);
+    const user = await AdminUser.findById(decoded.id);
 
     if (!user) {
       return res.status(400).json({
@@ -196,7 +216,7 @@ router.get('/verify', async (req, res) => {
     }
 
     const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await AdminUser.findById(decoded.userId).select('-passwordHash');
+    const user = await AdminUser.findById(decoded.id).select('-passwordHash');
 
     if (!user) {
       return res.status(401).json({
@@ -298,6 +318,11 @@ router.put('/profile', authenticate, validateUserInput, async (req, res) => {
 
     await user.save();
 
+    await logAction(req, 'UPDATE_PROFILE', 'USER_MANAGEMENT', {
+      userId: user._id,
+      updatedFields: Object.keys(req.body)
+    });
+
     // Return updated user data (excluding sensitive info)
     const userResponse = {
       _id: user._id,
@@ -325,24 +350,42 @@ router.put('/profile', authenticate, validateUserInput, async (req, res) => {
   }
 });
 
-// Logout route
-router.post('/logout', authenticate, (req, res) => {
-  try {
-    // Clear the token from the client side
-    res.clearCookie('token');
-    
-    res.status(200).json({
-      success: true,
-      message: 'Successfully logged out',
-    });
-  } catch (error) {
-    console.error('Logout error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error during logout',
-      error: error.message,
-    });
+router.post('/logout', async (req, res) => {
+
+  let user = null;
+
+  const token =
+    req.cookies?.token ||
+    req.headers.authorization?.split(' ')[1];
+
+  if (token) {
+    try {
+      user = jwt.verify(token, JWT_SECRET);
+
+      req.user = {
+        userId: user.userId,
+        email: user.email,
+        role: user.role,
+        name: user.name
+      };
+
+    } catch (err) {
+      console.error('JWT decode failed on logout');
+    }
   }
+
+  // Clear cookie
+  res.clearCookie('token', {
+    path: '/',
+    httpOnly: true,
+    sameSite: 'strict'
+  });
+
+  // ✅ Always log
+  await logAction(req, 'LOGOUT', 'AUTH');
+
+  res.json({ success: true });
 });
+
 
 export default router;

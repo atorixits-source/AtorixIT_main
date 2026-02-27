@@ -22,13 +22,13 @@ import {
 //
 // PDFs stored as Cloudinary 'image' can be opened directly in an <iframe>.
 // DOCX can't render in browser → show download + Google Docs button instead.
-const isPdf  = (url) => url?.toLowerCase().endsWith('.pdf');
+const isPdf = (url) => url?.toLowerCase().endsWith('.pdf');
 const isDocx = (url) => url?.toLowerCase().endsWith('.docx') || url?.toLowerCase().endsWith('.doc');
 
 // ─── Resume Preview Modal ─────────────────────────────────────────────────────
 const ResumePreviewModal = ({ url, name, onClose }) => {
   if (!url) return null;
-  const pdf  = isPdf(url);
+  const pdf = isPdf(url);
   const docx = isDocx(url);
 
   return (
@@ -126,7 +126,7 @@ function AdminDashboardContent() {
 
   const [stats, setStats] = useState({
     business: { totalLeads: 0, lastWeek: 0, lastMonth: 0, newLeads: 0 },
-    hiring:   { totalLeads: 0, lastWeek: 0, lastMonth: 0, newLeads: 0 },
+    hiring: { totalLeads: 0, lastWeek: 0, lastMonth: 0, newLeads: 0 },
   });
 
   const fetchLeads = async (type, page = 1) => {
@@ -153,32 +153,32 @@ function AdminDashboardContent() {
         leadsData = result.data || [];
         total = result.total || leadsData.length;
         const now = new Date();
-        const oneWeekAgo  = new Date(now - 7  * 86400000);
+        const oneWeekAgo = new Date(now - 7 * 86400000);
         const oneMonthAgo = new Date(now - 30 * 86400000);
         setStats(prev => ({
           ...prev,
           business: {
             totalLeads: total,
-            lastWeek:  leadsData.filter(l => new Date(l.createdAt) >= oneWeekAgo).length,
+            lastWeek: leadsData.filter(l => new Date(l.createdAt) >= oneWeekAgo).length,
             lastMonth: leadsData.filter(l => new Date(l.createdAt) >= oneMonthAgo).length,
-            newLeads:  leadsData.filter(l => l.status === "new").length,
+            newLeads: leadsData.filter(l => l.status === "new").length,
           }
         }));
       }
 
       if (type === "hiring" && result?.success) {
         leadsData = (result.items || []).map(app => ({
-          _id:        app._id,
-          name:       app.fullName,
-          company:    app.currentCompany || "",
-          position:   app.position,
-          email:      app.email,
-          phone:      app.phone,
-          skills:     app.skills || [],
-          status:     app.status || "new",
-          createdAt:  app.createdAt,
+          _id: app._id,
+          name: app.fullName,
+          company: app.currentCompany || "",
+          position: app.position,
+          email: app.email,
+          phone: app.phone,
+          skills: app.skills || [],
+          status: app.status || "new",
+          createdAt: app.createdAt,
           resumePath: app.resumePath,
-          __raw:      app,
+          __raw: app,
         }));
         total = result.total || 0;
         setStats(prev => ({ ...prev, hiring: { ...prev.hiring, totalLeads: total } }));
@@ -205,7 +205,7 @@ function AdminDashboardContent() {
 
   useEffect(() => {
     setCurrentPage(1);
-    if (activeTab === "hiring")   fetchLeads("hiring", 1);
+    if (activeTab === "hiring") fetchLeads("hiring", 1);
     if (activeTab === "business") fetchLeads("business");
   }, [searchTerm, statusFilter, activeTab]);
 
@@ -225,11 +225,11 @@ function AdminDashboardContent() {
   };
 
   const filteredLeads = getFilteredLeads(activeTab) || [];
-  const currentStats  = stats[activeTab] || {};
-  const totalPages    = Math.ceil(filteredLeads.length / itemsPerPage);
-  const startItem     = (currentPage - 1) * itemsPerPage + 1;
-  const endItem       = Math.min(currentPage * itemsPerPage, filteredLeads.length);
-  const currentLeads  = filteredLeads.slice(startItem - 1, endItem);
+  const currentStats = stats[activeTab] || {};
+  const totalPages = Math.ceil(filteredLeads.length / itemsPerPage);
+  const startItem = (currentPage - 1) * itemsPerPage + 1;
+  const endItem = Math.min(currentPage * itemsPerPage, filteredLeads.length);
+  const currentLeads = filteredLeads.slice(startItem - 1, endItem);
 
   const paginate = (n) => {
     setCurrentPage(n);
@@ -238,10 +238,10 @@ function AdminDashboardContent() {
   };
 
   const statsCards = [
-    { title: "Total Leads",    value: currentStats.totalLeads, icon: <Users      className="h-6 w-6 text-blue-500"   />, change: 12, changeType: "increase" },
-    { title: "New This Week",  value: currentStats.lastWeek,   icon: <TrendingUp className="h-6 w-6 text-green-500"  />, change: 5,  changeType: "increase" },
-    { title: "New This Month", value: currentStats.lastMonth,  icon: <Calendar   className="h-6 w-6 text-purple-500" />, change: 8,  changeType: "increase" },
-    { title: "New Leads",      value: currentStats.newLeads,   icon: <FileText   className="h-6 w-6 text-yellow-500" />, change: 3,  changeType: "decrease" },
+    { title: "Total Leads", value: currentStats.totalLeads, icon: <Users className="h-6 w-6 text-blue-500" />, change: 12, changeType: "increase" },
+    { title: "New This Week", value: currentStats.lastWeek, icon: <TrendingUp className="h-6 w-6 text-green-500" />, change: 5, changeType: "increase" },
+    { title: "New This Month", value: currentStats.lastMonth, icon: <Calendar className="h-6 w-6 text-purple-500" />, change: 8, changeType: "increase" },
+    { title: "New Leads", value: currentStats.newLeads, icon: <FileText className="h-6 w-6 text-yellow-500" />, change: 3, changeType: "decrease" },
   ];
 
   return (
@@ -292,22 +292,22 @@ function AdminDashboardContent() {
                       </p>
                     </div>
                     <div className="flex bg-gray-200/80 dark:bg-gray-700 rounded-2xl p-2 gap-2">
-                      {['business','hiring'].map(tab => (
+                      {['business', 'hiring'].map(tab => (
                         <button key={tab}
-                          onClick={() => { setActiveTab(tab); logUIAction("SWITCH_TAB","Dashboard",{to:tab}); }}
-                          className={`px-4 py-2 text-sm font-medium rounded-xl transition-all ${activeTab===tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
+                          onClick={() => { setActiveTab(tab); logUIAction("SWITCH_TAB", "Dashboard", { to: tab }); }}
+                          className={`px-4 py-2 text-sm font-medium rounded-xl transition-all ${activeTab === tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
                           {tab === 'business' ? 'Business Leads' : 'Hiring Leads'}
                         </button>
                       ))}
                     </div>
                     <LeadsToolbar
                       searchTerm={searchTerm}
-                      onSearchChange={(v) => { setSearchTerm(v); logUIAction("SEARCH_LEADS","Dashboard",{query:v,tab:activeTab}); }}
+                      onSearchChange={(v) => { setSearchTerm(v); logUIAction("SEARCH_LEADS", "Dashboard", { query: v, tab: activeTab }); }}
                       statusFilter={statusFilter}
-                      onStatusChange={(v) => { setStatusFilter(v); logUIAction("FILTER_STATUS","Dashboard",{status:v,tab:activeTab}); }}
+                      onStatusChange={(v) => { setStatusFilter(v); logUIAction("FILTER_STATUS", "Dashboard", { status: v, tab: activeTab }); }}
                       activeTab={activeTab}
                       loading={leadsLoading[activeTab]}
-                      onRefresh={() => { logUIAction("REFRESH_LEADS","Dashboard",{tab:activeTab}); fetchLeads(activeTab); }}
+                      onRefresh={() => { logUIAction("REFRESH_LEADS", "Dashboard", { tab: activeTab }); fetchLeads(activeTab); }}
                     />
                   </div>
 
@@ -316,10 +316,10 @@ function AdminDashboardContent() {
                     <div className="flex items-center justify-between gap-4">
                       <h2 className="text-lg font-semibold text-gray-900">Leads Overview</h2>
                       <div className="flex bg-gray-200/80 dark:bg-gray-700 rounded-2xl p-2 gap-2">
-                        {['business','hiring'].map(tab => (
+                        {['business', 'hiring'].map(tab => (
                           <button key={tab}
-                            onClick={() => { setActiveTab(tab); logUIAction("SWITCH_TAB","Dashboard",{to:tab}); }}
-                            className={`px-4 py-2 text-sm font-medium rounded-xl ${activeTab===tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
+                            onClick={() => { setActiveTab(tab); logUIAction("SWITCH_TAB", "Dashboard", { to: tab }); }}
+                            className={`px-4 py-2 text-sm font-medium rounded-xl ${activeTab === tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
                             {tab === 'business' ? 'Business Leads' : 'Hiring Leads'}
                           </button>
                         ))}
@@ -327,9 +327,9 @@ function AdminDashboardContent() {
                     </div>
                     <LeadsToolbar
                       searchTerm={searchTerm}
-                      onSearchChange={(v) => { setSearchTerm(v); logUIAction("SEARCH_LEADS","Dashboard",{query:v,tab:activeTab}); }}
+                      onSearchChange={(v) => { setSearchTerm(v); logUIAction("SEARCH_LEADS", "Dashboard", { query: v, tab: activeTab }); }}
                       statusFilter={statusFilter}
-                      onStatusChange={(v) => { setStatusFilter(v); logUIAction("FILTER_STATUS","Dashboard",{status:v,tab:activeTab}); }}
+                      onStatusChange={(v) => { setStatusFilter(v); logUIAction("FILTER_STATUS", "Dashboard", { status: v, tab: activeTab }); }}
                       activeTab={activeTab}
                       loading={leadsLoading[activeTab]}
                       onRefresh={() => fetchLeads(activeTab)}
@@ -340,9 +340,9 @@ function AdminDashboardContent() {
                   <div className="flex flex-col gap-4 min-[600px]:hidden">
                     <h2 className="text-base font-semibold text-gray-900">Leads Overview</h2>
                     <div className="bg-gray-200/80 dark:bg-gray-700 rounded-2xl p-2 flex gap-2">
-                      {['business','hiring'].map(tab => (
+                      {['business', 'hiring'].map(tab => (
                         <button key={tab} onClick={() => setActiveTab(tab)}
-                          className={`flex-1 px-3 py-2 text-xs font-medium rounded-xl transition-all ${activeTab===tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
+                          className={`flex-1 px-3 py-2 text-xs font-medium rounded-xl transition-all ${activeTab === tab ? "bg-white shadow text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
                           {tab === 'business' ? 'Business' : 'Hiring'}
                         </button>
                       ))}
@@ -368,20 +368,27 @@ function AdminDashboardContent() {
                       {[
                         activeTab === 'hiring' ? 'Candidate' : 'Name',
                         activeTab === 'business' ? 'Company' : 'Position',
-                        'Email', 'Phone',
-                        ...(activeTab === 'hiring' ? ['Resume'] : []),
-                        'Status', 'Date', 'Actions'
+                        'Email',
+                        'Phone',
+                        'Status',
+                        'Date',
+                        'Actions'
                       ].map(col => (
-                        <th key={col} className="px-3 min-[768px]:px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{col}</th>
+                        <th
+                          key={col}
+                          className="px-3 min-[768px]:px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                        >
+                          {col}
+                        </th>
                       ))}
                     </tr>
                   </thead>
 
                   <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                     {leadsLoading[activeTab] ? (
-                      <tr><td colSpan={activeTab === 'hiring' ? 8 : 7} className="px-6 py-8 text-center text-gray-500">Loading {activeTab} leads...</td></tr>
+                      <tr><td colSpan={7} className="px-6 py-8 text-center text-gray-500">Loading {activeTab} leads...</td></tr>
                     ) : filteredLeads.length === 0 ? (
-                      <tr><td colSpan={activeTab === 'hiring' ? 8 : 7} className="px-6 py-8 text-center text-gray-500">No {activeTab} leads found.</td></tr>
+                      <tr><td colSpan={7} className="px-6 py-8 text-center text-gray-500">No {activeTab} leads found.</td></tr>
                     ) : (
                       currentLeads.map((lead, i) => (
                         <tr key={lead?._id || i} className="hover:bg-gray-50 dark:hover:bg-gray-700">
@@ -392,33 +399,15 @@ function AdminDashboardContent() {
                           <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-300">{lead?.email || 'N/A'}</td>
                           <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap text-gray-700 dark:text-gray-300">{lead?.phone || 'N/A'}</td>
 
-                          {activeTab === 'hiring' && (
-                            <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap">
-                              {lead?.resumePath ? (
-                                <button
-                                  onClick={() => {
-                                    logUIAction("VIEW_RESUME", "JobApplication", { applicationId: lead._id, email: lead.email });
-                                    // ✅ Just pass the URL directly — Cloudinary 'image' PDFs work in iframe
-                                    setResumeModal({ open: true, url: lead.resumePath, name: lead.name });
-                                  }}
-                                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium flex items-center gap-1 transition-colors"
-                                >
-                                  <FileText className="h-3.5 w-3.5" /> View
-                                </button>
-                              ) : (
-                                <span className="text-gray-400 text-xs">No Resume</span>
-                              )}
-                            </td>
-                          )}
+                          
 
                           <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap">
-                            <span className={`px-2 inline-flex text-xs font-semibold rounded-full ${
-                              lead?.status === 'new'       ? 'bg-green-100 text-green-800'
-                            : lead?.status === 'contacted' ? 'bg-blue-100 text-blue-800'
-                            : lead?.status === 'scheduled' ? 'bg-yellow-100 text-yellow-800'
-                            : lead?.status === 'hired'     ? 'bg-purple-100 text-purple-800'
-                            : lead?.status === 'rejected'  ? 'bg-red-100 text-red-800'
-                            : 'bg-gray-100 text-gray-800'}`}>
+                            <span className={`px-2 inline-flex text-xs font-semibold rounded-full ${lead?.status === 'new' ? 'bg-green-100 text-green-800'
+                                : lead?.status === 'contacted' ? 'bg-blue-100 text-blue-800'
+                                  : lead?.status === 'scheduled' ? 'bg-yellow-100 text-yellow-800'
+                                    : lead?.status === 'hired' ? 'bg-purple-100 text-purple-800'
+                                      : lead?.status === 'rejected' ? 'bg-red-100 text-red-800'
+                                        : 'bg-gray-100 text-gray-800'}`}>
                               {lead?.status || 'unknown'}
                             </span>
                           </td>

@@ -38,7 +38,7 @@ const demoRequestSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['new', 'contacted', 'scheduled', 'completed', 'cancelled'],
+      enum: ['new', 'contacted','hired','reviewed', 'scheduled', 'completed', 'cancelled'],
       default: 'new',
     },
     source: {

@@ -7,22 +7,22 @@ import { cn } from "@/lib/utils";
 
 export default function IndustriesSection({ data }) {
   const [hovered, setHovered] = useState(null);
-
+  if (!data) return null;
   return (
     <section>
       {/* <motion.h2 className="text-2xl font-bold mb-4">
         {data.title}
       </motion.h2> */}
-    {/* <motion.h2 className="group relative inline-block text-3xl font-bold mb-6 cursor-pointer">
+      {/* <motion.h2 className="group relative inline-block text-3xl font-bold mb-6 cursor-pointer">
   <span
     className="bg-gradient-to-r from-primary via-purple-500 to-indigo-500 bg-clip-text text-transparent transition-all duration-300 group-hover:tracking-wide ">
      {data.title}
   </span>
 </motion.h2> */}
-        <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
-                  {data.title}
-           <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
-        </h2>
+      <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
+        {data.title}
+        <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+      </h2>
 
 
       <p className="text-muted-foreground mb-2 max-w-3xl">

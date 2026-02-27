@@ -1,39 +1,38 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from 'path';
+import fs from 'fs';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
-import { mkdir, unlink } from 'fs/promises';
-import { existsSync } from 'fs';
+import { v2 as cloudinary } from 'cloudinary';
 import nodemailer from 'nodemailer';
+
+import { logAction } from '../utils/auditLogger.js';
+import { authenticate } from '../middleware/auth.js';
+// HR-dashboard
+import Employee from "../models/Employee.js";
+import JobApplication from "../models/JobApplication.js";
+import Lead from "../models/lead.js";
+import { notifyJobApplication } from "../services/notificationService.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Configure uploads directory
-const uploadsDir = path.join(__dirname, '../../uploads/resumes');
 const router = express.Router();
 
-// Ensure uploads directory exists
-if (!existsSync(uploadsDir)) {
-  await mkdir(uploadsDir, { recursive: true });
-  console.log(`Created uploads directory at: ${uploadsDir}`);
-}
+router.use(authenticate);
 
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname).toLowerCase();
-    cb(null, 'resume-' + uniqueSuffix + ext);
-  }
+// ─── Cloudinary Configuration ─────────────────────────────────────────────────
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key:    process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// ─── MULTER – store file in memory ───────────────────────────────────────────
 const upload = multer({
-  storage: storage,
+  storage: multer.memoryStorage(),
   fileFilter: (req, file, cb) => {
     const allowedTypes = [
       'application/pdf',
@@ -46,20 +45,58 @@ const upload = multer({
       cb(new Error('Invalid file type. Only PDF, DOC, and DOCX files are allowed.'));
     }
   },
-  limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
+  limits: { fileSize: 5 * 1024 * 1024 }
 });
 
-// File access helper
-const fileAccess = {
-  getResumeUrl: (filename) => {
-    if (!filename) return null;
-    return `/api/resumes/${path.basename(filename)}`;
+// ─── Cloudinary Helpers ───────────────────────────────────────────────────────
+
+/**
+ * Upload a file buffer to Cloudinary.
+ * Returns { publicId, secureUrl } on success.
+ */
+const uploadToCloudinary = async (file) => {
+  const ext = path.extname(file.originalname).toLowerCase().replace('.', '');
+  const uniqueName = `resume-${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+  // Write buffer to a real temp file so Cloudinary gets a clean binary stream
+  const tmpPath = path.join(os.tmpdir(), `${uniqueName}.${ext}`);
+
+  try {
+    fs.writeFileSync(tmpPath, file.buffer);
+    console.log('Temp file written:', tmpPath, 'size:', fs.statSync(tmpPath).size);
+
+    const result = await cloudinary.uploader.upload(tmpPath, {
+      resource_type: 'raw',
+      folder: 'resumes',
+      public_id: `${uniqueName}.${ext}`,
+      type: 'upload',
+      use_filename: false,
+      overwrite: false,
+    });
+
+    return {
+      publicId:  result.public_id,
+      secureUrl: result.secure_url,
+    };
+  } finally {
+    // Always clean up temp file
+    try { fs.unlinkSync(tmpPath); } catch (_) {}
   }
 };
 
-// Import models and utilities
-import JobApplication from "../models/JobApplication.js";
-import Lead from "../models/lead.js";
+/**
+ * Delete a file from Cloudinary by its publicId.
+ */
+const deleteFromCloudinary = async (publicId) => {
+  if (!publicId) return;
+  try {
+    await cloudinary.uploader.destroy(publicId, { resource_type: 'raw' });
+    console.log('Resume deleted from Cloudinary:', publicId);
+  } catch (err) {
+    console.error('Error deleting file from Cloudinary:', err.message);
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 // Email configuration
 const transporter = nodemailer.createTransport({
@@ -70,7 +107,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Email sending function
 async function sendEmailWithAttachment(to, { subject, text, html, attachments }) {
   const mailOptions = {
     from: process.env.EMAIL_USER || 'no-reply@atorix.com',
@@ -86,7 +122,6 @@ async function sendEmailWithAttachment(to, { subject, text, html, attachments })
     console.log('Email notification sent successfully');
   } catch (error) {
     console.error('Failed to send email notification:', error);
-    // Don't throw error to prevent affecting the main application flow
   }
 }
 
@@ -98,36 +133,37 @@ router.use((req, res, next) => {
   next();
 });
 
-// POST - Create a new job application (saved as lead in hiring section)
-router.post("/", async (req, res) => {
+// POST - Create job application
+router.post("/", upload.single("resume"), async (req, res) => {
   console.log("\n=== POST /job-applications ===");
   console.log("Request body:", req.body);
-  
-  if (!req.body) {
-    return res.status(400).json({
-      success: false,
-      message: 'Request body is required'
-    });
+  console.log("File uploaded:", req.file ? req.file.originalname : 'No file');
+  if (req.file) {
+    console.log('File name:', req.file.originalname);
+    console.log('File size:', req.file.size);
+    console.log('MIME type:', req.file.mimetype);
   }
-  
+  console.log('=================\n');
+
+  if (!req.body) {
+    return res.status(400).json({ success: false, message: 'Request body is required' });
+  }
+
+  let cloudinaryPublicId = null;
+
   try {
-    if (!Lead) {
-      throw new Error("Lead model not initialized");
+    if (!JobApplication) {
+      throw new Error("JobApplication model not initialized");
     }
 
     if (mongoose.connection.readyState !== 1) {
       throw new Error(`Database not connected. State: ${mongoose.connection.readyState}`);
     }
 
-    const session = await mongoose.startSession();
-    session.startTransaction();
-    console.log("✓ Transaction started");
-
-    // Validate required fields
     const requiredFields = [
       { field: 'fullName', message: 'Full name is required' },
-      { field: 'email', message: 'Email is required' },
-      { field: 'phone', message: 'Phone number is required' },
+      { field: 'email',    message: 'Email is required' },
+      { field: 'phone',    message: 'Phone number is required' },
       { field: 'position', message: 'Position is required' }
     ];
 
@@ -135,183 +171,142 @@ router.post("/", async (req, res) => {
       .filter(({ field }) => !req.body[field]?.trim())
       .map(({ message }) => message);
 
-    // Email validation
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (req.body.email && !emailRegex.test(req.body.email)) {
       validationErrors.push('Please enter a valid email address');
     }
 
+    if (!req.file) {
+      validationErrors.push('Resume is required. Please upload your resume.');
+    }
+
     if (validationErrors.length > 0) {
-      if (req.file?.path) await unlink(req.file.path);
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
-        errors: validationErrors
+        errors: validationErrors,
       });
     }
 
-    // Create lead data
-    const leadData = {
-      name: req.body.fullName.trim(),
-      email: req.body.email.toLowerCase().trim(),
-      phone: req.body.phone.trim(),
-      company: req.body.currentCompany?.trim() || '',
-      role: req.body.position.trim(),
-      source: 'Career Portal',
-      status: 'New Application',
-      type: 'Job Application',
-      notes: `Applied for position: ${req.body.position || 'Not specified'}
-      
-      Experience: ${req.body.experience || 'Not specified'}
-      Notice Period: ${req.body.noticePeriod || 'Not specified'}
-      Expected Salary: ${req.body.expectedSalary || 'Not specified'}
-      
-      Cover Letter:
-      ${req.body.coverLetter || 'No cover letter provided'}`,
-      metadata: {
-        position: req.body.position,
-        experience: req.body.experience,
-        currentCompany: req.body.currentCompany,
-        expectedSalary: req.body.expectedSalary,
-        noticePeriod: req.body.noticePeriod,
-        source: 'Career Portal',
-        applicationDate: new Date()
-      }
-    };
-
-    // Save to leads collection
-    const lead = new Lead(leadData);
-    await lead.save({ session });
-    console.log("Lead saved to database");
-
-    await session.commitTransaction();
-    console.log("✓ Transaction committed");
-    
-    res.status(201).json({
-      success: true,
-      message: "Application submitted successfully. Our team will review your application and get back to you soon.",
-      data: {
-        id: lead._id,
-        name: lead.name,
-        email: lead.email,
-        position: lead.role,
-        submittedAt: new Date()
-      }
+    const existingEmail = await JobApplication.findOne({
+      email: req.body.email.toLowerCase().trim()
     });
-    
-  } catch (error) {
-    console.error("\n=== ERROR ===");
-    console.error("Timestamp:", new Date().toISOString());
-    console.error("Error:", error);
-    console.error("=============");
-    
-    if (session) {
-      try {
-        await session.abortTransaction();
-      } catch (abortError) {
-        console.error("Error aborting transaction:", abortError);
-      }
-    }
 
-    // Clean up file if there was an error
-    if (req.file?.path) {
-      try {
-        await unlink(req.file.path);
-      } catch (cleanupError) {
-        console.error("Error cleaning up file:", cleanupError);
-      }
-    }
-
-    // Handle specific error types
-    // Handle validation errors
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(val => val.message);
-      return res.status(400).json({
-        success: false,
-        message: 'Validation error',
-        errors: messages
-      });
-    }
-    
-    // Handle duplicate key errors (unique constraint violations)
-    if (error.name === 'MongoServerError' && error.code === 11000) {
+    if (existingEmail) {
       return res.status(409).json({
         success: false,
-        message: 'Duplicate entry',
-        error: 'This email has already been used for an application',
-        field: Object.keys(error.keyPattern)[0] || 'email'
+        message: 'Email already exists',
+        field: 'email',
       });
     }
 
-    // Handle file size limit errors
-    if (error.code === 'LIMIT_FILE_SIZE') {
-      return res.status(400).json({
+    const existingPhone = await JobApplication.findOne({
+      phone: req.body.phone.trim()
+    });
+
+    if (existingPhone) {
+      return res.status(409).json({
         success: false,
-        message: 'File too large',
-        error: 'File size must be less than 5MB'
+        message: 'Phone number already exists',
+        field: 'phone'
       });
     }
 
-    // Handle invalid file type errors
-    if (error.message && error.message.includes('Invalid file type')) {
-      return res.status(400).json({
-        success: false,
-        message: 'Invalid file type',
-        error: 'Only PDF, DOC, and DOCX files are allowed'
-      });
-    }
+    // ── Upload resume to Cloudinary ──────────────────────────────────────────
+    const cloudinaryResult = await uploadToCloudinary(req.file);
+    cloudinaryPublicId = cloudinaryResult.publicId;
+    const resumeUrl = cloudinaryResult.secureUrl;
+    console.log('Resume uploaded to Cloudinary. Public ID:', cloudinaryPublicId);
+    console.log('Resume URL stored:', resumeUrl);
 
-    // Generic error response
-    const errorResponse = {
-      success: false,
-      message: 'An error occurred while processing your request',
-      error: process.env.NODE_ENV === 'development' ? {
-        message: error.message,
-        name: error.name,
-        ...(error.code && { code: error.code }),
-        ...(error.stack && { stack: error.stack })
-      } : undefined
-    };
-    
-    res.status(500).json(errorResponse);
-  } finally {
-    if (session) {
-      try {
-        await session.endSession();
-      } catch (sessionError) {
-        console.error('Error ending session:', sessionError);
+    // ── Save application ─────────────────────────────────────────────────────
+    const application = new JobApplication({
+      fullName:        req.body.fullName.trim(),
+      email:           req.body.email.toLowerCase().trim(),
+      phone:           req.body.phone.trim(),
+      position:        req.body.position.trim(),
+      experience:      req.body.experience?.trim()      || '',
+      currentCompany:  req.body.currentCompany?.trim()  || '',
+      expectedSalary:  req.body.expectedSalary?.trim()  || '',
+      noticePeriod:    req.body.noticePeriod?.trim()    || '',
+      coverLetter:     req.body.coverLetter?.trim()     || '',
+      source:          req.body.source || 'Career Portal',
+      resumePath:      resumeUrl,          // Cloudinary secure URL
+      resumeFileId:    cloudinaryPublicId, // Cloudinary public_id – used for deletion
+      status:          'applied',
+    });
+
+    await application.save();
+    await notifyJobApplication(application);
+
+    await logAction(req, 'CREATE_JOB_APPLICATION', 'JobApplication', {
+      applicationId: application._id,
+      email: application.email,
+      position: application.position
+    });
+
+    console.log("Job application saved to database");
+
+    try {
+      if (Lead) {
+        const lead = new Lead({
+          name:    req.body.fullName.trim(),
+          email:   req.body.email.toLowerCase().trim(),
+          phone:   req.body.phone.trim(),
+          company: req.body.currentCompany?.trim() || '',
+          role:    req.body.position.trim(),
+          source:  'job_application',
+          status:  'New Application',
+          type:    'Job Application'
+        });
+        await lead.save();
       }
+    } catch (leadError) {
+      console.error("Error creating lead entry:", leadError);
     }
+
+    res.status(201).json({
+      success: true,
+      message: "Application submitted successfully.",
+      data: {
+        id:          application._id,
+        name:        application.fullName,
+        email:       application.email,
+        position:    application.position,
+        submittedAt: application.createdAt
+      }
+    });
+
+  } catch (error) {
+    console.error("ERROR:", error);
+    if (cloudinaryPublicId) {
+      await deleteFromCloudinary(cloudinaryPublicId);
+    }
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
-// GET all applications
+// GET - Fetch all job applications
 router.get("/", async (req, res) => {
   console.log("GET /job-applications - Fetching applications");
-  
+
   try {
-    if (!JobApplication) {
-      throw new Error("JobApplication model not loaded");
-    }
-
-    const page = parseInt(req.query.page) || 1;
+    const page     = parseInt(req.query.page)     || 1;
     const pageSize = parseInt(req.query.pageSize) || 10;
-    const search = req.query.search || '';
-    const skip = (page - 1) * pageSize;
+    const search   = req.query.search             || '';
+    const skip     = (page - 1) * pageSize;
 
-    // Build search query
     let query = {};
     if (search.trim()) {
       query = {
         $or: [
           { fullName: { $regex: search, $options: 'i' } },
-          { email: { $regex: search, $options: 'i' } },
+          { email:    { $regex: search, $options: 'i' } },
           { position: { $regex: search, $options: 'i' } },
         ]
       };
     }
 
-    // Get paginated results
     const [total, applications] = await Promise.all([
       JobApplication.countDocuments(query),
       JobApplication.find(query)
@@ -323,41 +318,230 @@ router.get("/", async (req, res) => {
 
     const totalPages = Math.ceil(total / pageSize);
 
-    // Add resume URLs
-    const applicationsWithUrls = applications.map(app => {
-      if (!app.resume) return { ...app, resume: null };
-      
-      const resumeFilename = app.resume.filename || path.basename(app.resume.path || '');
-      const resumeUrl = resumeFilename ? fileAccess.getResumeUrl(resumeFilename) : null;
-      
-      return {
-        ...app,
-        resume: {
-          ...app.resume,
-          url: resumeUrl
-        }
-      };
-    });
-
     res.status(200).json({
       success: true,
-      items: applicationsWithUrls,
+      items: applications,
       total,
       totalPages,
       page,
       pageSize,
       hasMore: page < totalPages
     });
-    
+
   } catch (error) {
-    console.error("ERROR in GET /job-applications:", error);
+    console.error(error);
     res.status(500).json({
       success: false,
       message: "Failed to fetch applications",
-      error: error.message,
-      ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
+      error: error.message
     });
   }
+});
+
+// PATCH - Update status (with auto employee creation on hired)
+router.patch("/:id", async (req, res) => {
+  try {
+    const oldCandidate = await JobApplication.findById(req.params.id);
+
+    if (!oldCandidate) {
+      return res.status(404).json({
+        success: false,
+        message: "Candidate not found",
+      });
+    }
+
+    const updatedCandidate = await JobApplication.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+
+    const oldStatus = oldCandidate.status?.trim().toLowerCase();
+    const newStatus = updatedCandidate.status?.trim().toLowerCase();
+
+    console.log("OLD STATUS:", oldStatus);
+    console.log("NEW STATUS:", newStatus);
+
+    // 🔥 Create employee when status changes to hired
+    if (oldStatus !== "hired" && newStatus === "hired") {
+      const exists = await Employee.findOne({
+        email: updatedCandidate.email.toLowerCase().trim(),
+      });
+
+      if (!exists) {
+        const employee = await Employee.create({
+          name:        updatedCandidate.fullName?.trim(),
+          email:       updatedCandidate.email?.toLowerCase().trim(),
+          phone:       updatedCandidate.phone?.trim() || "",
+          position:    updatedCandidate.position?.trim() || "Not Assigned",
+          department:  "General",
+          joinedAt:    new Date(),
+          candidateId: updatedCandidate._id,
+          resume:      updatedCandidate.resumePath || "",
+        });
+        console.log("✅ Employee created:", employee._id);
+      }
+    }
+
+    res.json({
+      success: true,
+      item: updatedCandidate,
+    });
+
+  } catch (error) {
+    console.error("PATCH ERROR:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// PUT - Full update
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedCandidate = await JobApplication.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    if (!updatedCandidate) {
+      return res.status(404).json({
+        success: false,
+        message: "Application not found",
+      });
+    }
+
+    if (updatedCandidate.status === "hired") {
+      const exists = await Employee.findOne({ email: updatedCandidate.email });
+
+      if (!exists) {
+        await Employee.create({
+          name:       updatedCandidate.fullName,
+          email:      updatedCandidate.email,
+          position:   updatedCandidate.position,
+          department: "General",
+          joinedAt:   new Date(),
+        });
+      }
+    }
+
+    res.json({
+      success: true,
+      item: updatedCandidate,
+    });
+
+  } catch (error) {
+    console.error("Update error:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// DELETE - Delete job application and linked employee
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log("Deleting candidate ID:", id);
+
+    // 1️⃣ Delete employee linked to this candidate
+    const deletedEmployee = await Employee.findOneAndDelete({ candidateId: id });
+    if (deletedEmployee) {
+      console.log("✅ Linked employee deleted:", deletedEmployee._id);
+    } else {
+      console.log("⚠️ No linked employee found");
+    }
+
+    // 2️⃣ Delete candidate
+    const deletedCandidate = await JobApplication.findByIdAndDelete(id);
+
+    if (!deletedCandidate) {
+      return res.status(404).json({
+        success: false,
+        message: "Job application not found",
+      });
+    }
+
+    console.log("✅ Candidate deleted:", deletedCandidate._id);
+
+    // ✅ AUDIT
+    await logAction(req, 'DELETE_JOB_APPLICATION', 'JobApplication', {
+      applicationId: deletedCandidate._id,
+      email:         deletedCandidate.email,
+      position:      deletedCandidate.position
+    });
+
+    // 3️⃣ Delete resume from Cloudinary
+    if (deletedCandidate.resumeFileId) {
+      await deleteFromCloudinary(deletedCandidate.resumeFileId);
+    }
+
+    res.json({
+      success: true,
+      message: "Candidate & Employee deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("DELETE ERROR:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// VIEW single job application
+router.post("/:id/view", async (req, res) => {
+  try {
+    const app = await JobApplication.findById(req.params.id);
+
+    if (!app) {
+      return res.status(404).json({ message: "Not found" });
+    }
+
+    await logAction(req, 'VIEW_JOB_APPLICATION', 'JobApplication', {
+      applicationId: app._id,
+      email:         app.email
+    });
+
+    res.json({ success: true });
+
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+
+// GET - Resume proxy: fetches PDF from Cloudinary and serves it inline
+router.get("/resume-proxy", (req, res) => {
+  const { url } = req.query;
+  if (!url) return res.status(400).json({ message: 'url param required' });
+
+  const decodedUrl = decodeURIComponent(url);
+  console.log('Resume proxy fetching:', decodedUrl);
+
+  // Use built-in https - no extra packages needed
+  import('https').then(({ default: https }) => {
+    https.get(decodedUrl, (proxyRes) => {
+      console.log('Cloudinary response status:', proxyRes.statusCode);
+
+      if (proxyRes.statusCode !== 200) {
+        return res.status(proxyRes.statusCode).json({ message: 'Failed to fetch resume', status: proxyRes.statusCode });
+      }
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'inline; filename="resume.pdf"');
+      res.setHeader('Cache-Control', 'no-cache');
+
+      proxyRes.pipe(res);
+    }).on('error', (err) => {
+      console.error('Resume proxy https error:', err.message);
+      res.status(500).json({ message: err.message });
+    });
+  });
 });
 
 export default router;

@@ -347,9 +347,9 @@ const faqs =
                   <span className="absolute -bottom-1 left-0 w-1/3 h-1 bg-gradient-to-r from-primary to-primary/0"></span>
                 </h2> */}
 
-                  <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+                  <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
                            Overview
-                  <span class="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+                  <span className="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
                 </h2>
 
 
@@ -377,9 +377,9 @@ const faqs =
                       <span className="absolute -bottom-1 left-0 w-1/3 h-1 bg-gradient-to-r from-primary to-primary/0"></span>
                     </h2> */}
 
-                    <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+                    <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
                         Analytics Capabilities
-                  <span class="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+                  <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
                 </h2>
                     <div className="prose prose-lg dark:prose-invert max-w-none mb-12 text-justify">
                       <p>{additionalContent.analyticsTypes}</p>
@@ -402,9 +402,9 @@ const faqs =
 
                 {/* Key Features */}
                 {/* <h2 className="text-3xl font-bold mb-6">Key Features</h2> */}
-                <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+                <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
                           Key Features
-                  <span class="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+                  <span className="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
                 </h2>
                 <FeatureShowcase
                   features={serviceData.features}
@@ -415,9 +415,9 @@ const faqs =
                 {benefits && benefits.length > 0 && (
                   <div className="mb-10">
                     {/* <h2 className="text-3xl font-bold mb-6">Key Benefits</h2> */}
-                  <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+                  <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
                           Key Benefits
-                  <span class="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+                  <span className="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
                 </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {benefits.map((benefit, index) => (

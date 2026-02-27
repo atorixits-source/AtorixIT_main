@@ -25,7 +25,7 @@ export const connectLeadsDB = async () => {
   return connectDB();
 };
 
-// Export connections
+// Export connectionsa
 export const dbConnections = {
   main: mongoose.connection,
   leads: mongoose.connection // Single connection reused

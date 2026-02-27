@@ -114,7 +114,12 @@ try {
   // From integrated file - Sign JWT and return
   userSchema.methods.getSignedJwtToken = function() {
     return jwt.sign(
-      { id: this._id, role: this.role },
+      { 
+        id: this._id, 
+        role: this.role,
+        name: this.name,
+        email: this.email 
+      },
       process.env.JWT_SECRET || 'your_jwt_secret_key',
       { expiresIn: process.env.JWT_EXPIRE || '30d' }
     );

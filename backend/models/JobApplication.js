@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+ 
 const jobApplicationSchema = new mongoose.Schema({
   // Personal Information
   fullName: {
@@ -18,7 +18,7 @@ const jobApplicationSchema = new mongoose.Schema({
     required: [true, 'Phone is required'],
     trim: true
   },
-  
+ 
   // Position Details
   position: {
     type: String,
@@ -48,7 +48,7 @@ const jobApplicationSchema = new mongoose.Schema({
     type: Date,
     default: null
   },
-  
+ 
   // Education & Experience
   education: {
     type: String,
@@ -58,42 +58,53 @@ const jobApplicationSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
-  
-  // Resume file path
-  resumePath: {
-    type: String,
-    default: ''
-  },
-  
+ 
+// Resume – Cloudinary
+resumePath: {
+  type: String,
+  default: ''   // Cloudinary secure URL (for direct browser preview)
+},
+resumeFileId: {
+  type: String,
+  default: ''   // Cloudinary public_id (used to delete the file from Cloudinary)
+},
+ 
   // Source of application
   source: {
     type: String,
     default: 'Career Portal',
     trim: true
   },
-  
+ 
   // Status
   status: {
     type: String,
-    enum: ['applied', 'review', 'interview', 'hired', 'rejected'],
+    enum: [
+      'applied',
+      'reviewed',
+      'contacted',
+      'interview',
+      'hired',
+      'rejected',
+      'new'
+    ],
     default: 'applied'
   },
-  
+ 
   // Timestamps
   createdAt: {
     type: Date,
     default: Date.now
   }
-}, { 
+}, {
   timestamps: true,
-  // Add text indexes for search
   autoIndex: true
 });
-
-// Create indexes for search
+ 
+// Text indexes for search
 jobApplicationSchema.index({ fullName: 'text', email: 'text', position: 'text' });
-
-// Use existing model if it exists, otherwise create a new one
+ 
 const JobApplication = mongoose.models.JobApplication || mongoose.model('JobApplication', jobApplicationSchema);
-
+ 
 export default JobApplication;
+ 

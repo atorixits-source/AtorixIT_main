@@ -6,8 +6,8 @@ import React, {use} from "react";
 import IndustriesSection from "@/components/industries-we-serve/IndustriesSection";
 
 // 🔹 Industries data (COMBINED FILE)
-import { industriesDataMap } from "@/components/industries-we-serve/industriesData";
-
+//import { industriesDataMap } from "@/components/industries-we-serve/industriesData";
+ import industriesDataMap from "@/components/industries-we-serve/industriesData";
 
 // 🔹 Hook
 import useServiceDetail from "./hooks/useServiceDetail";
@@ -81,7 +81,7 @@ export default function ServiceDetailPage({ params }) {
       {industriesData && (
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4">
-            <IndustriesSection industriesData={industriesData} />
+            <IndustriesSection data={serviceData.industries} />
           </div>
         </section>
       )}

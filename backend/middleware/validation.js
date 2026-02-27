@@ -26,8 +26,5 @@ export const validate = (validations) => {
 };
 
 export const jobApplicationValidation = [
-  // Add your validation rules here
-  // Example:
-  // body('email').isEmail().withMessage('Please provide a valid email'),
-  // body('position').notEmpty().withMessage('Position is required'),
+  
 ];

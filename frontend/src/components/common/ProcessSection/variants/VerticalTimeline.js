@@ -37,9 +37,9 @@ export default function VerticalTimeline({ data }) {
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           {/* <h2 className="text-4xl font-bold mb-4">{title}</h2> */}
-          <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+          <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
                   {title}
-            <span class="block mx-auto mt-2 h-[4px] w-1/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+            <span className="block mx-auto mt-2 h-[4px] w-1/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
           </h2>
 
           <p className="text-lg text-muted-foreground">{description}</p>

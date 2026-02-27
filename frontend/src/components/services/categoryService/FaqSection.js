@@ -40,9 +40,9 @@ const FaqItem = ({ faq, index, isOpen, toggle }) => {
           >
             <div className="p-4 pt-0 border-t border-gray-200 dark:border-gray-700">
               <p className="text-gray-700 dark:text-gray-300 justify-smart">
-                 {faq.answer}
+                {faq.answer}
               </p>
-              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -70,17 +70,11 @@ export default function FaqSection({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-      {/* <h2 className="group relative inline-block text-3xl font-bold mb-6 cursor-pointer">
-  <span className="bg-gradient-to-r from-primary via-purple-500 to-indigo-500 bg-clip-text text-transparent transition-all duration-300 group-hover:tracking-wide ">
-    {title}
-  </span>
-</h2>  */}
 
-  <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
-                  {title}
-           <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
-        </h2>
+        {title}
+        <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
         
+
       </motion.h2>
 
       <div>

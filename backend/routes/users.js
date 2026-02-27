@@ -1,9 +1,11 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import AdminUser from '../models/AdminUser.js';
+import { logAction } from '../utils/auditLogger.js';
+import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
-
+router.use(authenticate);
 // Middleware to ensure JSON content type for specific routes
 const requireJsonContent = (req, res, next) => {
   if (req.headers['content-type'] !== 'application/json') {
@@ -19,7 +21,13 @@ router.get('/', async (req, res) => {
   try {
     console.log('GET /api/users - Fetching all users');
     const users = await AdminUser.find().select('-passwordHash').sort({ createdAt: -1 });
+    await logAction(req, 'VIEW_USERS', 'AdminUser', {
+      count: users.length 
+    });
     console.log(`Found ${users.length} users`);
+    await logAction(req, 'VIEW_USERS', 'AdminUser', {
+      count: users.length
+    });
     res.status(200).json(users);
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -35,6 +43,11 @@ router.get('/:id', async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+    // Audit: View user
+    await logAction(req, 'VIEW_USER', 'AdminUser', {
+      userId: user._id,
+      email: user.email
+    });
     res.status(200).json(user);
   } catch (error) {
     console.error('Error fetching user:', error);
@@ -99,6 +112,18 @@ router.post('/', requireJsonContent, async (req, res) => {
 
     console.log('Saving user to database...');
     const savedUser = await newUser.save();
+    // Audit: Create user
+    await logAction(req, 'CREATE_USER', 'USER_MANAGEMENT', {
+      createdUser: {
+        id: savedUser._id,
+        name: savedUser.name,
+        email: savedUser.email,
+        role: savedUser.role,
+        status: savedUser.isActive
+      }
+    });
+
+
     console.log('User saved successfully:', { 
       id: savedUser._id, 
       email: savedUser.email,
@@ -204,6 +229,30 @@ router.put('/:id', async (req, res) => {
 
     console.log('Saving updated user...');
     const updatedUser = await user.save();
+    await logAction(req, 'UPDATE_PROFILE', 'USER', {
+      userId: user._id,
+      updatedFields: Object.keys(req.body),
+    });
+
+    // Audit: Update user
+    await logAction(req, 'UPDATE_USER', 'USER_MANAGEMENT', {
+      userId: updatedUser._id,
+      before: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        isActive: user.isActive
+      },
+      after: {
+        name: updatedUser.name,
+        email: updatedUser.email,
+        role: updatedUser.role,
+        isActive: updatedUser.isActive
+      },
+      updatedFields: Object.keys(req.body)
+    });
+
+
     console.log('User updated successfully');
 
     // Return user without password
@@ -229,7 +278,16 @@ router.delete('/:id', async (req, res) => {
       console.log('User not found:', userId);
       return res.status(404).json({ message: 'User not found' });
     }
-
+    // Audit: Delete user
+    await logAction(req, 'DELETE_USER', 'USER_MANAGEMENT', {
+      deletedUser: {
+        id: deletedUser._id,
+        name: deletedUser.name,
+        email: deletedUser.email,
+        role: deletedUser.role
+      }
+    });
+    
     console.log('User deleted successfully:', userId);
     res.status(200).json({ message: 'User deleted successfully', userId });
   } catch (error) {

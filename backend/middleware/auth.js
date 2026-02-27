@@ -6,39 +6,43 @@ import User from '../models/user.js';
  */
 export const authenticate = (req, res, next) => {
   try {
-    // Try to get token from cookies first
+
     let token = req.cookies?.token;
-    
-    // If no token in cookies, check Authorization header
+
     if (!token && req.headers.authorization?.startsWith('Bearer ')) {
       token = req.headers.authorization.split(' ')[1];
     }
-    
+
     if (!token) {
-      return res.status(401).json({ 
+      return res.status(401).json({
         success: false,
-        message: 'Authentication required. Please log in.'
+        message: 'Authentication required'
       });
     }
 
-    // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret');
-    req.user = decoded;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // STANDARDIZED USER OBJECT
+    req.user = {
+      userId: decoded.userId || decoded.id,
+      name: decoded.name || '',
+      email: decoded.email || '',
+      role: decoded.role || 'user'
+    };
+
     next();
+
   } catch (error) {
-    console.error('Authentication error:', error);
-    if (error.name === 'TokenExpiredError') {
-      return res.status(401).json({
-        success: false,
-        message: 'Session expired. Please log in.'
-      });
-    }
+
+    console.error('Auth error:', error);
+
     res.status(401).json({
       success: false,
-      message: 'Invalid or expired token. Please authenticate.'
+      message: 'Invalid token'
     });
   }
 };
+
 
 export const authorize = (roles = []) => {
   return (req, res, next) => {
@@ -84,7 +88,7 @@ export const protect = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = await User.findById(decoded.id);
     next();
   } catch (err) {

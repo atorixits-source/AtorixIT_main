@@ -88,9 +88,9 @@ export default function ServiceMainContent({
           <>
             {/* <h2 className="text-3xl font-bold mb-6">Key Features</h2> */}
       
-    <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+    <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
               Key Features
-      <span class="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+      <span className="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
     </h2>
 
             <FeatureShowcase
@@ -104,9 +104,9 @@ export default function ServiceMainContent({
         {benefits?.length > 0 && (
           <div className="mb-10 text-justify">
             {/* <h2 className="text-3xl font-bold mb-6">Key Benefits</h2> */}
-   <h2 class="inline-block text-3xl font-bold text-black dark:text-white relative">
+   <h2 className="inline-block text-3xl font-bold text-black dark:text-white relative">
               Key Benefits
-      <span class="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+      <span className="block mx-auto mt-2 h-[4px] w-3/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
     </h2>
 
 
@@ -155,9 +155,9 @@ export default function ServiceMainContent({
           {/* <h3 className="text-2xl font-bold mb-4">
             Ready to get started?
           </h3> */}
- <h3 class="inline-block text-4xl font-bold text-black dark:text-white relative">
+ <h3 className="inline-block text-4xl font-bold text-black dark:text-white relative">
              Ready to get started?
-      <span class="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+      <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
     </h3>
 
           <p className="text-muted-foreground mb-6">

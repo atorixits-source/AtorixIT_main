@@ -505,7 +505,7 @@ export function getStaticHtml(filename) {
         // Always create the sr-only div, but conditionally include h1/h2/p
         seoHeadersSection = `
     <!-- Auto-generated SEO Headers from Header Component Data -->
-    <div class="sr-only" style="
+    <div className="sr-only" style="
         position: absolute; 
         width: 1px; 
         height: 1px; 

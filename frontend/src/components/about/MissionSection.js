@@ -24,9 +24,9 @@ export default function MissionSection() {
             </motion.div>
             
             {/* <h2 className="text-2xl font-semibold">Our Mission</h2> */}
-            {/* <h3 class="inline-block text-2xl font-bold text-black dark:text-white relative">
+            {/* <h3 className="inline-block text-2xl font-bold text-black dark:text-white relative">
                  Our Mission
-            <span class="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
+            <span className="block mx-auto mt-2 h-[4px] w-2/5  bg-gradient-to-r from-transparent via-pink-600 to-transparent dark:via-white"></span>
           </h3> */}
              <h2 className="inline-block text-2xl font-bold text-black dark:text-white relative">
                Our Mission
