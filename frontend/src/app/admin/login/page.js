@@ -16,7 +16,12 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isBlogLogin, setIsBlogLogin] = useState(false);
-  const router = useRouter();
+ const router = useRouter();
+
+useEffect(() => {
+  // Remove dark class from <html>
+  document.documentElement.classList.remove("dark");
+}, []);
 
   
 

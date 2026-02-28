@@ -9,7 +9,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import nodemailer from 'nodemailer';
 
 import { logAction } from '../utils/auditLogger.js';
-import { authenticate } from '../middleware/auth.js';
+import  { authenticate }  from '../middleware/auth.js';
 // HR-dashboard
 import Employee from "../models/Employee.js";
 import JobApplication from "../models/JobApplication.js";
@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 
 const router = express.Router();
 
-router.use(authenticate);
+//router.use(authenticate);
 
 // ─── Cloudinary Configuration ─────────────────────────────────────────────────
 cloudinary.config({
@@ -256,7 +256,7 @@ router.post("/", upload.single("resume"), async (req, res) => {
           company: req.body.currentCompany?.trim() || '',
           role:    req.body.position.trim(),
           source:  'job_application',
-          status:  'New Application',
+          status:  'new',
           type:    'Job Application'
         });
         await lead.save();

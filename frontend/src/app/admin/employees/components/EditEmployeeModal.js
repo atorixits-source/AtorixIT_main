@@ -121,7 +121,7 @@ const EditEmployeeModal = ({
         form.append("resume", formData.resume);
 
       const res = await fetch(
-        `http://localhost:5001/api/employees/${employee._id}`,
+        `/api/employees/${employee._id}`,
         {
           method: "PUT",
           body: form,

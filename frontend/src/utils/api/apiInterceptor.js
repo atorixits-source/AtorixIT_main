@@ -1,102 +1,66 @@
-// Main backend API (admin + core APIs run on port 5001)
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+// src/utils/api/apiInterceptor.js
 
-class ApiInterceptor {
-  constructor() {
-    if (typeof window === "undefined") return;
-    if (window.__apiInterceptorInitialized) return;
+// Backend base URL (must be defined in .env file)
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-    window.__apiInterceptorInitialized = true;
-    this.originalFetch = window.fetch;
-    this.init();
-  }
+function setupApiInterceptor() {
+  if (typeof window === "undefined") return;
 
-  init() {
-    const originalFetch = this.originalFetch;
+  // Prevent multiple overrides
+  if (window.__apiInterceptorInitialized) return;
+  window.__apiInterceptorInitialized = true;
 
-    window.fetch = async (url, options = {}) => {
-      let finalUrl = url;
+  // Save original fetch
+  const originalFetch = window.fetch.bind(window);
 
-      /* =====================================================
-         1️⃣ ABSOLUTE URL → DO NOT TOUCH
-      ===================================================== */
-      if (typeof url === "string" && url.startsWith("http")) {
-        return originalFetch(url, options);
+  window.fetch = async (input, init = {}) => {
+    try {
+      let url = input;
+
+      // 1️⃣ If absolute URL → don't modify
+      if (typeof input === "string" && input.startsWith("http")) {
+        return originalFetch(input, init);
       }
 
-      /* =====================================================
-         2️⃣ NEXT.JS INTERNAL REQUESTS → DO NOT TOUCH
-      ===================================================== */
+      // 2️⃣ Ignore Next.js internal assets
       if (
-        typeof url === "string" &&
-        (url.startsWith("/_next") ||
-          url.startsWith("/__next") ||
-          url.includes("__nextjs"))
+        typeof input === "string" &&
+        (input.startsWith("/_next") ||
+          input.startsWith("/__next") ||
+          input.includes("__nextjs"))
       ) {
-        return originalFetch(url, options);
+        return originalFetch(input, init);
       }
 
-      /* =====================================================
-         3️⃣ BACKEND API ROUTING
-         Only proxy /api/* → backend server
-      ===================================================== */
-      // Let Next.js API routes handle job-applications
-      // Do NOT intercept job applications
-      if (
-        typeof url === "string" &&
-        url.startsWith("/api")
-      ) {
-        return originalFetch(url, options);
+      // 3️⃣ Attach backend base URL for /api routes
+      if (typeof input === "string" && input.startsWith("/api")) {
+        if (!API_BASE_URL) {
+          console.error("NEXT_PUBLIC_API_BASE_URL is not defined");
+          return originalFetch(input, init);
+        }
+        url = `${API_BASE_URL}${input}`;
       }
 
-      // Do NOT intercept demo requests
-      if (
-        typeof url === "string" &&
-        url.startsWith("/api/demo-requests")
-      ) {
-        return originalFetch(url, options);
-      }
-
-      // Proxy other APIs
-      if (typeof url === "string" && url.startsWith("/api")) {
-        finalUrl = `${API_BASE_URL}${url}`;
-      }
-      
-
-
-      /* =====================================================
-         4️⃣ HEADERS & OPTIONS
-      ===================================================== */
+      // 4️⃣ Final request options
       const finalOptions = {
-        ...options,
+        ...init,
         credentials: "include",
-        headers: options.headers || {},
+        headers: {
+          "Content-Type": "application/json",
+          ...(init.headers || {}),
+        },
       };
 
-      console.log("[API]", finalOptions.method || "GET", finalUrl);
+      return originalFetch(url, finalOptions);
 
-      const response = await originalFetch(finalUrl, finalOptions);
-
-      /* =====================================================
-         5️⃣ AUTH HANDLING
-      ===================================================== */
-      if (
-        response.status === 401 &&
-        !window.location.pathname.includes("/admin/login")
-      ) {
-        sessionStorage.removeItem("atorix_auth_token");
-        localStorage.removeItem("token");
-        window.location.href = "/admin/login";
-      }
-
-      return response;
-    };
-  }
+    } catch (error) {
+      console.error("API Interceptor Error:", error);
+      throw error;
+    }
+  };
 }
 
-if (typeof window !== "undefined") {
-  new ApiInterceptor();
-}
+// Initialize once
+setupApiInterceptor();
 
 export default null;

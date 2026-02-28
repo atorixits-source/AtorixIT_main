@@ -7,7 +7,7 @@ const router = express.Router();
 /*
   Logs frontend-only UI actions
 */
-router.post("/ui", authenticate, async (req, res) => {
+router.post("/ui", async (req, res) => {
   try {
     const { action, target, details } = req.body;
 

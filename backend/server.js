@@ -23,7 +23,6 @@ import demoRequestsRouter from './routes/demoRequests.js';
 import auditLogsRouter from './routes/auditLogs.js';
 import jobApplicationsRoutes from "./routes/jobApplications.js";
 import businessLeadsRouter from './routes/businessLeads.js';
-import activityRoutes from './routes/activity.js';
 
 // HR-dashboard Employee
 import employeesRoute from "./routes/employees.js";
@@ -47,14 +46,13 @@ const server = createServer(app);
 initWebSocket(server);
 
 // --- CORS ---
+// ✅ FIX 1: Removed trailing slash from vercel URL
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://atorix-backend-server.onrender.com',
   'http://localhost:5000',
   'http://localhost:3001',
-  'https://atorix-it.vercel.app',
+  'https://atorix-it-main-frontend.vercel.app', // ✅ no trailing slash
   'https://www.atorixit.com',
-  "https://atorix-frontend.vercel.app"
 ];
 
 const corsOptions = {
@@ -74,18 +72,15 @@ const corsOptions = {
   maxAge: 86400,
 };
 
-// --- MIDDLEWARE ---
+// ✅ FIX 2: CORS and middleware registered BEFORE any routes
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use('/api/activity', activityRouter);
-app.use("/api/chat", chatRoutes);
-
 app.set('trust proxy', 1);
-app.use('/api/activity', activityRoutes);
 
+// --- HIRING LEAD SCHEMA ---
 const HiringLeadSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, lowercase: true },
@@ -105,7 +100,7 @@ const HiringLeadSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now }
 });
 
-HiringLeadSchema.pre('save', function(next) {
+HiringLeadSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   next();
 });
@@ -115,21 +110,16 @@ if (!mongoose.models.HiringLead) {
   mongoose.model('HiringLead', HiringLeadSchema);
 }
 
+// --- MONGODB CONNECTION ---
 const connectDB = async () => {
   try {
     await mongoose.connect(MONGODB_URI, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
     });
-
     console.log(`✓ MongoDB connected to: ${mongoose.connection.db.databaseName}`);
-
-    if (!mongoose.models.DemoRequest) {
-      mongoose.model('DemoRequest', DemoRequestSchema);
-    }
   } catch (error) {
     console.error('❌ MongoDB connection error:', error.message);
-
     if (process.env.NODE_ENV === 'production') {
       process.exit(1);
     }
@@ -139,6 +129,7 @@ const connectDB = async () => {
 connectDB();
 
 // --- ROUTES ---
+// ✅ FIX 3: All routes registered after middleware, /api/activity only once
 app.get('/', (req, res) => {
   res.json({
     message: 'Atorix IT Backend API',
@@ -156,17 +147,19 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/api/activity', activityRouter);
+app.use('/api/activity', activityRouter);      // ✅ registered only once
+app.use('/api/chat', chatRoutes);
 app.use('/api/demo-requests', demoRequestsRouter);
 app.use('/api/admin', authRoutes);
 app.use('/api/users', usersRouter);
 app.use('/api/audit-logs', auditLogsRouter);
-app.use("/api/employees", employeesRoute);
-app.use("/api/leaves", leavesRoute);
+app.use('/api/audit-logs', uiAuditRoutes);
+app.use('/api/employees', employeesRoute);
+app.use('/api/leaves', leavesRoute);
 app.use('/api/business-leads', businessLeadsRouter);
-app.use("/api/job-applications", jobApplicationsRoutes);
-app.use("/api/audit-logs", uiAuditRoutes);
+app.use('/api/job-applications', jobApplicationsRoutes);
 
+// --- HEALTH & PING ---
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
@@ -185,7 +178,6 @@ app.get('/api/dev/audit-test', async (req, res) => {
       .sort({ createdAt: -1 })
       .limit(50)
       .lean();
-
     res.json({ success: true, count: logs.length, data: logs });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -264,32 +256,6 @@ app.get('/api/hiring-leads/count', async (req, res) => {
   } catch (error) {
     console.error('Error counting hiring leads:', error);
     res.status(500).json({ success: false, message: 'Error counting hiring leads', error: error.message });
-  }
-});
-
-// --- GET DEMO REQUESTS ---
-app.get('/api/demo-requests', async (req, res) => {
-  try {
-    if (mongoose.connection.readyState !== 1) {
-      return res.status(500).json({ success: false, message: 'Database connection error', data: [] });
-    }
-
-    let requests = [];
-    try {
-      if (global.DemoRequestLeads) {
-        requests = await global.DemoRequestLeads.find().sort({ createdAt: -1 }).limit(50).lean();
-      } else {
-        const DemoRequestMain = mongoose.models.DemoRequest || mongoose.model('DemoRequest', DemoRequestSchema);
-        requests = await DemoRequestMain.find().sort({ createdAt: -1 }).limit(50).lean();
-      }
-      return res.json({ success: true, count: requests.length, data: requests });
-    } catch (dbError) {
-      console.error('Database query error:', dbError);
-      return res.status(500).json({ success: false, message: 'Database query error', error: dbError.message, data: [] });
-    }
-  } catch (error) {
-    console.error('Error in /api/demo-requests:', error);
-    return res.status(500).json({ success: false, message: 'Server error while fetching demo requests', error: error.message, data: [] });
   }
 });
 

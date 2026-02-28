@@ -61,35 +61,41 @@ export default function AdminLayout({ children, title, description }) {
 
 </div>
 
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 flex flex-col lg:flex-row w-full font-['Times_New_Roman',serif]   ">
+    {/* ================= CONTENT ================= */}
+<div className="relative z-10 flex flex-col lg:flex-row w-full font-['Times_New_Roman',serif]">
 
-        <AdminSidebar />
+  {/* Sidebar */}
+  <div className="w-64 shrink-0">
+    <AdminSidebar />
+  </div>
 
-        <div className="flex-1 flex flex-col">
+  {/* Right Section */}
+  <div className="flex-1 flex flex-col min-h-screen">
 
-          {/* Header */}
-          <header className="border-b border-gray-200 ml-10">
+    {/* Header */}
+    <header className="border-b border-gray-200 /70 backdrop-blur-md ml-12">
             <div className="px-4 sm:px-6 md:px-8 py-4">
               <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">
                 {title}
               </h1>
 
-              {description && (
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                  {description}
-                </p>
-              )}
-            </div>
-          </header>
-
-          {/* Main */}
-          <main className="flex-1 p-4 sm:p-6 md:p-8">
-            {children}
-          </main>
-
-        </div>
+        {description && (
+          <p className="text-sm text-gray-600 mt-1">
+            {description}
+          </p>
+        )}
       </div>
+    </header>
+
+    {/* Main */}
+    <main className="flex-1 overflow-auto p-6">
+      <div className="max-w-6xl mx-auto w-full">
+        {children}
+      </div>
+    </main>
+
+  </div>
+</div>
 
 
       

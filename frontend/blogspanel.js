@@ -12,7 +12,7 @@ const app = express();
 
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:3000',
-  'https://atorix-it.vercel.app',
+  'atorix-it-main-frontend.vercel.app',
   'https://atorix-blogs-server1.onrender.com'   // 👈 yaha apna new link daalo
     // (optional) aur bhi add kar sakte ho
 ];

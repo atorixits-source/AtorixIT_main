@@ -41,9 +41,17 @@ export default function RecentLeads() {
     try {
       setLoading(true);
 
+      const token = localStorage.getItem("atorix_auth_token");
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/demo-requests?page=${pageNo}&limit=${limit}`,
-        { credentials: "include" }
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          credentials: "include"
+        }
       );
 
       if (!res.ok) throw new Error("Failed to load");

@@ -147,11 +147,20 @@ export async function apiRequest(endpoint, options = {}, retries = 2) {
     }
 
     // Log response for debugging
+    // console.log(`API Response (${response.status}): ${options.method || 'GET'} ${url}`, {
+    //   status: response.status,
+    //   statusText: response.statusText,
+    //   data
+    // });
     console.log(`API Response (${response.status}): ${options.method || 'GET'} ${url}`, {
-      status: response.status,
-      statusText: response.statusText,
-      data
-    });
+  status: response.status,
+  statusText: response.statusText,
+  data
+});
+
+if (response.status === 401) {
+   // handle unauthorized
+}
 
     // If response is not ok, throw an error with proper structure
     if (!response.ok) {

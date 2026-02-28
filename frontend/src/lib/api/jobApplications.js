@@ -1,11 +1,25 @@
-export const getJobApplications = async (page = 1, pageSize = 100) => {
+import { API_BASE_URL } from "./api";
+
+export const getJobApplications = async (page = 1, pageSize = 10) => {
+  const token =
+    localStorage.getItem("atorix_auth_token") ||
+    localStorage.getItem("token");
+
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/job-applications?page=${page}&pageSize=${pageSize}`,
+    `${API_BASE_URL}/api/job-applications?page=${page}&pageSize=${pageSize}`,
     {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
       credentials: "include",
-      cache: "no-store", // VERY IMPORTANT
     }
   );
 
-  return res.json();
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message || "Failed to fetch job applications");
+  }
+
+  return data;
 };

@@ -6,7 +6,7 @@ import { logUIAction } from "@/lib/uiLogger";
 
 const EmployeeCard = ({ emp, onEdit, onView, onDelete }) => {  // ✅ Added onDelete
   const imageUrl = emp?.profilePhoto
-    ? `http://localhost:5001${emp.profilePhoto}`
+    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${emp.profilePhoto}`
     : null;
 
   return (

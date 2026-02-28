@@ -17,7 +17,9 @@ export default function useChatSocket(onMessage) {
     const token = getAuthToken();
     if (!token) return;
 
-    const ws = new WebSocket("ws://localhost:5001/ws");
+    const ws = new WebSocket(
+      process.env.NEXT_PUBLIC_API_BASE_URL.replace("https", "wss") + "/ws"
+    );
     globalSocket = ws;
 
     ws.onopen = () => {

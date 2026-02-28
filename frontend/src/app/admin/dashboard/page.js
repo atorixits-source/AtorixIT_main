@@ -138,11 +138,16 @@ function AdminDashboardContent() {
         ? `${API_BASE_URL}/api/business-leads?page=${page}&limit=${itemsPerPage}`
         : `${API_BASE_URL}/api/job-applications?page=${page}&pageSize=${itemsPerPage}`;
 
+      const token = localStorage.getItem("atorix_auth_token");
+
       const response = await fetch(endpoint, {
-        headers: { "Content-Type": "application/json", "Cache-Control": "no-cache" },
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+          "Authorization": `Bearer ${token}`,
+        },
         credentials: "include",
       });
-
       const result = await response.json();
       if (!response.ok) throw new Error(result?.message || "Failed to fetch leads");
 

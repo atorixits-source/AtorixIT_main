@@ -316,7 +316,7 @@ export default function AuditLogs() {
             <div className="bg-white p-6 rounded-xl w-full max-w-2xl relative">
               <button
                 onClick={() => setSelectedLog(null)}
-                className="absolute top-4 right-4"
+                className="absolute tonsole.errorop-4 right-4"
               >
                 <X />
               </button>

@@ -109,6 +109,7 @@ export async function validateCredentials(username, password) {
 export function setAuthToken(token, user = null) {
   if (typeof window !== 'undefined') {
     localStorage.setItem('atorix_auth_token', token);
+    sessionStorage.setItem('atorix_auth_token', token);
     if (user) {
       localStorage.setItem('atorix_user', JSON.stringify(user));
     }
@@ -199,7 +200,7 @@ export async function login(username, password, isBlogLogin = false) {
 export async function logout() {
   try {
     // Call the logout API endpoint
-    await fetch('/api/auth/logout', {
+    await fetch(`${API_BASE_URL}/api/auth/logout`, {
       method: 'POST',
       credentials: 'include', // Important for including cookies
       headers: {
