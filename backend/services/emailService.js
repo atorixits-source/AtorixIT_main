@@ -46,3 +46,4 @@ export async function sendEmail({ to, subject, html, text, attachments }) {
     console.error("❌ Email send failed:", error);
   }
 }
+//just for testing
