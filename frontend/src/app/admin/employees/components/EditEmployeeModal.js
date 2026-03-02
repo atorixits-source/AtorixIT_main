@@ -18,6 +18,7 @@ const EditEmployeeModal = ({
     profilePhoto: null,
     resume: null,
   });
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const [idType, setIdType] = useState("");
   const [loading, setLoading] = useState(false);
@@ -120,13 +121,22 @@ const EditEmployeeModal = ({
       if (formData.resume instanceof File)
         form.append("resume", formData.resume);
 
-      const res = await fetch(
-        `/api/employees/${employee._id}`,
-        {
-          method: "PUT",
-          body: form,
-        }
-      );
+      // const res = await fetch(
+      //   `/api/employees/${employee._id}`,
+      //   {
+      //     method: "PUT",
+      //     body: form,
+      //   }
+      // );
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const res = await fetch(
+  `${API_BASE}/api/employees/${employee._id}`,
+  {
+    method: "PUT",
+    body: form,
+  }
+);
 
       const data = await res.json();
 
@@ -198,6 +208,8 @@ const EditEmployeeModal = ({
               />
             </div>
           </div>
+
+         
 
           {/* Bank Account */}
           <div className="space-y-2">

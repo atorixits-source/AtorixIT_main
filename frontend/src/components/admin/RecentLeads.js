@@ -75,7 +75,7 @@ export default function RecentLeads() {
   }, [page]);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+    <div className="rounded-lg shadow overflow-hidden" style={{ backgroundColor: '#ffffff', color: '#111827' }}>
 
       {/* HEADER */}
       <div className="p-5 border-b flex justify-between items-center">
@@ -95,7 +95,7 @@ export default function RecentLeads() {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
 
-          <thead className="bg-gray-100 dark:bg-gray-700">
+          <thead style={{ backgroundColor: '#f3f4f6', color: '#111827' }}>
             <tr>
               <th className="px-4 py-3 text-left">Company</th>
               <th className="px-4 py-3 text-left">Contact</th>
@@ -123,7 +123,7 @@ export default function RecentLeads() {
             ) : (
 
               leads.map((lead) => (
-                <tr key={lead._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                <tr key={lead._id} className="hover:bg-gray-50" style={{ backgroundColor: '#ffffff', color: '#111827' }}>
 
                   <td className="px-4 py-3 font-medium">
                     {lead.company || "N/A"}
@@ -176,7 +176,7 @@ export default function RecentLeads() {
             disabled={page === 1}
             onClick={() => setPage(p => p - 1)}
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={16} className="text-white" />
           </Button>
 
           <Button
@@ -185,7 +185,7 @@ export default function RecentLeads() {
             disabled={page === totalPages}
             onClick={() => setPage(p => p + 1)}
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={16} className="text-white" />
           </Button>
 
         </div>

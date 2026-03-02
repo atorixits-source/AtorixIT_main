@@ -34,23 +34,21 @@ function LeadStatusDistribution() {
   let offset = 0;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 h-full">
+    <div className="bg-white rounded-lg shadow p-6 h-full">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-lg font-semibold text-gray-900">
           Business Leads
         </h2>
 
         <button
           onClick={refresh}
-          className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+          className="p-2 rounded-md hover:bg-gray-100"
         >
           <RefreshCw
             className={`w-5 h-5 ${
-              loading
-                ? "animate-spin text-blue-500"
-                : "text-gray-600 dark:text-gray-300"
+              loading ? "animate-spin text-blue-500" : "text-gray-600"
             }`}
           />
         </button>
@@ -86,10 +84,10 @@ function LeadStatusDistribution() {
 
           {/* Center */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="text-3xl font-bold text-gray-900 dark:text-white">
+            <div className="text-3xl font-bold text-gray-900">
               {total}
             </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="text-sm text-gray-500">
               Total
             </div>
           </div>
@@ -103,15 +101,10 @@ function LeadStatusDistribution() {
               className="flex items-center justify-between text-sm"
             >
               <div className="flex items-center gap-3">
-                <span
-                  className={`w-3 h-3 rounded-full ${item.dot}`}
-                ></span>
-                <span className="text-gray-700 dark:text-gray-300">
-                  {item.label}
-                </span>
+                <span className={`w-3 h-3 rounded-full ${item.dot}`}></span>
+                <span className="text-gray-700">{item.label}</span>
               </div>
-
-              <div className="text-gray-600 dark:text-gray-400">
+              <div className="text-gray-600">
                 {item.count} ({item.displayPercent}%)
               </div>
             </div>
@@ -128,20 +121,14 @@ export default function Analytics() {
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const [sapData, setSapData] = useState([]);
   const [activities, setActivities] = useState([]);
 
-  /* Fetch Business Leads (unchanged) */
   useEffect(() => {
     const fetchLeads = async () => {
       try {
-        const response = await apiRequest(
-          API_ENDPOINTS.BUSINESS_LEADS
-        );
-        const leadsData = Array.isArray(response)
-          ? response
-          : response?.data || [];
+        const response = await apiRequest(API_ENDPOINTS.BUSINESS_LEADS);
+        const leadsData = Array.isArray(response) ? response : response?.data || [];
         setLeads(leadsData);
       } catch (err) {
         setError("Failed to load lead data");
@@ -152,14 +139,10 @@ export default function Analytics() {
     fetchLeads();
   }, []);
 
-  /* Fetch SAP Interest Data (NO backend change needed) */
   useEffect(() => {
     const fetchSAPData = async () => {
       try {
-        const res = await apiRequest(
-          API_ENDPOINTS.DEMO_REQUESTS
-        );
-
+        const res = await apiRequest(API_ENDPOINTS.DEMO_REQUESTS);
         const demoRequests = res?.data || [];
 
         const counts = {
@@ -172,28 +155,19 @@ export default function Analytics() {
         demoRequests.forEach((item) => {
           if (Array.isArray(item.interests)) {
             item.interests.forEach((interest) => {
-              if (counts[interest] !== undefined) {
-                counts[interest]++;
-              }
+              if (counts[interest] !== undefined) counts[interest]++;
             });
           }
         });
 
-        const formatted = Object.keys(counts).map((key) => ({
-          name: key,
-          count: counts[key],
-        }));
-
-        setSapData(formatted);
+        setSapData(Object.keys(counts).map((key) => ({ name: key, count: counts[key] })));
       } catch (err) {
         console.error("SAP chart error:", err);
       }
     };
-
     fetchSAPData();
   }, []);
 
-  /* Fetch Recent Admin Activities */
   useEffect(() => {
     const fetchActivities = async () => {
       try {
@@ -203,30 +177,21 @@ export default function Analytics() {
         console.error("Activity error:", err);
       }
     };
-
     fetchActivities();
   }, []);
 
-  /* Metrics */
   const metrics = useMemo(() => {
     const totalLeads = leads.length;
     const newLeads = leads.filter((l) => l?.status === "new").length;
-    const contactedLeads = leads.filter(
-      (l) => l?.status === "contacted"
-    ).length;
-    const qualifiedLeads = leads.filter(
-      (l) => l?.status === "qualified"
-    ).length;
+    const contactedLeads = leads.filter((l) => l?.status === "contacted").length;
+    const qualifiedLeads = leads.filter((l) => l?.status === "qualified").length;
 
     return {
       totalLeads,
       newLeads,
       contactedLeads,
       qualifiedLeads,
-      conversionRate:
-        totalLeads > 0
-          ? Math.round((qualifiedLeads / totalLeads) * 100)
-          : 0,
+      conversionRate: totalLeads > 0 ? Math.round((qualifiedLeads / totalLeads) * 100) : 0,
     };
   }, [leads]);
 
@@ -235,41 +200,14 @@ export default function Analytics() {
 
   return (
     <ProtectedRoute>
-      <AdminLayout
-        title="Analytics"
-        description="View detailed analytics and insights."
-      >
+      <AdminLayout title="Analytics" description="View detailed analytics and insights.">
 
         {/* Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <MetricCard
-            title="Total Leads"
-            value={metrics.totalLeads}
-            change="+12%"
-            icon={<Users className="w-6 h-6" />}
-            color="blue"
-          />
-          <MetricCard
-            title="New Leads"
-            value={metrics.newLeads}
-            change="+5%"
-            icon={<Users className="w-6 h-6" />}
-            color="purple"
-          />
-          <MetricCard
-            title="Contacted"
-            value={metrics.contactedLeads}
-            change="+8%"
-            icon={<Clock className="w-6 h-6" />}
-            color="green"
-          />
-          <MetricCard
-            title="Qualified"
-            value={metrics.qualifiedLeads}
-            change={`${metrics.conversionRate}%`}
-            icon={<CheckCircle className="w-6 h-6" />}
-            color="indigo"
-          />
+          <MetricCard title="Total Leads" value={metrics.totalLeads} change="+12%" icon={<Users className="w-6 h-6" />} color="blue" />
+          <MetricCard title="New Leads" value={metrics.newLeads} change="+5%" icon={<Users className="w-6 h-6" />} color="purple" />
+          <MetricCard title="Contacted" value={metrics.contactedLeads} change="+8%" icon={<Clock className="w-6 h-6" />} color="green" />
+          <MetricCard title="Qualified" value={metrics.qualifiedLeads} change={`${metrics.conversionRate}%`} icon={<CheckCircle className="w-6 h-6" />} color="indigo" />
         </div>
 
         {/* Charts Row */}
@@ -277,11 +215,10 @@ export default function Analytics() {
 
           <LeadStatusDistribution />
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 h-full">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+          <div className="bg-white rounded-lg shadow p-6 h-full">
+            <h2 className="text-lg font-semibold text-gray-900 mb-6">
               SAP Interests Distribution
             </h2>
-
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={sapData}>
@@ -289,11 +226,7 @@ export default function Analytics() {
                   <XAxis dataKey="name" />
                   <YAxis allowDecimals={false} />
                   <Tooltip />
-                  <Bar
-                    dataKey="count"
-                    fill="#3B82F6"
-                    radius={[6, 6, 0, 0]}
-                  />
+                  <Bar dataKey="count" fill="#3B82F6" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -302,27 +235,21 @@ export default function Analytics() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+        <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-lg font-semibold text-gray-900 mb-6">
               Recent Activities
             </h2>
 
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <table className="min-w-full divide-y divide-gray-200">
 
-                <thead className="bg-gray-50 dark:bg-gray-700">
+                <thead className="bg-gray-50">
                   <tr>
-                    {[
-                      "Action",
-                      "Target",
-                      "User",
-                      "Type",
-                      "Date",
-                    ].map((h) => (
+                    {["Action", "Target", "User", "Type", "Date"].map((h) => (
                       <th
                         key={h}
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
                       >
                         {h}
                       </th>
@@ -330,39 +257,22 @@ export default function Analytics() {
                   </tr>
                 </thead>
 
-                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-
+                <tbody className="bg-white divide-y divide-gray-200">
                   {activities.map((log, index) => (
-                    <tr key={index}>
-
-                      <td className="px-6 py-4">
-                        {log.action}
+                    <tr key={index} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 text-gray-900">{log.action}</td>
+                      <td className="px-6 py-4 text-gray-900">{log.target}</td>
+                      <td className="px-6 py-4 text-gray-900">
+                        {log.details?.performedBy?.name || log.userEmail}
                       </td>
-
-                      <td className="px-6 py-4">
-                        {log.target}
+                      <td className="px-6 py-4 text-gray-900">
+                        {log.target === "JobApplication" ? "Job Application" : "Business"}
                       </td>
-
-                      <td className="px-6 py-4">
-                        {log.details?.performedBy?.name ||
-                          log.userEmail}
+                      <td className="px-6 py-4 text-gray-900">
+                        {new Date(log.createdAt).toLocaleDateString()}
                       </td>
-
-                      <td className="px-6 py-4">
-                        {log.target === "JobApplication"
-                          ? "Job Application"
-                          : "Business"}
-                      </td>
-
-                      <td className="px-6 py-4">
-                        {new Date(
-                          log.createdAt
-                        ).toLocaleDateString()}
-                      </td>
-
                     </tr>
                   ))}
-
                 </tbody>
 
               </table>
@@ -379,35 +289,23 @@ export default function Analytics() {
 
 function MetricCard({ title, value, change, icon, color = "blue" }) {
   const colorClasses = {
-    blue: "bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300",
-    purple:
-      "bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-300",
-    green:
-      "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300",
-    indigo:
-      "bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300",
+    blue: "bg-blue-100 text-blue-600",
+    purple: "bg-purple-100 text-purple-600",
+    green: "bg-green-100 text-green-600",
+    indigo: "bg-indigo-100 text-indigo-600",
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+    <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-            {title}
-          </p>
-
-          <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-            {value}
-          </p>
-
+          <p className="text-sm font-medium text-gray-600">{title}</p>
+          <p className="text-2xl font-bold text-gray-900 mt-2">{value}</p>
           <div className="flex items-center mt-1">
             <TrendingUp className="w-4 h-4 text-green-500" />
-            <span className="text-xs ml-1 text-green-600 dark:text-green-400">
-              {change} from last period
-            </span>
+            <span className="text-xs ml-1 text-green-600">{change} from last period</span>
           </div>
         </div>
-
         <div className={`p-3 rounded-full ${colorClasses[color]}`}>
           {icon}
         </div>

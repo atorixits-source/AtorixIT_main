@@ -17,10 +17,7 @@ export default function AdminSettings() {
   });
 
   const handleSettingChange = (key, value) => {
-    setSettings(prev => ({
-      ...prev,
-      [key]: value
-    }));
+    setSettings(prev => ({ ...prev, [key]: value }));
   };
 
   const handleNumberInput = (e, key, min, max) => {
@@ -31,19 +28,31 @@ export default function AdminSettings() {
     handleSettingChange(key, value);
   };
 
+  const cardStyle = {
+    backgroundColor: '#ffffff',
+    borderColor: '#f3f4f6',
+  };
+
+  const inputStyle = {
+    backgroundColor: '#ffffff',
+    color: '#111827',
+    borderColor: '#d1d5db',
+  };
+
   return (
     <ProtectedRoute>
-      <AdminLayout 
-        title="Settings" 
+      <AdminLayout
+        title="Settings"
         description="Configure system settings and preferences."
       >
         <div className="space-y-6 max-w-4xl mx-auto w-full">
+
           {/* Session Inactivity Timeout */}
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="rounded-xl shadow-md p-6 border" style={cardStyle}>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <div className="mb-2 sm:mb-0">
-                <h3 className="text-base font-medium text-gray-900 dark:text-white">Session Inactivity Timeout</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <h3 className="text-base font-medium" style={{ color: '#111827' }}>Session Inactivity Timeout</h3>
+                <p className="text-sm" style={{ color: '#6b7280' }}>
                   Automatically log out users after {settings.sessionTimeout} minutes of inactivity
                 </p>
               </div>
@@ -65,20 +74,21 @@ export default function AdminSettings() {
                     max="120"
                     value={settings.sessionTimeout}
                     onChange={(e) => handleNumberInput(e, 'sessionTimeout', 2, 120)}
-                    className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-center"
+                    className="w-full px-2 py-1 border rounded-md text-center"
+                    style={inputStyle}
                   />
                 </div>
-                <span className="text-sm text-gray-500 dark:text-gray-400">min</span>
+                <span className="text-sm" style={{ color: '#6b7280' }}>min</span>
               </div>
             </div>
           </div>
 
           {/* Inactivity Warning Duration */}
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="rounded-xl shadow-md p-6 border" style={cardStyle}>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <div className="mb-2 sm:mb-0">
-                <h3 className="text-base font-medium text-gray-900 dark:text-white">Inactivity Warning Duration</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <h3 className="text-base font-medium" style={{ color: '#111827' }}>Inactivity Warning Duration</h3>
+                <p className="text-sm" style={{ color: '#6b7280' }}>
                   Show warning {settings.warningDuration} minute{settings.warningDuration !== 1 ? 's' : ''} before session timeout
                 </p>
               </div>
@@ -100,20 +110,21 @@ export default function AdminSettings() {
                     max="30"
                     value={settings.warningDuration}
                     onChange={(e) => handleNumberInput(e, 'warningDuration', 1, 30)}
-                    className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-center"
+                    className="w-full px-2 py-1 border rounded-md text-center"
+                    style={inputStyle}
                   />
                 </div>
-                <span className="text-sm text-gray-500 dark:text-gray-400">min</span>
+                <span className="text-sm" style={{ color: '#6b7280' }}>min</span>
               </div>
             </div>
           </div>
 
           {/* Maximum Leads to Display */}
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="rounded-xl shadow-md p-6 border" style={cardStyle}>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <div className="mb-2 sm:mb-0">
-                <h3 className="text-base font-medium text-gray-900 dark:text-white">Maximum Leads to Display</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <h3 className="text-base font-medium" style={{ color: '#111827' }}>Maximum Leads to Display</h3>
+                <p className="text-sm" style={{ color: '#6b7280' }}>
                   Currently showing {settings.maxLeads} out of {settings.totalLeads} total leads
                 </p>
               </div>
@@ -135,63 +146,69 @@ export default function AdminSettings() {
                     max={settings.totalLeads}
                     value={settings.maxLeads}
                     onChange={(e) => handleNumberInput(e, 'maxLeads', 1, settings.totalLeads)}
-                    className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-center"
+                    className="w-full px-2 py-1 border rounded-md text-center"
+                    style={inputStyle}
                   />
                 </div>
-                <span className="text-sm text-gray-500 dark:text-gray-400">leads</span>
+                <span className="text-sm" style={{ color: '#6b7280' }}>leads</span>
               </div>
             </div>
           </div>
 
           {/* Toggle Settings */}
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+
+            {/* Restrict Counselor View */}
+            <div className="rounded-lg shadow p-4" style={{ backgroundColor: '#ffffff' }}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-base font-medium text-gray-900 dark:text-white">Restrict Counselor View</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <h3 className="text-base font-medium" style={{ color: '#111827' }}>Restrict Counselor View</h3>
+                  <p className="text-sm" style={{ color: '#6b7280' }}>
                     Counselors can only see leads assigned to them
                   </p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
-                  <input 
-                    type="checkbox" 
-                    className="sr-only peer" 
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
                     checked={settings.restrictCounselorView}
                     onChange={() => handleSettingChange('restrictCounselorView', !settings.restrictCounselorView)}
                   />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                 </label>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+            {/* Restrict Lead Editing */}
+            <div className="rounded-lg shadow p-4" style={{ backgroundColor: '#ffffff' }}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-base font-medium text-gray-900 dark:text-white">Restrict Lead Editing</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <h3 className="text-base font-medium" style={{ color: '#111827' }}>Restrict Lead Editing</h3>
+                  <p className="text-sm" style={{ color: '#6b7280' }}>
                     Only admins or assigned users can edit lead status and contacted fields in dashboard page
                   </p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
-                  <input 
-                    type="checkbox" 
-                    className="sr-only peer" 
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
                     checked={settings.restrictLeadEditing}
                     onChange={() => handleSettingChange('restrictLeadEditing', !settings.restrictLeadEditing)}
                   />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                 </label>
               </div>
             </div>
+
           </div>
         </div>
 
         <div className="mt-6 flex justify-end">
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+          <Button style={{ backgroundColor: '#2563eb', color: '#ffffff' }} className="hover:bg-blue-700">
             Save Changes
           </Button>
         </div>
+
       </AdminLayout>
     </ProtectedRoute>
   );

@@ -118,7 +118,7 @@ export default function LeadsPage() {
   /* ===============================
      DELETE
   =============================== */
-
+// 
   const handleDelete = async (id, name) => {
     if (!confirm(`Delete lead: ${name}?`)) return;
 

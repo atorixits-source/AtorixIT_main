@@ -12,7 +12,7 @@ export default function LeadsToolbar({
   activeTab,
 }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+    <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
       
       {/* Search */}
       <div className="relative flex-1">
@@ -22,7 +22,7 @@ export default function LeadsToolbar({
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search leads..."
-          className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
+          className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 focus:ring-blue-500 focus:border-blue-500 text-sm"
         />
       </div>
 
@@ -30,7 +30,7 @@ export default function LeadsToolbar({
       <select
         value={statusFilter}
         onChange={(e) => onStatusChange(e.target.value)}
-        className="w-full sm:w-48 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-white text-sm"
+        className="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 text-sm"
       >
         <option value="all">All Statuses</option>
         <option value="new">New</option>

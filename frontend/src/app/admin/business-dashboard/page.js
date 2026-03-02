@@ -40,15 +40,13 @@ const MetricCard = ({ title, value, icon: Icon, trend, percentage, color }) => {
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-500 ">{title}</p>
+          <p className="text-sm text-gray-500">{title}</p>
           <div className="flex items-baseline mt-1">
-            <p className="text-2xl font-semibold text-gray-900 ">
+            <p className="text-2xl font-semibold text-gray-900">
               {value}
             </p>
             {percentage && (
-              <span
-                className={`ml-2 text-sm flex items-center ${trendColor}`}
-              >
+              <span className={`ml-2 text-sm flex items-center ${trendColor}`}>
                 {trendIcon} {percentage}%
               </span>
             )}
@@ -131,19 +129,7 @@ export default function BusinessDashboard() {
         title="Business Dashboard"
         description="Overview of your business performance"
       >
-        {/* Refresh Button */}
-        <div className="flex justify-end mb-6">
-          <Button
-            variant="outline"
-            disabled={loading}
-            className="flex items-center gap-2"
-          >
-            <RefreshCw
-              className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
-            />
-            Refresh
-          </Button>
-        </div>
+
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -164,23 +150,23 @@ export default function BusinessDashboard() {
         {/* ============================= */}
         <div className="bg-white rounded-lg shadow mb-6">
           <div className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 dark mb-4">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">
               Recent Activity
             </h2>
             <div className="space-y-4">
               {activities.map((activity, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-3 p-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  className="flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
                 >
-                  <div className="p-2 rounded-full bg-blue-100 text-blue-500 ">
+                  <div className="p-2 rounded-full bg-blue-100 text-blue-500">
                     <activity.icon className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900 ">
+                    <p className="text-sm font-medium text-gray-900">
                       {activity.title}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500">
                       {activity.description}
                     </p>
                   </div>

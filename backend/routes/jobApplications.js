@@ -292,7 +292,7 @@ router.get("/", async (req, res) => {
 
   try {
     const page     = parseInt(req.query.page)     || 1;
-    const pageSize = parseInt(req.query.pageSize) || 10;
+    const pageSize = parseInt(req.query.pageSize) || 1000;
     const search   = req.query.search             || '';
     const skip     = (page - 1) * pageSize;
 
@@ -492,6 +492,8 @@ router.delete("/:id", async (req, res) => {
     });
   }
 });
+
+
 
 // VIEW single job application
 router.post("/:id/view", async (req, res) => {

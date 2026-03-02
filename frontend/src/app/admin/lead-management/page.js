@@ -31,12 +31,12 @@ const logUIAction = async (action, target, details = {}) => {
 
 const StatusBadge = ({ status }) => {
   const statusConfig = {
-    new: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    contacted: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-    qualified: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    hired: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200",
-    rejected: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-    applied: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+    new: "bg-blue-100 text-blue-800",
+    contacted: "bg-purple-100 text-purple-800",
+    qualified: "bg-green-100 text-green-800",
+    hired: "bg-indigo-100 text-indigo-800",
+    rejected: "bg-red-100 text-red-800",
+    applied: "bg-blue-100 text-blue-800",
   };
 
   return (
@@ -76,17 +76,10 @@ export default function LeadManagementPage() {
   const fetchBusiness = async () => {
     try {
       setBusinessLoading(true);
-
       logUIAction("REFRESH_BUSINESS_LEADS", "LEAD_MANAGEMENT");
-
-      const res = await fetch(`${API_BASE_URL}/api/demo-requests`, {
-        credentials: "include",
-      });
-
+      const res = await fetch(`${API_BASE_URL}/api/demo-requests`, { credentials: "include" });
       const data = await res.json();
-
       setBusinessLeads(Array.isArray(data.data) ? data.data : []);
-
     } catch (err) {
       console.error(err);
       setBusinessLeads([]);
@@ -95,23 +88,15 @@ export default function LeadManagementPage() {
     }
   };
 
-  /* ---------------- Fetch Hiring (FIXED) ---------------- */
+  /* ---------------- Fetch Hiring ---------------- */
 
   const fetchHiring = async () => {
     try {
       setHiringLoading(true);
-
       logUIAction("REFRESH_HIRING_LEADS", "LEAD_MANAGEMENT");
-
-      const res = await fetch(`${API_BASE_URL}/api/job-applications`, {
-        credentials: "include",
-      });
-
+      const res = await fetch(`${API_BASE_URL}/api/job-applications`, { credentials: "include" });
       const data = await res.json();
-
-      // ✅ FIX HERE
       setHiringLeads(Array.isArray(data.items) ? data.items : []);
-
     } catch (err) {
       console.error(err);
       setHiringLeads([]);
@@ -159,27 +144,29 @@ export default function LeadManagementPage() {
         title="Lead Management"
         description="Centralized view for all incoming leads"
       >
-
         <div className="p-6 space-y-6">
 
           {/* Toggle */}
-          <div className="flex gap-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg w-fit">
+          <div className="flex gap-2 bg-gray-100 p-1 rounded-lg w-fit">
             <button
               onClick={() => handleTabChange("business")}
-              className={`px-4 py-2 rounded-md ${activeTab === "business" ? "bg-white dark:bg-gray-700 shadow text-blue-600" : ""}`}
+              className={`px-4 py-2 rounded-md text-sm font-medium text-gray-700 ${
+                activeTab === "business" ? "bg-white shadow text-blue-600" : "hover:bg-gray-200"
+              }`}
             >
               Business Leads
             </button>
 
             <button
               onClick={() => handleTabChange("hiring")}
-              className={`px-4 py-2 rounded-md ${activeTab === "hiring" ? "bg-white dark:bg-gray-700 shadow text-blue-600" : ""}`}
+              className={`px-4 py-2 rounded-md text-sm font-medium text-gray-700 ${
+                activeTab === "hiring" ? "bg-white shadow text-blue-600" : "hover:bg-gray-200"
+              }`}
             >
               Hiring Leads
             </button>
           </div>
 
-          {/* BUSINESS TABLE (UNCHANGED STRUCTURE) */}
           {activeTab === "business" && (
             <LeadTable
               title="Business Leads"
@@ -193,7 +180,6 @@ export default function LeadManagementPage() {
             />
           )}
 
-          {/* HIRING TABLE (NOW POPULATED) */}
           {activeTab === "hiring" && (
             <LeadTable
               title="Hiring Leads"
@@ -208,7 +194,6 @@ export default function LeadManagementPage() {
           )}
 
         </div>
-
       </AdminLayout>
     </ProtectedRoute>
   );
@@ -217,60 +202,60 @@ export default function LeadManagementPage() {
 /* ---------------- Shared Table Component ---------------- */
 
 function LeadTable({ title, icon, data, loading, search, setSearch, refresh, type }) {
-
   return (
-    <div className="bg-white rounded-xl shadow border">
+    <div className="bg-white rounded-xl shadow border border-gray-200">
 
-      <div className="p-5 border-b flex justify-between items-center">
-
-        <h2 className="flex items-center gap-2 font-semibold">
+      <div className="p-5 border-b border-gray-200 flex justify-between items-center">
+        <h2 className="flex items-center gap-2 font-semibold text-gray-800">
           {icon}
           {title}
         </h2>
 
         <div className="flex gap-3">
-
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-2.5 text-gray-400" />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search..."
-              className="pl-9 pr-3 py-1.5 border rounded-md text-sm"
+              className="pl-9 pr-3 py-1.5 border border-gray-300 rounded-md text-sm text-gray-800 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <button
             onClick={refresh}
-            className="p-2 border rounded-md hover:bg-gray-100"
+            className="p-2 border border-gray-300 rounded-md hover:bg-gray-100 text-gray-600"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
           </button>
-
         </div>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y">
+        <table className="min-w-full divide-y divide-gray-200">
 
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-4 py-3 text-left text-xs">Name</th>
-              <th className="px-4 py-3 text-left text-xs">Status</th>
-              <th className="px-4 py-3 text-left text-xs">Date</th>
-              <th className="px-4 py-3 text-right text-xs">Actions</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Name</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Date</th>
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
 
-          <tbody>
+          <tbody className="divide-y divide-gray-100">
             {loading ? (
-              <tr><td colSpan="4" className="p-6 text-center">Loading...</td></tr>
+              <tr>
+                <td colSpan="4" className="p-6 text-center text-gray-500">Loading...</td>
+              </tr>
             ) : data.length === 0 ? (
-              <tr><td colSpan="4" className="p-6 text-center text-gray-500">No data found</td></tr>
+              <tr>
+                <td colSpan="4" className="p-6 text-center text-gray-500">No data found</td>
+              </tr>
             ) : (
               data.map((item) => (
                 <tr key={item._id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 text-sm font-medium text-gray-800">
                     {item.fullName || item.name}
                   </td>
 
@@ -278,7 +263,7 @@ function LeadTable({ title, icon, data, loading, search, setSearch, refresh, typ
                     <StatusBadge status={item.status} />
                   </td>
 
-                  <td className="px-4 py-3 text-sm">
+                  <td className="px-4 py-3 text-sm text-gray-600">
                     {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : "-"}
                   </td>
 

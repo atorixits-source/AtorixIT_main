@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Eye, Pencil, Trash2, X, Save } from "lucide-react";
+import { Eye, Pencil, Trash2, X } from "lucide-react";
 import { deleteLead, updateLead } from "@/lib/adminLeadsApi";
 
 export default function LeadActions({ lead, type, onUpdated }) {
@@ -10,7 +10,11 @@ export default function LeadActions({ lead, type, onUpdated }) {
   const [saving, setSaving] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState(lead.status || "new");
 
-  // ✅ Sync when lead changes
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [loadingDelete, setLoadingDelete] = useState(false);
+  const [deleteError, setDeleteError] = useState(null);
+
+  /* ================= SYNC ================= */
   useEffect(() => {
     setSelectedStatus(lead.status || "new");
   }, [lead]);
@@ -22,14 +26,21 @@ export default function LeadActions({ lead, type, onUpdated }) {
 
   /* ================= DELETE ================= */
   const handleDelete = async () => {
-    if (!confirm("Are you sure you want to delete this lead?")) return;
-
     try {
+      setLoadingDelete(true);
+      setDeleteError(null);
+
       await deleteLead(type, lead._id);
-      alert("Lead deleted successfully");
+
+      setShowConfirm(false);
+
+      // refresh table
       onUpdated?.();
+
     } catch (err) {
-      alert(err.message || "Delete failed");
+      setDeleteError(err.message || "Delete failed");
+    } finally {
+      setLoadingDelete(false);
     }
   };
 
@@ -45,8 +56,6 @@ export default function LeadActions({ lead, type, onUpdated }) {
       });
 
       closeModal();
-
-      // REFRESH TABLE
       onUpdated?.();
 
     } catch (err) {
@@ -59,9 +68,10 @@ export default function LeadActions({ lead, type, onUpdated }) {
 
   return (
     <>
-      {/* Buttons */}
+      {/* ACTION BUTTONS */}
       <div className="flex gap-3">
 
+        {/* VIEW */}
         <button
           onClick={() => {
             setMode("view");
@@ -72,6 +82,7 @@ export default function LeadActions({ lead, type, onUpdated }) {
           <Eye size={16} />
         </button>
 
+        {/* EDIT */}
         <button
           onClick={() => {
             setMode("edit");
@@ -82,8 +93,9 @@ export default function LeadActions({ lead, type, onUpdated }) {
           <Pencil size={16} />
         </button>
 
+        {/* DELETE */}
         <button
-          onClick={handleDelete}
+          onClick={() => setShowConfirm(true)}
           className="text-red-600"
         >
           <Trash2 size={16} />
@@ -91,7 +103,7 @@ export default function LeadActions({ lead, type, onUpdated }) {
 
       </div>
 
-      {/* Modal */}
+      {/* VIEW / EDIT MODAL */}
       {open && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
 
@@ -104,7 +116,7 @@ export default function LeadActions({ lead, type, onUpdated }) {
               <X size={18} />
             </button>
 
-            <h2 className="font-semibold mb-4">
+            <h2 className="font-semibold mb-4 text-left ">
               {mode === "view" ? "View Lead" : "Edit Lead"}
             </h2>
 
@@ -146,6 +158,54 @@ export default function LeadActions({ lead, type, onUpdated }) {
 
               </div>
             )}
+
+          </div>
+        </div>
+      )}
+
+      {/* DELETE CONFIRM MODAL */}
+      {showConfirm && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+
+          <div className="bg-white p-6 w-full max-w-sm rounded-lg relative">
+
+            <button
+              onClick={() => setShowConfirm(false)}
+              className="absolute top-3 right-3"
+            >
+              <X size={18} />
+            </button>
+
+            <h3 className="font-semibold mb-3 text-left">
+              Delete Lead?
+            </h3>
+
+            <p className="text-sm mb-4 text-left">
+              Are you sure you want to delete <b>{lead.name}</b>?
+            </p>
+
+            {deleteError && (
+              <p className="text-red-600 text-sm mb-2">
+                {deleteError}
+              </p>
+            )}
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowConfirm(false)}
+                className="flex-1 border px-3 py-2 rounded"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={handleDelete}
+                disabled={loadingDelete}
+                className="flex-1 bg-red-600 text-white px-3 py-2 rounded"
+              >
+                {loadingDelete ? "Deleting..." : "Delete"}
+              </button>
+            </div>
 
           </div>
         </div>
