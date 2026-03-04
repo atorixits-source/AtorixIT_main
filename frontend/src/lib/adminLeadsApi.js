@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
 
 /**
  * Admin Leads API
@@ -24,8 +24,9 @@ export async function deleteLead(type, id) {
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    throw new Error(data.message || "Delete failed");
-  }
+  console.error("API ERROR:", res.status, data);
+  throw new Error(data.message || `Delete failed (${res.status})`);
+}
 
   return data;
 }
@@ -33,18 +34,18 @@ export async function deleteLead(type, id) {
 export async function updateLead(type, id, payload) {
   let endpoint;
 
-  if (type === "business") {
-    endpoint = `${BASE_URL}/api/business-leads/${id}`;
-  } 
-  else if (type === "demo") {
-    endpoint = `${BASE_URL}/api/demo-requests/${id}`;
-  } 
-  else if (type === "job") {
-    endpoint = `${BASE_URL}/api/job-applications/${id}`;
-  } 
-  else {
-    throw new Error("Invalid lead type");
-  }
+ if (type === "business") {
+  endpoint = `${BASE_URL}/api/business-leads/${id}`;
+} 
+else if (type === "demo") {
+  endpoint = `${BASE_URL}/api/demo-requests/${id}`;
+}
+else if (type === "job") {
+  endpoint = `${BASE_URL}/api/job-applications/${id}`;
+} 
+else {
+  throw new Error("Invalid lead type");
+}
 
   const res = await fetch(endpoint, {
     method: "PATCH",

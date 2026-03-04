@@ -8,25 +8,38 @@ export default function LeadActions({ lead, type, onUpdated }) {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState("view");
   const [saving, setSaving] = useState(false);
-  const [selectedStatus, setSelectedStatus] = useState(lead.status || "new");
+  const [selectedStatus, setSelectedStatus] = useState(
+    lead?.status || "new"
+  );
 
   const [showConfirm, setShowConfirm] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState(false);
   const [deleteError, setDeleteError] = useState(null);
+  const [updateError, setUpdateError] = useState(null);
 
   /* ================= SYNC ================= */
   useEffect(() => {
-    setSelectedStatus(lead.status || "new");
+    setSelectedStatus(lead?.status || "new");
   }, [lead]);
 
   const closeModal = () => {
     setOpen(false);
     setMode("view");
+    setUpdateError(null);
   };
+
+  const isValidType = (t) =>
+    ["business", "demo", "job"].includes(t);
 
   /* ================= DELETE ================= */
   const handleDelete = async () => {
     try {
+      if (!lead?._id) return;
+
+      if (!isValidType(type)) {
+        throw new Error("Invalid lead type");
+      }
+
       setLoadingDelete(true);
       setDeleteError(null);
 
@@ -34,11 +47,11 @@ export default function LeadActions({ lead, type, onUpdated }) {
 
       setShowConfirm(false);
 
-      // refresh table
-      onUpdated?.();
+      if (onUpdated) onUpdated();
 
     } catch (err) {
-      setDeleteError(err.message || "Delete failed");
+      console.error("Delete error:", err);
+      setDeleteError(err?.message || "Delete failed");
     } finally {
       setLoadingDelete(false);
     }
@@ -47,20 +60,26 @@ export default function LeadActions({ lead, type, onUpdated }) {
   /* ================= UPDATE ================= */
   const handleSave = async () => {
     try {
-      if (!selectedStatus) return;
+      if (!selectedStatus || !lead?._id) return;
+
+      if (!isValidType(type)) {
+        throw new Error("Invalid lead type");
+      }
 
       setSaving(true);
+      setUpdateError(null);
 
       await updateLead(type, lead._id, {
         status: selectedStatus,
       });
 
       closeModal();
-      onUpdated?.();
+
+      if (onUpdated) onUpdated();
 
     } catch (err) {
-      console.error(err);
-      alert("Update failed");
+      console.error("Update error:", err);
+      setUpdateError(err?.message || "Update failed");
     } finally {
       setSaving(false);
     }
@@ -70,7 +89,6 @@ export default function LeadActions({ lead, type, onUpdated }) {
     <>
       {/* ACTION BUTTONS */}
       <div className="flex gap-3">
-
         {/* VIEW */}
         <button
           onClick={() => {
@@ -100,15 +118,12 @@ export default function LeadActions({ lead, type, onUpdated }) {
         >
           <Trash2 size={16} />
         </button>
-
       </div>
 
       {/* VIEW / EDIT MODAL */}
       {open && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-
-          <div className="bg-white dark:bg-gray-800 p-6 w-full max-w-md rounded relative">
-
+          <div className="bg-white p-6 w-full max-w-md rounded relative">
             <button
               onClick={closeModal}
               className="absolute top-3 right-3"
@@ -116,37 +131,48 @@ export default function LeadActions({ lead, type, onUpdated }) {
               <X size={18} />
             </button>
 
-            <h2 className="font-semibold mb-4 text-left ">
+            <h2 className="font-semibold mb-4 text-left">
               {mode === "view" ? "View Lead" : "Edit Lead"}
             </h2>
 
             {mode === "view" && (
               <div className="space-y-2 text-sm">
-                <p><b>Name:</b> {lead.name}</p>
-                <p><b>Email:</b> {lead.email}</p>
-                <p><b>Phone:</b> {lead.phone}</p>
-                <p><b>Status:</b> {lead.status}</p>
+                <p><b>Name:</b> {lead?.name}</p>
+                <p><b>Email:</b> {lead?.email}</p>
+                <p><b>Phone:</b> {lead?.phone}</p>
+                <p><b>Status:</b> {lead?.status}</p>
               </div>
             )}
 
             {mode === "edit" && (
               <div className="space-y-4">
-
                 <select
                   value={selectedStatus}
-                  onChange={e => setSelectedStatus(e.target.value)}
+                  onChange={(e) =>
+                    setSelectedStatus(e.target.value)
+                  }
                   className="w-full border p-2 rounded"
                 >
                   {[
-                    "new","contacted","hired",
-                    "reviewed","scheduled","completed",
+                    "new",
+                    "contacted",
+                    "hired",
+                    "reviewed",
+                    "scheduled",
+                    "completed",
                     "cancelled",
-                  ].map(s => (
+                  ].map((s) => (
                     <option key={s} value={s}>
                       {s.toUpperCase()}
                     </option>
                   ))}
                 </select>
+
+                {updateError && (
+                  <p className="text-red-600 text-sm">
+                    {updateError}
+                  </p>
+                )}
 
                 <button
                   onClick={handleSave}
@@ -155,10 +181,8 @@ export default function LeadActions({ lead, type, onUpdated }) {
                 >
                   {saving ? "Saving..." : "Save"}
                 </button>
-
               </div>
             )}
-
           </div>
         </div>
       )}
@@ -166,9 +190,7 @@ export default function LeadActions({ lead, type, onUpdated }) {
       {/* DELETE CONFIRM MODAL */}
       {showConfirm && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-
           <div className="bg-white p-6 w-full max-w-sm rounded-lg relative">
-
             <button
               onClick={() => setShowConfirm(false)}
               className="absolute top-3 right-3"
@@ -181,7 +203,7 @@ export default function LeadActions({ lead, type, onUpdated }) {
             </h3>
 
             <p className="text-sm mb-4 text-left">
-              Are you sure you want to delete <b>{lead.name}</b>?
+              Are you sure you want to delete this lead?
             </p>
 
             {deleteError && (
@@ -206,7 +228,6 @@ export default function LeadActions({ lead, type, onUpdated }) {
                 {loadingDelete ? "Deleting..." : "Delete"}
               </button>
             </div>
-
           </div>
         </div>
       )}

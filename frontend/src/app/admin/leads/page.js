@@ -314,7 +314,7 @@ export default function LeadsPage() {
         {/* Pagination - Numbered Style */}
 <div className="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4">
 
-  <span className="text-sm text-gray-500">
+  <span className="text-sm text-white-500">
     Page {page} of {totalPages}
   </span>
 
