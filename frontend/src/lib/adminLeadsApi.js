@@ -1,122 +1,87 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||"https://atorix-backend-server.onrender.com";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001" || "https://atorix-backend-server.onrender.com";
 
 /**
+ * Admin Leads API
+ * Shared by Admin + HR
+ */
 
-* Admin Leads API
-* Shared by Admin + HR
-  */
+// const BASE_URL =
+//   process.env.NEXT_PUBLIC_API_BASE_URL ||
+//   "https://atorix-backend-server.onrender.com";
 
 /* ================= ENDPOINT HELPER ================= */
 
 function getEndpoint(type, id) {
 
-switch (type) {
+  switch (type) {
 
-  
-case "business":
-  return `${BASE_URL}/api/business-leads/${id}`;
+    case "business":
+      return `${BASE_URL}/api/business-leads/${id}`;
 
-case "demo":
-  return `${BASE_URL}/api/demo-requests/${id}`;
+    case "demo":
+      return `${BASE_URL}/api/demo-requests/${id}`;
 
-case "job":
-case "hiring":
-  return `${BASE_URL}/api/job-applications/${id}`;
+    case "job":
+    case "hiring":
+      return `${BASE_URL}/api/job-applications/${id}`;
 
-default:
-  console.error("Unknown lead type:", type);
-  throw new Error(`Invalid lead type: ${type}`);
-  
-
-}
-}
-
-/* ================= TOKEN HELPER ================= */
-
-function getAuthHeaders() {
-
-const token = typeof window !== "undefined"
-? localStorage.getItem("token")
-: null;
-
-const headers = {
-"Content-Type": "application/json",
-};
-
-if (token) {
-headers["Authorization"] = `Bearer ${token}`;
-}
-
-return headers;
+    default:
+      console.error("Unknown lead type:", type);
+      throw new Error(`Invalid lead type: ${type}`);
+  }
 }
 
 /* ================= DELETE ================= */
 
 export async function deleteLead(type, id) {
 
-const endpoint = getEndpoint(type, id);
+  const endpoint = getEndpoint(type, id);
 
-const res = await fetch(endpoint, {
-method: "DELETE",
-headers: getAuthHeaders(),
-credentials: "include",
-});
+  const res = await fetch(endpoint, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
 
-let data = {};
+  let data = {};
+  try {
+    data = await res.json();
+  } catch {}
 
-try {
-data = await res.json();
-} catch {}
+  if (!res.ok) {
+    console.error("DELETE API ERROR:", res.status, data);
+    throw new Error(data?.message || `Delete failed (${res.status})`);
+  }
 
-if (!res.ok) {
-
-  
-console.error("DELETE API ERROR:", res.status, data);
-
-if (res.status === 401) {
-  throw new Error("Authentication required");
-}
-
-throw new Error(data?.message || `Delete failed (${res.status})`);
-  
-
-}
-
-return data;
+  return data;
 }
 
 /* ================= UPDATE ================= */
 
 export async function updateLead(type, id, payload) {
 
-const endpoint = getEndpoint(type, id);
+  const endpoint = getEndpoint(type, id);
 
-const res = await fetch(endpoint, {
-method: "PATCH",
-headers: getAuthHeaders(),
-credentials: "include",
-body: JSON.stringify(payload),
-});
+  const res = await fetch(endpoint, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(payload),
+  });
 
-let data = {};
+  let data = {};
+  try {
+    data = await res.json();
+  } catch {}
 
-try {
-data = await res.json();
-} catch {}
+  if (!res.ok) {
+    console.error("UPDATE API ERROR:", res.status, data);
+    throw new Error(data?.message || `Update failed (${res.status})`);
+  }
 
-if (!res.ok) {
-
-  
-console.error("UPDATE API ERROR:", res.status, data);
-
-if (res.status === 401) {
-  throw new Error("Authentication required");
-}
-
-throw new Error(data?.message || `Update failed (${res.status})`);
-  
-
-}
-
-return data;
+  return data;
 }
