@@ -91,6 +91,7 @@ const config: Config = {
           xl: "1280px",
           "2xl": "1536px",
         },
+        
       },
     },
   },

@@ -34,17 +34,17 @@ function LeadStatusDistribution() {
   let offset = 0;
 
   return (
-    <div className="bg-white rounded-lg shadow p-6 h-full">
+    <div className="bg-white dark:bg-[#1e293b] rounded-lg shadow p-6 h-full border border-gray-200 dark:border-gray-700">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold text-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white dark:text-white">
           Business Leads
         </h2>
 
         <button
           onClick={refresh}
-          className="p-2 rounded-md hover:bg-gray-100"
+          className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
         >
           <RefreshCw
             className={`w-5 h-5 ${
@@ -84,10 +84,10 @@ function LeadStatusDistribution() {
 
           {/* Center */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="text-3xl font-bold text-gray-900">
+            <div className="text-3xl font-bold text-gray-900 dark:text-white dark:text-white">
               {total}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 dark:text-gray-300 dark:text-gray-300 dark:text-gray-400">
               Total
             </div>
           </div>
@@ -102,7 +102,7 @@ function LeadStatusDistribution() {
             >
               <div className="flex items-center gap-3">
                 <span className={`w-3 h-3 rounded-full ${item.dot}`}></span>
-                <span className="text-gray-700">{item.label}</span>
+                <span className="text-gray-700 dark:text-gray-300">{item.label}</span>
               </div>
               <div className="text-gray-600">
                 {item.count} ({item.displayPercent}%)
@@ -123,6 +123,16 @@ export default function Analytics() {
   const [error, setError] = useState(null);
   const [sapData, setSapData] = useState([]);
   const [activities, setActivities] = useState([]);
+
+  // paginations
+  const [page, setPage] = useState(1);
+const limit = 8;  
+const totalPages = Math.ceil(activities.length / limit);
+
+const paginatedActivities = activities.slice(
+  (page - 1) * limit,
+  page * limit
+);
 
   useEffect(() => {
     const fetchLeads = async () => {
@@ -215,8 +225,8 @@ export default function Analytics() {
 
           <LeadStatusDistribution />
 
-          <div className="bg-white rounded-lg shadow p-6 h-full">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+          <div className="bg-white dark:bg-[#1e293b] rounded-lg shadow p-6 h-full border border-gray-200 dark:border-gray-700">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white dark:text-white mb-6">
               SAP Interests Distribution
             </h2>
             <div className="h-64">
@@ -235,50 +245,89 @@ export default function Analytics() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
-              Recent Activities
-            </h2>
+        {/* <thead className="bg-gray-50 dark:bg-gray-800"> */}
+          
+          {/* Recent Activity */}
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
+<div className="bg-white dark:bg-[#1e293b] rounded-lg shadow overflow-hidden border border-gray-200 dark:border-gray-700">
 
-                <thead className="bg-gray-50">
-                  <tr>
-                    {["Action", "Target", "User", "Type", "Date"].map((h) => (
-                      <th
-                        key={h}
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
+  <div className="p-6">
+    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+      Recent Activities
+    </h2>
 
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {activities.map((log, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 text-gray-900">{log.action}</td>
-                      <td className="px-6 py-4 text-gray-900">{log.target}</td>
-                      <td className="px-6 py-4 text-gray-900">
-                        {log.details?.performedBy?.name || log.userEmail}
-                      </td>
-                      <td className="px-6 py-4 text-gray-900">
-                        {log.target === "JobApplication" ? "Job Application" : "Business"}
-                      </td>
-                      <td className="px-6 py-4 text-gray-900">
-                        {new Date(log.createdAt).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+    <div className="overflow-x-auto">
 
-              </table>
-            </div>
-          </div>
-        </div>
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+
+        <thead className="bg-gray-50 dark:bg-gray-800">
+          <tr>
+            {["Action", "Target", "User", "Type", "Date"].map((h) => (
+              <th
+                key={h}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody className="bg-white dark:bg-[#1e293b] divide-y divide-gray-200 dark:divide-gray-700">
+          {paginatedActivities.map((log, index) => (
+            <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800">
+              <td className="px-6 py-4 text-gray-900 dark:text-white">{log.action}</td>
+              <td className="px-6 py-4 text-gray-900 dark:text-white">{log.target}</td>
+              <td className="px-6 py-4 text-gray-900 dark:text-white">
+                {log.details?.performedBy?.name || log.userEmail}
+              </td>
+              <td className="px-6 py-4 text-gray-900 dark:text-white">
+                {log.target === "JobApplication" ? "Job Application" : "Business"}
+              </td>
+              <td className="px-6 py-4 text-gray-900 dark:text-white">
+                {new Date(log.createdAt).toLocaleDateString()}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+
+      </table>
+      {/* Pagination */}
+<div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Page <span className="font-medium">{page}</span> of{" "}
+    <span className="font-medium">{totalPages}</span>
+  </p>
+
+  <div className="flex items-center gap-2">
+
+    <button
+      disabled={page === 1}
+      onClick={() => setPage(page - 1)}
+      className="px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-40"
+    >
+      Previous
+    </button>
+
+    <button
+      disabled={page === totalPages}
+      onClick={() => setPage(page + 1)}
+      className="px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-600 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-40"
+    >
+      Next
+    </button>
+
+  </div>
+
+</div>
+
+
+
+    </div>
+  </div>
+
+</div>
 
       </AdminLayout>
     </ProtectedRoute>
@@ -296,11 +345,11 @@ function MetricCard({ title, value, change, icon, color = "blue" }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-white dark:bg-[#1e293b] rounded-lg shadow p- border border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="text-2xl font-bold text-gray-900 mt-2">{value}</p>
+          <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{title}</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">{value}</p>
           <div className="flex items-center mt-1">
             <TrendingUp className="w-4 h-4 text-green-500" />
             <span className="text-xs ml-1 text-green-600">{change} from last period</span>

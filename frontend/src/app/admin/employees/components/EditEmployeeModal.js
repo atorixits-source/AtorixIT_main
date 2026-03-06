@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { logUIAction } from "@/lib/uiLogger";
@@ -9,6 +10,9 @@ const EditEmployeeModal = ({
   onClose,
   onUpdated,
 }) => {
+
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   const [formData, setFormData] = useState({
     bankAccountNumber: "",
     ifscCode: "",
@@ -18,7 +22,6 @@ const EditEmployeeModal = ({
     profilePhoto: null,
     resume: null,
   });
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const [idType, setIdType] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,8 +29,11 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
   ////////////////////////////////////////////////////////
   // LOAD EMPLOYEE DATA
   ////////////////////////////////////////////////////////
+
   useEffect(() => {
+
     if (employee) {
+
       setFormData({
         bankAccountNumber: employee.bankAccountNumber || "",
         ifscCode: employee.ifscCode || "",
@@ -41,7 +47,9 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
       if (employee.panNumber) setIdType("pan");
       else if (employee.aadhaarNumber) setIdType("aadhaar");
       else setIdType("");
+
     }
+
   }, [employee]);
 
   if (!isOpen || !employee) return null;
@@ -49,10 +57,12 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
   ////////////////////////////////////////////////////////
   // INPUT CHANGE
   ////////////////////////////////////////////////////////
+
   const handleChange = (e) => {
+
     const { name, value } = e.target;
 
-    logUIAction("EMP_FIELD_CHANGE", "Employee_Form", {
+    logUIAction("EMP_FIELD_CHANGE","Employee_Form",{
       field: name,
       employeeId: employee?._id,
     });
@@ -61,33 +71,41 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
       ...prev,
       [name]: value,
     }));
+
   };
 
   ////////////////////////////////////////////////////////
   // FILE CHANGE
   ////////////////////////////////////////////////////////
+
   const handleFileChange = (e) => {
+
     const file = e.target.files[0];
 
     if (file) {
-      logUIAction("EMP_FILE_UPLOAD", "Employee_Form", {
+
+      logUIAction("EMP_FILE_UPLOAD","Employee_Form",{
         field: e.target.name,
         filename: file.name,
         size: file.size,
         employeeId: employee?._id,
       });
+
     }
 
     setFormData(prev => ({
       ...prev,
       [e.target.name]: file,
     }));
+
   };
 
   ////////////////////////////////////////////////////////
   // SUBMIT
   ////////////////////////////////////////////////////////
+
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
     if (!employee?._id) {
@@ -103,6 +121,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
     setLoading(true);
 
     try {
+
       const form = new FormData();
 
       form.append("bankAccountNumber", formData.bankAccountNumber);
@@ -121,22 +140,13 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
       if (formData.resume instanceof File)
         form.append("resume", formData.resume);
 
-      // const res = await fetch(
-      //   `/api/employees/${employee._id}`,
-      //   {
-      //     method: "PUT",
-      //     body: form,
-      //   }
-      // );
-      const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-const res = await fetch(
-  `${API_BASE}/api/employees/${employee._id}`,
-  {
-    method: "PUT",
-    body: form,
-  }
-);
+      const res = await fetch(
+        `${API_BASE}/api/employees/${employee._id}`,
+        {
+          method: "PUT",
+          body: form,
+        }
+      );
 
       const data = await res.json();
 
@@ -151,197 +161,223 @@ const res = await fetch(
       onClose();
 
     } catch (err) {
+
       console.error(err);
       alert(err.message);
+
     }
 
     setLoading(false);
+
   };
-//  max-w-[95%]               /* 320px */
-//       min-[375px]:max-w-[92%]   /* 375px */
-//       min-[425px]:max-w-[88%]   /* 425px */
-//       md:max-w-[600px]          /* 768px */
-//       lg:max-w-[700px]          /* 1024px */
-//       2xl:max-w-[700px]         /* 1400px */
+
   ////////////////////////////////////////////////////////
   // UI
   ////////////////////////////////////////////////////////
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center 
-                  bg-black/40 backdrop-blur-sm 
-                  px-3 sm:px-6">
 
-      {/* Responsive Modal Box */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
+
+      {/* Modal */}
+
       <div className="
-      w-full
-     
-      max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl
+        w-full
+        max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl
+        max-h-[90vh]
+        overflow-y-auto
+        bg-white dark:bg-[#1e293b]
+        border border-gray-200 dark:border-gray-700
+        rounded-2xl
+        shadow-xl
+        p-6
+      ">
 
-      max-h-[90vh]
-      overflow-y-auto
-
-      bg-purple-100/95 
-      backdrop-blur-xl 
-      rounded-3xl 
-      shadow-2xl 
-      p-4 sm:p-6 md:p-8
-    ">
-
-        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6 text-center">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
           Employee Details
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-2 ">
+        <form onSubmit={handleSubmit} className="space-y-4">
 
           {/* Profile Photo */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700">
-              Profile Photo:
+
+          <div className="space-y-1">
+
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Profile Photo
             </label>
-            <div className="w-full bg-white/70 rounded-2xl px-3 py-2">
-              <input
-                type="file"
-                name="profilePhoto"
-                accept="image/*"
-                onChange={handleFileChange}
-                className="w-full text-sm text-gray-700 bg-transparent outline-none"
-              />
-            </div>
+
+            <input
+              type="file"
+              name="profilePhoto"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="w-full text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
+            />
+
           </div>
 
-         
 
-          {/* Bank Account */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700">
-              Bank Account Number:
+          {/* Bank */}
+
+          <div className="space-y-1">
+
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Bank Account Number
             </label>
+
             <input
               type="text"
               name="bankAccountNumber"
               value={formData.bankAccountNumber}
               onChange={handleChange}
-              className="w-full bg-white/70 rounded-2xl px-3 py-2 outline-none"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
             />
+
           </div>
 
+
           {/* IFSC */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700">
-              IFSC Code:
+
+          <div className="space-y-1">
+
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              IFSC Code
             </label>
+
             <input
               type="text"
               name="ifscCode"
               value={formData.ifscCode}
               onChange={handleChange}
-              className="w-full bg-white/70 rounded-2xl px-3 py-2 outline-none"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
             />
+
           </div>
 
-          {/* ID Type */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700">
-              Identity Type:
+
+          {/* ID TYPE */}
+
+          <div className="space-y-1">
+
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Identity Type
             </label>
 
             <select
               value={idType}
-              onChange={(e) => {
+              onChange={(e)=>{
+
                 const selectedType = e.target.value;
 
-                logUIAction("EMP_ID_TYPE_CHANGE", "Employee_Form", {
-                  type: selectedType,
-                  employeeId: employee?._id,
+                logUIAction("EMP_ID_TYPE_CHANGE","Employee_Form",{
+                  type:selectedType,
+                  employeeId:employee?._id
                 });
 
                 setIdType(selectedType);
 
-                setFormData(prev => ({
+                setFormData(prev=>({
                   ...prev,
-                  panNumber: "",
-                  aadhaarNumber: "",
+                  panNumber:"",
+                  aadhaarNumber:""
                 }));
+
               }}
-              className="w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
             >
+
               <option value="">Select ID Type</option>
               <option value="pan">PAN</option>
               <option value="aadhaar">Aadhaar</option>
+
             </select>
+
           </div>
 
-          {/* PAN Input */}
+
+          {/* PAN */}
+
           {idType === "pan" && (
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">
-                PAN Number:
+
+            <div className="space-y-1">
+
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                PAN Number
               </label>
+
               <input
                 type="text"
                 value={formData.panNumber}
-                onChange={(e) =>
-                  setFormData((prev) => ({
+                onChange={(e)=>
+                  setFormData(prev=>({
                     ...prev,
-                    panNumber: e.target.value.toUpperCase(),
+                    panNumber:e.target.value.toUpperCase()
                   }))
                 }
-                placeholder="Enter PAN Number"
-                className="w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
               />
+
             </div>
+
           )}
 
-          {/* Aadhaar Input */}
+
+          {/* AADHAAR */}
+
           {idType === "aadhaar" && (
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">
-                Aadhaar Number:
+
+            <div className="space-y-1">
+
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Aadhaar Number
               </label>
+
               <input
                 type="text"
                 maxLength={12}
                 value={formData.aadhaarNumber}
-                onChange={(e) =>
-                  setFormData((prev) => ({
+                onChange={(e)=>
+                  setFormData(prev=>({
                     ...prev,
-                    aadhaarNumber: e.target.value.replace(/\D/g, ""),
+                    aadhaarNumber:e.target.value.replace(/\D/g,"")
                   }))
                 }
-                placeholder="Enter Aadhaar Number"
-                className="w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white"
               />
+
             </div>
+
           )}
 
-          {/* Address */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700">
-              Address:
+
+          {/* ADDRESS */}
+
+          <div className="space-y-1">
+
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Address
             </label>
+
             <textarea
               name="address"
               rows="3"
               value={formData.address}
               onChange={handleChange}
-              className="w-full bg-white/70 rounded-2xl px-3 py-2 outline-none resize-none"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white resize-none"
             />
+
           </div>
 
-          {/* Buttons */}
-          <div className="
-          flex flex-col sm:flex-row 
-          gap-3 sm:gap-4 
-          justify-end 
-          pt-4
-        ">
+
+          {/* BUTTONS */}
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-end pt-4">
 
             <button
               type="button"
               onClick={onClose}
-              className="w-full sm:w-auto px-6 py-2 rounded-xl 
-                       bg-purple-200 text-gray-700 
-                       hover:bg-purple-300 transition"
+              className="px-6 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               Cancel
             </button>
@@ -349,10 +385,7 @@ const res = await fetch(
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-8 py-2 rounded-2xl 
-                       bg-gradient-to-r from-purple-600 to-indigo-600 
-                       text-white font-semibold shadow-lg 
-                       hover:opacity-90 transition"
+              className="px-6 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 disabled:opacity-50"
             >
               {loading ? "Saving..." : "Save Details"}
             </button>
@@ -360,12 +393,12 @@ const res = await fetch(
           </div>
 
         </form>
+
       </div>
+
     </div>
+
   );
-
-
-
 
 };
 

@@ -12,17 +12,27 @@ export default function LeadsToolbar({
   activeTab,
 }) {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-      
+    <div className="bg-white dark:bg-[#1e293b] p-4 rounded-lg shadow-sm flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+
       {/* Search */}
       <div className="relative flex-1">
-        <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
+        <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400 dark:text-gray-500" />
+
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search leads..."
-          className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 focus:ring-blue-500 focus:border-blue-500 text-sm"
+          className="
+          w-full pl-10 pr-3 py-2
+          border border-gray-300 dark:border-gray-600
+          rounded-md shadow-sm
+          bg-white dark:bg-[#0f172a]
+          text-gray-900 dark:text-gray-200
+          placeholder-gray-400 dark:placeholder-gray-500
+          focus:ring-blue-500 focus:border-blue-500
+          text-sm
+          "
         />
       </div>
 
@@ -30,7 +40,14 @@ export default function LeadsToolbar({
       <select
         value={statusFilter}
         onChange={(e) => onStatusChange(e.target.value)}
-        className="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 text-sm"
+        className="
+        w-full sm:w-48 px-3 py-2
+        border border-gray-300 dark:border-gray-600
+        rounded-md shadow-sm
+        bg-white dark:bg-[#0f172a]
+        text-gray-900 dark:text-gray-200
+        text-sm
+        "
       >
         <option value="all">All Statuses</option>
         <option value="new">New</option>
@@ -44,13 +61,24 @@ export default function LeadsToolbar({
       <button
         onClick={onRefresh}
         disabled={loading}
-        className="inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
+        className="
+        inline-flex items-center justify-center
+        px-4 py-2
+        rounded-md
+        text-sm font-medium
+        text-white
+        bg-blue-600 hover:bg-blue-700
+        disabled:opacity-50
+        transition
+        "
       >
         <RefreshCw
           className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`}
         />
+
         Refresh {activeTab === "business" ? "Business" : "Hiring"} Leads
       </button>
+
     </div>
   );
 }

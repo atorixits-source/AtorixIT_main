@@ -1,6 +1,6 @@
 // frontend/src/app/admin/lead-management/hiring/page.js
 'use client';
-
+import { apiRequest } from "@/lib/api";
 import { useState, useEffect } from 'react';
 import { 
   Briefcase, 
@@ -96,23 +96,26 @@ const validateForm = () => {
 };
 
 // Web3Forms submission fallback
-const submitWeb3FormData = async (formData) => {
-  // Implementation of Web3Forms submission
-  const response = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      ...formData,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-    }),
-  });
+// const submitWeb3FormData = async (formData) => {
+//   // Implementation of Web3Forms submission
+//   const response = await fetch('https://api.web3forms.com/submit', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       ...formData,
+//       access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+//     }),
+//   });
 
-  if (!response.ok) {
-    throw new Error('Failed to submit the form via Web3Forms');
-  }
-};
+//   if (!response.ok) {
+//     throw new Error('Failed to submit the form via Web3Forms');
+//   }
+// };
+const data = await apiRequest(
+  `/api/job-applications?page=${pagination.page}&limit=${pagination.pageSize}&search=${searchTerm}`
+);
 
 // Status badge component
 const StatusBadge = ({ status }) => {

@@ -1,51 +1,68 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001" || "https://atorix-backend-server.onrender.com";
 
 /**
  * Admin Leads API
  * Shared by Admin + HR
  */
 
-export async function deleteLead(type, id) {
-  let endpoint;
+// const BASE_URL =
+//   process.env.NEXT_PUBLIC_API_BASE_URL ||
+//   "https://atorix-backend-server.onrender.com";
 
-  if (type === "business") {
-    endpoint = `${BASE_URL}/api/business-leads/${id}`; // ✅ FIX: was /api/demo-requests/${id}
-  } else if (type === "job") {
-    endpoint = `${BASE_URL}/api/job-applications/${id}`;
-  } else {
-    throw new Error("Invalid lead type");
+/* ================= ENDPOINT HELPER ================= */
+
+function getEndpoint(type, id) {
+
+  switch (type) {
+
+    case "business":
+      return `${BASE_URL}/api/business-leads/${id}`;
+
+    case "demo":
+      return `${BASE_URL}/api/demo-requests/${id}`;
+
+    case "job":
+    case "hiring":
+      return `${BASE_URL}/api/job-applications/${id}`;
+
+    default:
+      console.error("Unknown lead type:", type);
+      throw new Error(`Invalid lead type: ${type}`);
   }
+}
+
+/* ================= DELETE ================= */
+
+export async function deleteLead(type, id) {
+
+  const endpoint = getEndpoint(type, id);
 
   const res = await fetch(endpoint, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
     credentials: "include",
   });
 
-  const data = await res.json().catch(() => ({}));
+  let data = {};
+  try {
+    data = await res.json();
+  } catch {}
 
   if (!res.ok) {
-  console.error("API ERROR:", res.status, data);
-  throw new Error(data.message || `Delete failed (${res.status})`);
-}
+    console.error("DELETE API ERROR:", res.status, data);
+    throw new Error(data?.message || `Delete failed (${res.status})`);
+  }
 
   return data;
 }
 
-export async function updateLead(type, id, payload) {
-  let endpoint;
+/* ================= UPDATE ================= */
 
- if (type === "business") {
-  endpoint = `${BASE_URL}/api/business-leads/${id}`;
-} 
-else if (type === "demo") {
-  endpoint = `${BASE_URL}/api/demo-requests/${id}`;
-}
-else if (type === "job") {
-  endpoint = `${BASE_URL}/api/job-applications/${id}`;
-} 
-else {
-  throw new Error("Invalid lead type");
-}
+export async function updateLead(type, id, payload) {
+
+  const endpoint = getEndpoint(type, id);
 
   const res = await fetch(endpoint, {
     method: "PATCH",
@@ -53,20 +70,17 @@ else {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify(payload), // ✅ IMPORTANT
+    body: JSON.stringify(payload),
   });
-
-  const text = await res.text();
 
   let data = {};
   try {
-    data = text ? JSON.parse(text) : {};
-  } catch {
-    throw new Error(text);
-  }
+    data = await res.json();
+  } catch {}
 
   if (!res.ok) {
-    throw new Error(data.message || "Update failed");
+    console.error("UPDATE API ERROR:", res.status, data);
+    throw new Error(data?.message || `Update failed (${res.status})`);
   }
 
   return data;

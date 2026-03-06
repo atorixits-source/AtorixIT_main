@@ -214,20 +214,20 @@ const deleteLeave = async (id) => {
   return (
     <AdminLayout title="Leave Management">
 
-      <div className="space-y-12">
+      <div className="space-y-12 mx-10 ">
 
 
         {/* ================= FORM CARD ================= */}
-        <div className="relative  rounded-3xl shadow-2xl border border-gray-200 p-8 overflow-hidden">
-
+        <div className="relative rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8 overflow-hidden">
+          
           {/* Decorative Gradient Accent */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
 
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white dark:text-white">
               {editingId ? "Update Leave" : "Add Leave"}
             </h2>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-500 dark:text-white dark:text-white mt-1">
               Employees details below to {editingId ? "update" : "add"} a leave.
             </p>
           </div>
@@ -240,28 +240,13 @@ const deleteLeave = async (id) => {
 
     {/* Employee */}
     <div className="space-y-2">
-      <label className="text-sm font-medium text-gray-700">
+      <label className="text-sm font-medium dark:text-white dark:text-white">
         Select Employee
       </label>
       <select
         value={selectedEmployeeId}
         onChange={(e) => setSelectedEmployeeId(e.target.value)}
-        className="
-                    w-full
-      px-4 py-3
-      text-xs
-      sm:px-4 sm:text-sm
-      md:px-4 md:py-3 md:text-base
-      lg:text-base
-
-      rounded-lg sm:rounded-xl
-      border border-gray-300
-      text-gray-800
-      bg-white
-      focus:ring-2 focus:ring-blue-500
-      focus:border-blue-500
-      outline-none
-      transition-all duration-200"
+       className="w-full px-4 py-3 text-xs sm:px-4 sm:text-sm md:px-4 md:py-3 md:text-base lg:text-base rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white dark:text-gray-200 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
       >
         <option value="">-- Select Employee --</option>
         {employees.map((emp) => (
@@ -274,7 +259,7 @@ const deleteLeave = async (id) => {
 
     {/* Leave Type */}
     <div className="space-y-2">
-      <label className="text-sm font-medium text-gray-700">
+      <label className="text-sm font-medium dark:text-white dark:text-gray-300">
         Leave Type
       </label>
       <select
@@ -282,9 +267,7 @@ const deleteLeave = async (id) => {
         onChange={(e) =>
           setForm({ ...form, leaveType: e.target.value })
         }
-        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 
-                   focus:outline-none focus:ring-2 focus:ring-indigo-500 
-                   focus:border-indigo-500 transition"
+        className="w-full px-4 py-3 text-xs sm:px-4 sm:text-sm md:px-4 md:py-3 md:text-base lg:text-base rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white dark:text-gray-200 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
       >
         <option value="Paid Leave">Paid Leave</option>
         <option value="Medical Leave">Medical Leave</option>
@@ -294,7 +277,7 @@ const deleteLeave = async (id) => {
 
     {/* From Date */}
     <div className="space-y-2">
-      <label className="text-sm font-medium text-gray-700">
+      <label className="text-sm font-medium dark:text-white dark:text-gray-300">
         From Date
       </label>
       <input
@@ -303,15 +286,14 @@ const deleteLeave = async (id) => {
         onChange={(e) =>
           setForm({ ...form, from: e.target.value })
         }
-        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 
-                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                   outline-none transition"
+        className="w-full px-4 py-3 text-xs sm:px-4 sm:text-sm md:px-4 md:py-3 md:text-base lg:text-base rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white dark:text-gray-200 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
+        // className="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
       />
     </div>
 
     {/* To Date */}
     <div className="space-y-2">
-      <label className="text-sm font-medium text-gray-700">
+      <label className="text-sm font-medium dark:text-white dark:text-gray-300">
         To Date
       </label>
       <input
@@ -320,15 +302,15 @@ const deleteLeave = async (id) => {
         onChange={(e) =>
           setForm({ ...form, to: e.target.value })
         }
-        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 
-                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                   outline-none transition"
+        className="w-full px-4 py-3 text-xs sm:px-4 sm:text-sm md:px-4 md:py-3 md:text-base lg:text-base rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white dark:text-gray-200 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
+
+        // className="w-full px-4 py-3 rounded-xl border border-gray-300 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
       />
     </div>
 
     {/* Status */}
-    <div className="space-y-2 md:col-span-2">
-      <label className="block text-sm font-medium text-gray-700">
+    <div className="space-y-2 md:col-span-2"  >
+      <label className="text-sm font-medium dark:text-white dark:text-gray-300 block">
         Status
       </label>
       <select
@@ -336,10 +318,7 @@ const deleteLeave = async (id) => {
         onChange={(e) =>
           setForm({ ...form, status: e.target.value })
         }
-        className="w-full md:w-1/2 px-4 py-3 rounded-xl border border-gray-300 text-gray-800 
-                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                   outline-none transition"
-      >
+        className="w-full md:w-1/2 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white dark:text-gray-200 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"      >
         <option value="Approved">Approved</option>
         <option value="Rejected">Rejected</option>
       </select>
@@ -348,9 +327,9 @@ const deleteLeave = async (id) => {
   </div>
 
   {/* ===== Section 2: Message ===== */}
-  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 space-y-5">
+  <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 space-y-5">
 
-    <h3 className="text-lg font-semibold text-gray-900">
+    <h3 className="text-lg font-semibold text-gray-900 dark:text-white dark:text-white">
       Message Settings
     </h3>
 
@@ -367,8 +346,8 @@ const deleteLeave = async (id) => {
         }}
         className={`px-5 py-2 rounded-xl text-sm font-medium transition ${
           messageType === "auto"
-            ? "bg-blue-600 text-white shadow"
-            : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+            ? "bg-blue-600 text-white"
+            : "border border-gray-300 text-gray-600 dark:text-white "
         }`}
       >
         Auto Message
@@ -384,8 +363,8 @@ const deleteLeave = async (id) => {
         }}
         className={`px-5 py-2 rounded-xl text-sm font-medium transition ${
           messageType === "custom"
-            ? "bg-blue-600 text-white shadow"
-            : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+            ? "bg-blue-600 text-gray-100"
+            : "border border-gray-300 text-gray-600 dark:text-white"
         }`}
       >
         Custom Message
@@ -402,9 +381,7 @@ const deleteLeave = async (id) => {
       }
       rows={4}
       placeholder="Write a custom leave message..."
-      className="w-full px-4 py-3 rounded-xl border border-gray-300 
-                 focus:ring-2 focus:ring-blue-500 outline-none transition 
-                 disabled:opacity-50"
+      className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white dark:text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition disabled:opacity-50"
     />
 
   </div>
@@ -449,7 +426,7 @@ const deleteLeave = async (id) => {
             return (
               <div
                 key={leave._id}
-                className="bg-white rounded-2xl shadow-md border border-gray-200 p-4 space-y-4"
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 p-4 space-y-4"
               >
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white flex items-center justify-center font-semibold text-sm">
@@ -457,23 +434,23 @@ const deleteLeave = async (id) => {
                   </div>
 
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">
+                    <p className="font-semibold text-gray-900 dark:text-white text-sm">
                       {leave.employeeId?.name}
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 dark:text-white">
                       {leave.employeeId?.email}
                     </p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-xs text-gray-600">
+                <div className="grid grid-cols-2 gap-3 text-xs text-gray-600 dark:text-white">
                   <div>
-                    <p className="font-medium text-gray-500">Type</p>
+                    <p className="font-medium text-gray-500 dark:text-white">Type</p>
                     <p>{leave.leaveType}</p>
                   </div>
 
                   <div>
-                    <p className="font-medium text-gray-500">Status</p>
+                    <p className="font-medium text-gray-500 dark:text-white">Status</p>
                     <span
                       className={`px-2 py-1 rounded-full text-[10px] font-semibold ${leave.status === "Approved"
                           ? "bg-green-100 text-green-600"
@@ -485,12 +462,12 @@ const deleteLeave = async (id) => {
                   </div>
 
                   <div>
-                    <p className="font-medium text-gray-500">From</p>
+                    <p className="font-medium text-gray-500 dark:text-white">From</p>
                     <p>{fromDate.toLocaleDateString()}</p>
                   </div>
 
                   <div>
-                    <p className="font-medium text-gray-500">To</p>
+                    <p className="font-medium text-gray-500 dark:text-white">To</p>
                     <p>{toDate.toLocaleDateString()}</p>
                   </div>
                 </div>
@@ -522,7 +499,7 @@ const deleteLeave = async (id) => {
         {/* ================= DESKTOP (1024px+) ================= */}
         <div className="hidden lg:block w-full overflow-x-auto">
 
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
 
             <table className="w-full text-sm">
 
@@ -544,20 +521,20 @@ const deleteLeave = async (id) => {
                   const toDate = new Date(leave.to);
 
                   return (
-                    <tr key={leave._id} className="border-b hover:bg-gray-50">
+                    <tr key={leave._id} className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
 
                       <td className="px-6 py-5">
                         <div className="flex items-center gap-4">
                           <div className="h-11 w-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white flex items-center justify-center font-semibold">
                             {leave.employeeId?.name?.charAt(0)}
                           </div>
-                          <p className="font-semibold text-gray-900">
+                          <p className="font-semibold text-gray-900 dark:text-white">
                             {leave.employeeId?.name}
                           </p>
                         </div>
                       </td>
 
-                      <td className="px-6 py-5 text-gray-600">
+                      <td className="px-6 py-5 text-gray-600 dark:text-white">
                         {leave.employeeId?.email}
                       </td>
 
@@ -613,20 +590,20 @@ const deleteLeave = async (id) => {
 {showDeleteModal && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
     
-    <div className="w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-xl p-6 animate-scaleIn">
+    <div className="w-full max-w-sm sm:max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6 animate-scaleIn border border-gray-200 dark:border-gray-700">
       
-      <h2 className="text-lg sm:text-xl font-semibold text-gray-800 text-center">
+      <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white text-center">
         Confirm Delete
       </h2>
 
-      <p className="text-sm sm:text-base text-gray-600 text-center mt-2">
+      <p className="text-sm sm:text-base text-gray-600 dark:text-white text-center mt-2">
         Are you sure you want to delete this leave?
       </p>
 
       <div className="flex gap-3 mt-6">
         <button
           onClick={() => setShowDeleteModal(false)}
-          className="flex-1 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+          className="flex-1 py-2 rounded-lg border border-gray-300 dark:text-white hover:bg-gray-100 transition"
         >
           Cancel
         </button>
@@ -648,4 +625,4 @@ const deleteLeave = async (id) => {
 
     </AdminLayout>
   );
-}
+}   

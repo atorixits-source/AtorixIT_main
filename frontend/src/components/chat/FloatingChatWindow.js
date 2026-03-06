@@ -51,7 +51,8 @@ export default function FloatingChatWindow({
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 60, opacity: 0 }}
       className="
-        w-80 h-[450px]
+        w-[90vw] sm:w-80
+h-[60vh] sm:h-[450px]
         bg-gray-900
         rounded-xl
         shadow-2xl

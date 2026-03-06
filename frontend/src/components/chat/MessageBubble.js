@@ -16,7 +16,7 @@ export default function MessageBubble({ message }) {
     <div className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
       <div
         className={`
-          max-w-[65%]
+          max-w-[80%] sm:max-w-[70%] md:max-w-[65%]
           px-4 py-2
           rounded-2xl
           text-sm

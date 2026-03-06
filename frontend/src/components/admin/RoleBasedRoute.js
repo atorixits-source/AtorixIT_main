@@ -66,6 +66,7 @@ export default function RoleBasedRoute({
   allowedRoles = ["super_admin", "hr_mode", "business_mode"],
   redirectPath = "/admin/unauthorized",
 }) {
+
   const [loading, setLoading] = useState(true);
   const [accessGranted, setAccessGranted] = useState(false);
   const [apiError, setApiError] = useState(null);
@@ -74,8 +75,11 @@ export default function RoleBasedRoute({
   const pathname = usePathname();
 
   useEffect(() => {
+
     const checkAuthAndAccess = async () => {
+
       try {
+
         /* Allow public */
         if (PUBLIC_PATHS.includes(pathname)) {
           setAccessGranted(true);
@@ -123,12 +127,14 @@ export default function RoleBasedRoute({
         const allowedRoutes = ROLE_ALLOWED_ROUTES[role] || [];
 
         const isAllowed = allowedRoutes.some((route) => {
+
           const cleanRoute = route.replace(/\/$/, "");
 
           return (
             cleanPath === cleanRoute ||
             cleanPath.startsWith(cleanRoute + "/")
           );
+
         });
 
         /* Not allowed → redirect */
@@ -142,40 +148,66 @@ export default function RoleBasedRoute({
         setLoading(false);
 
       } catch (err) {
+
         console.error("RoleBasedRoute error:", err);
         setApiError("Permission check failed");
         setLoading(false);
+
       }
+
     };
 
     checkAuthAndAccess();
+
   }, [pathname, router, allowedRoles, redirectPath]);
 
-  /* Error UI */
+  /* ========================== */
+  /* ERROR UI */
+  /* ========================== */
+
   if (apiError) {
+
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-500 mb-4">{apiError}</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#0f172a]">
+
+        <div className="text-center bg-white dark:bg-[#1e293b] p-6 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+
+          <p className="text-red-500 dark:text-red-400 mb-4 font-medium">
+            {apiError}
+          </p>
+
           <button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
           >
             Reload
           </button>
+
         </div>
+
       </div>
     );
   }
 
-  /* Loading UI */
+  /* ========================== */
+  /* LOADING UI */
+  /* ========================== */
+
   if (loading) {
+
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#0f172a]">
+
         <div className="text-center">
-          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4" />
-          <p className="text-gray-500">Checking permissions...</p>
+
+          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-gray-600 dark:text-gray-300" />
+
+          <p className="text-gray-500 dark:text-gray-400">
+            Checking permissions...
+          </p>
+
         </div>
+
       </div>
     );
   }

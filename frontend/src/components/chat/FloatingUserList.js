@@ -49,7 +49,8 @@ export default function FloatingUserList({ onSelectUser, onClose }) {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 50, opacity: 0 }}
       className="
-        w-80 h-[420px]
+        w-[92vw] sm:w-80
+h-[60vh] sm:h-[420px]
         bg-white dark:bg-gray-900
         rounded-xl shadow-2xl
         border border-gray-200 dark:border-gray-700

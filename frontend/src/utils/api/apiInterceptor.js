@@ -11,53 +11,87 @@ function setupApiInterceptor() {
   window.__apiInterceptorInitialized = true;
 
   // Save original fetch
-  const originalFetch = window.fetch.bind(window);
+// const originalFetch = window.fetch.bind(window);
 
-  window.fetch = async (input, init = {}) => {
-    try {
-      let url = input;
+//   window.fetch = async (input, init = {}) => {
+//     try {
+//       let url = input;
 
-      // 1️⃣ If absolute URL → don't modify
-      if (typeof input === "string" && input.startsWith("http")) {
-        return originalFetch(input, init);
-      }
+//       // 1️⃣ If absolute URL → don't modify
+//       if (typeof input === "string" && input.startsWith("http")) {
+//         return originalFetch(input, init);
+//       }
 
-      // 2️⃣ Ignore Next.js internal assets
-      if (
-        typeof input === "string" &&
-        (input.startsWith("/_next") ||
-          input.startsWith("/__next") ||
-          input.includes("__nextjs"))
-      ) {
-        return originalFetch(input, init);
-      }
+//       // 2️⃣ Ignore Next.js internal assets
+//       if (
+//         typeof input === "string" &&
+//         (input.startsWith("/_next") ||
+//           input.startsWith("/__next") ||
+//           input.includes("__nextjs"))
+//       ) {
+//         return originalFetch(input, init);
+//       }
 
-      // 3️⃣ Attach backend base URL for /api routes
-      if (typeof input === "string" && input.startsWith("/api")) {
-        if (!API_BASE_URL) {
-          console.error("NEXT_PUBLIC_API_BASE_URL is not defined");
-          return originalFetch(input, init);
-        }
-        url = `${API_BASE_URL}${input}`;
-      }
+//       // 3️⃣ Attach backend base URL for /api routes
+//       if (typeof input === "string" && input.startsWith("/api")) {
+//         if (!API_BASE_URL) {
+//           console.error("NEXT_PUBLIC_API_BASE_URL is not defined");
+//           return originalFetch(input, init);
+//         }
+//         url = `${API_BASE_URL}${input}`;
+//       }
 
-      // 4️⃣ Final request options
-      const finalOptions = {
-        ...init,
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-          ...(init.headers || {}),
-        },
-      };
+//       // 4️⃣ Final request options
+//       const finalOptions = {
+//         ...init,
+//         credentials: "include",
+//         headers: {
+//           "Content-Type": "application/json",
+//           ...(init.headers || {}),
+//         },
+//       };
 
-      return originalFetch(url, finalOptions);
+//       return originalFetch(url, finalOptions);
 
-    } catch (error) {
-      console.error("API Interceptor Error:", error);
-      throw error;
+//     } catch (error) {
+//       console.error("API Interceptor Error:", error);
+//       throw error;
+//     }
+//   };
+ const originalFetch = window.fetch;
+
+window.fetch = async (input, init = {}) => {
+
+  try {
+
+    // 1️⃣ If full URL → don't modify
+    if (typeof input === "string" && input.startsWith("http")) {
+      return originalFetch(input, init);
     }
-  };
+
+    // 2️⃣ Ignore Next.js internal assets
+    if (typeof input === "string" && input.startsWith("/_next")) {
+      return originalFetch(input, init);
+    }
+
+    // 3️⃣ Attach base API URL
+    const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "https://atorix-backend-server.onrender.com";
+
+    const url =
+      typeof input === "string"
+        ? `${API_BASE}${input}`
+        : input;
+
+    return originalFetch(url, {
+      ...init,
+      credentials: "include",
+    });
+
+  } catch (err) {
+    console.error("Fetch interceptor error:", err);
+    throw err;
+  }
+}; 
 }
 
 // Initialize once

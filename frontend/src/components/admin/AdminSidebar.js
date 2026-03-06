@@ -123,7 +123,7 @@ export default function AdminSidebar() {
   );
 
   if (loading) {
-    return <div className="h-full bg-white w-64 flex-shrink-0" />;
+    return <div className="h-full bg-white w-64 flex-shrink-0 bg-transparent" />;
   }
 
   const navigationItems = NAVIGATION_ITEMS[userRole] || [];
@@ -136,7 +136,7 @@ export default function AdminSidebar() {
         <button
           onClick={() => setMenuOpen(true)}
           className="w-12 h-12 flex items-center justify-center 
-          bg-white border border-gray-200 rounded-xl shadow-sm"
+bg-white/80 dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm backdrop-blur"
         >
           <Menu size={20} />
         </button>
@@ -151,7 +151,7 @@ export default function AdminSidebar() {
             onClick={() => setMenuOpen(false)}
           />
 
-          <div className="fixed top-0 left-0 w-[280px] h-full bg-white z-50 shadow-xl">
+          <div className="fixed top-0 left-0 w-[280px] h-full bg-white dark:bg-[#1e293b] z-50 shadow-xl">
             <div className="p-6 flex flex-col h-full">
 
               <div className="flex justify-between items-center mb-8">
@@ -178,7 +178,7 @@ export default function AdminSidebar() {
                       className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                         isActive
                           ? "bg-blue-600 text-white shadow-sm"
-                          : "text-gray-600 hover:bg-gray-100"
+                          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#334155]"
                       }`}
                     >
                       <item.icon size={18} />
@@ -191,7 +191,7 @@ export default function AdminSidebar() {
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="mt-6 flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50"
+                className="mt-6 flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 dark:hover:bg-red-900/20"
               >
                 <LogOut size={18} />
                 Logout
@@ -203,7 +203,7 @@ export default function AdminSidebar() {
 
       {/* ================= DESKTOP SIDEBAR ================= */}
 
-      <div className="hidden lg:flex w-64 min-h-screen bg-white border-r border-gray-200">
+      <div className="hidden lg:flex w-64 min-h-full bg-white/80 dark:bg-[#1e293b] border-r border-gray-200 dark:border-gray-700 backdrop-blur">
         <div className="p-6 flex flex-col w-full">
 
           <div className="mb-10">
@@ -225,8 +225,8 @@ export default function AdminSidebar() {
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-blue-50 text-blue-700 border-l-4 border-blue-600"
-                      : "text-gray-600 hover:bg-gray-100"
+                      ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-l-4 border-blue-600"
+                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#334155]"
                   }`}
                 >
                   <item.icon size={18} />
@@ -236,11 +236,11 @@ export default function AdminSidebar() {
             })}
           </nav>
 
-          <div className="pt-6 border-t border-gray-200">
+          <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
             <button
               onClick={handleLogout}
               disabled={isLoggingOut}
-              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50"
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 dark:hover:bg-red-900/20"
             >
               <LogOut size={18} />
               Logout

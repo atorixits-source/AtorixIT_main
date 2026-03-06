@@ -50,6 +50,7 @@ const permissionLabels = {
 };
 
 export default function RolePermissionsPage() {
+
   const [selectedRole, setSelectedRole] = useState('Admin');
   const [permissions, setPermissions] = useState(initialPermissions);
   const [isSaving, setIsSaving] = useState(false);
@@ -83,148 +84,192 @@ export default function RolePermissionsPage() {
         title="Role Permissions"
         description="Manage permissions for different user roles"
       >
-        <div className="space-y-6">
+
+        <div className="space-y-6 mx-14">
 
           {/* Role Selection */}
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between">
 
-            {/* Dropdown */}
-            <div className="relative w-[38%] sm:w-64">
-              <button
-                type="button"
-                style={{ backgroundColor: '#ffffff', color: '#111827', borderColor: '#d1d5db' }}
-                className="w-full border rounded-xl px-3 py-2 text-xs sm:text-sm shadow-sm flex items-center justify-between"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                <span className="truncate">{selectedRole}</span>
-                <ChevronDown className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
-              </button>
+  {/* LEFT SIDE */}
+  <div className="relative w-[40%] sm:w-64">
 
-              {isDropdownOpen && (
-                <div
-                  className="absolute z-20 mt-2 w-full shadow-lg rounded-xl border overflow-hidden"
-                  style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb' }}
-                >
-                  {Object.keys(permissions).map((role) => (
-                    <div
-                      key={role}
-                      className="cursor-pointer px-4 py-3 text-sm hover:bg-gray-100"
-                      style={{ color: '#111827' }}
-                      onClick={() => {
-                        setSelectedRole(role);
-                        setIsDropdownOpen(false);
-                      }}
-                    >
-                      {role}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+    <button
+      type="button"
+      className="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-3 py-2 text-sm shadow-sm flex items-center justify-between bg-white dark:bg-[#1e293b] text-gray-900 dark:text-white"
+      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+    >
+      <span className="truncate">{selectedRole}</span>
 
-            {/* Reset Button */}
-            <button
-              onClick={handleReset}
-              style={{ backgroundColor: '#ffffff', color: '#374151', borderColor: '#d1d5db' }}
-              className="w-[28%] sm:w-auto flex items-center justify-center gap-1 px-2 py-2 rounded-lg sm:rounded-xl border text-xs sm:text-sm font-medium hover:bg-gray-50 transition whitespace-nowrap"
-            >
-              <RefreshCw className="h-4 w-4" />
-              Reset
-            </button>
+      <ChevronDown
+        className={`h-4 w-4 transition-transform ${
+          isDropdownOpen ? "rotate-180" : ""
+        }`}
+      />
+    </button>
 
-            {/* Save Button */}
-            <button
-              onClick={handleSave}
-              disabled={isSaving}
-              style={{ backgroundColor: '#2563eb', color: '#ffffff' }}
-              className="w-[34%] sm:w-auto flex items-center justify-center gap-1 px-2 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium hover:bg-blue-700 transition disabled:opacity-50 whitespace-nowrap"
-            >
-              <Save className="h-4 w-4" />
-              {isSaving ? "Saving..." : "Save Changes"}
-            </button>
+    {isDropdownOpen && (
+      <div className="absolute z-20 mt-2 w-full shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-[#1e293b]">
 
+        {Object.keys(permissions).map((role) => (
+          <div
+            key={role}
+            className="cursor-pointer px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
+            onClick={() => {
+              setSelectedRole(role);
+              setIsDropdownOpen(false);
+            }}
+          >
+            {role}
           </div>
+        ))}
+
+      </div>
+    )}
+
+  </div>
+
+  {/* RIGHT SIDE BUTTONS */}
+  <div className="flex items-center gap-3">
+
+    {/* Reset Button */}
+    <button
+      onClick={handleReset}
+      className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition bg-white dark:bg-[#1e293b] text-gray-700 dark:text-gray-200"
+    >
+      <RefreshCw className="h-4 w-4" />
+      Reset
+    </button>
+
+    {/* Save Button */}
+    <button
+      onClick={handleSave}
+      disabled={isSaving}
+      className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition disabled:opacity-50 bg-blue-600 text-white"
+    >
+      <Save className="h-4 w-4" />
+      {isSaving ? "Saving..." : "Save Changes"}
+    </button>
+
+  </div>
+
+</div>
 
           {/* MOBILE VIEW */}
           <div className="block md:hidden space-y-4">
+
             {Object.entries(permissionLabels).map(([feature, label]) => (
+
               <div
                 key={feature}
-                className="rounded-xl shadow p-4 border"
-                style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb' }}
+                className="rounded-xl shadow p-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b]"
               >
-                <h3 style={{ color: '#111827' }} className="text-sm font-semibold mb-3">{label}</h3>
+
+                <h3 className="text-sm font-semibold mb-3 text-gray-900 dark:text-white">
+                  {label}
+                </h3>
+
                 <div className="grid grid-cols-2 gap-3">
+
                   {['create', 'read', 'update', 'delete', 'view'].map(permission => (
-                    <label key={permission} className="flex justify-between text-xs" style={{ color: '#374151' }}>
+
+                    <label
+                      key={permission}
+                      className="flex justify-between text-xs text-gray-700 dark:text-gray-300"
+                    >
+
                       {permission}
+
                       <input
                         type="checkbox"
                         checked={permissions[selectedRole][feature][permission]}
-                        onChange={(e) => handlePermissionChange(feature, permission, e.target.checked)}
+                        onChange={(e) =>
+                          handlePermissionChange(feature, permission, e.target.checked)
+                        }
                         className="h-4 w-4 text-blue-600 rounded"
                       />
+
                     </label>
+
                   ))}
+
                 </div>
+
               </div>
+
             ))}
+
           </div>
 
           {/* DESKTOP VIEW */}
-          <div className="hidden md:block shadow rounded-lg overflow-x-auto" style={{ backgroundColor: '#ffffff' }}>
-            <table className="min-w-full">
-              <thead style={{ backgroundColor: '#f3f4f6' }}>
+          <div className="hidden md:block shadow rounded-lg overflow-x-auto border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b]">
+
+            <table className="w-full table-fixed">
+
+              <thead className="bg-gray-100 dark:bg-gray-800">
+
                 <tr>
-                  <th
-                    className="px-6 py-3 text-left text-xs uppercase font-medium"
-                    style={{ color: '#374151' }}
-                  >
+
+                  <th className="px-6 py-3 text-left text-xs uppercase font-medium text-gray-600 dark:text-gray-300">
                     Features
                   </th>
+
                   {['Create', 'Read', 'Update', 'Delete', 'View'].map(head => (
+
                     <th
                       key={head}
-                      className="px-6 py-3 text-center text-xs uppercase font-medium"
-                      style={{ color: '#374151' }}
+                      className="px-6 py-3 text-center text-xs uppercase font-medium text-gray-600 dark:text-gray-300"
                     >
                       {head}
                     </th>
+
                   ))}
+
                 </tr>
+
               </thead>
+
               <tbody>
+
                 {Object.entries(permissionLabels).map(([feature, label]) => (
+
                   <tr
                     key={feature}
-                    className="border-b hover:bg-gray-50"
-                    style={{ borderColor: '#e5e7eb', backgroundColor: '#ffffff' }}
-                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f9fafb'}
-                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+                    className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
                   >
-                    <td
-                      className="px-6 py-4 font-medium text-sm"
-                      style={{ color: '#111827' }}
-                    >
+
+                    <td className="px-6 py-4 font-medium text-sm text-gray-900 dark:text-white">
                       {label}
                     </td>
+
                     {['create', 'read', 'update', 'delete', 'view'].map(permission => (
+
                       <td key={permission} className="px-6 py-4 text-center">
+
                         <input
                           type="checkbox"
                           checked={permissions[selectedRole][feature][permission]}
-                          onChange={(e) => handlePermissionChange(feature, permission, e.target.checked)}
+                          onChange={(e) =>
+                            handlePermissionChange(feature, permission, e.target.checked)
+                          }
                           className="h-4 w-4 text-blue-600 rounded"
                         />
+
                       </td>
+
                     ))}
+
                   </tr>
+
                 ))}
+
               </tbody>
+
             </table>
+
           </div>
 
         </div>
+
       </AdminLayout>
     </ProtectedRoute>
   );

@@ -114,7 +114,7 @@ export default function ChatWindow({ activeUser, hideHeader = false }) {
 
   if (!activeUser) {
     return (
-      <div className="flex-1 flex items-center justify-center text-gray-500">
+      <div className="flex-1 flex items-center justify-center text-gray-500 dark:text-gray-400">
         Select a user to start chatting
       </div>
     );
@@ -123,11 +123,12 @@ export default function ChatWindow({ activeUser, hideHeader = false }) {
   /* ================= MAIN ================= */
 
   return (
-    <div className="h-full flex flex-col bg-gray-50 dark:bg-gray-800">
+    <div className="h-full flex flex-col bg-white dark:bg-[#1e293b]">
 
       {/* HEADER */}
       {!hideHeader && (
-        <div className="shrink-0 p-4 border-b dark:border-gray-700 font-semibold flex justify-between items-center">
+        <div className="shrink-0 px-3 py-3 sm:px-4 border-b border-gray-200 dark:border-gray-700 font-semibold flex justify-between items-center text-gray-900 dark:text-white">
+
           <span>{activeUser.name}</span>
 
           {typingUsers?.[activeUser._id] && (
@@ -135,11 +136,12 @@ export default function ChatWindow({ activeUser, hideHeader = false }) {
               Typing...
             </span>
           )}
+
         </div>
       )}
 
       {/* MESSAGES */}
-      <div className="flex-1 min-h-0 overflow-y-auto px-4 py-3 space-y-3">
+      <div className="flex-1 min-h-0 overflow-y-auto px-2 sm:px-3 md:px-4 py-3 space-y-3">
 
         {allMessages.map((m) => (
           <MessageBubble
@@ -150,6 +152,7 @@ export default function ChatWindow({ activeUser, hideHeader = false }) {
         ))}
 
         <div ref={bottomRef} />
+
       </div>
 
       {/* CONNECTION STATUS */}
@@ -160,7 +163,7 @@ export default function ChatWindow({ activeUser, hideHeader = false }) {
       )}
 
       {/* INPUT */}
-      <div className="shrink-0 border-t dark:border-gray-700">
+      <div className="shrink-0 border-t border-gray-200 dark:border-gray-700">
         <MessageInput
           onSend={(t) => {
             if (!t?.trim()) return;

@@ -78,7 +78,7 @@ export default function FloatingMessengerManager() {
 
 
   return (
-    <div className="fixed bottom-4 right-4 z-[9999] flex items-end gap-3">
+    <div className="fixed bottom-4 right-3 sm:right-4 z-[9999] flex items-end gap-3">
 
       {/* CHAT WINDOWS */}
       <AnimatePresence>

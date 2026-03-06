@@ -133,18 +133,26 @@ export default function BusinessManagement() {
       setIsDeleting(true);
       
       // Use apiRequest for DELETE operation
+      // await apiRequest(API_ENDPOINTS.DEMO_REQUESTS, {
+      //   method: 'DELETE',
+      //   body: JSON.stringify({ ids: leadIds })
+      // });
       await apiRequest(API_ENDPOINTS.DEMO_REQUESTS, {
-        method: 'DELETE',
-        body: JSON.stringify({ ids: leadIds })
-      });
+  method: "DELETE",
+  body: { ids: leadIds }
+});
 
       // Update local state to remove deleted leads
-      setLeads(prev => prev.filter(lead => !leadIds.includes(lead._id)));
-      setSelectedLeads(prev => prev.filter(lead => !leadIds.includes(lead._id)));
+      // setLeads(prev => prev.filter(lead => !leadIds.includes(lead._id)));
+      // setSelectedLeads(prev => prev.filter(lead => !leadIds.includes(lead._id)));
       
-      // Refresh counts after delete
-      fetchCounts();
-      
+      // // Refresh counts after delete
+      // fetchCounts();
+      await fetchDemoRequests();
+await fetchCounts();
+setSelectedLeads([]);
+
+
     } catch (error) {
       console.error("Error deleting leads:", error);
       setError('Failed to delete selected items. Please try again.');

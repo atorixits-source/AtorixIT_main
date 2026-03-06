@@ -7,7 +7,7 @@ export default function AdminLayout({ children, title, description }) {
   useKeepAlive();
 
   return (
-    <div className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
+    <div className="relative min-h-screen flex flex-col lg:flex-row overflow-x-hidden mx:md-14 mx:lg-14">
 
       {/* ================= TECH BACKGROUND ================= */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -63,10 +63,10 @@ export default function AdminLayout({ children, title, description }) {
       </div>
 
       {/* ================= CONTENT ================= */}
-      <div className="relative z-10 flex flex-col lg:flex-row w-full font-['Times_New_Roman',serif]">
+      <div className="relative z-10 flex flex-col lg:flex-row w-full min-h-screen font-['Times_New_Roman',serif]">
 
         {/* Sidebar */}
-        <div className="w-64 shrink-0">
+        <div className="w-60 lg:w-64 shrink-0">
           <AdminSidebar />
         </div>
 
@@ -74,9 +74,9 @@ export default function AdminLayout({ children, title, description }) {
         <div className="flex-1 flex flex-col min-h-screen">
 
           {/* Header — sits over the background */}
-          <header className="border-b border-gray-200 ml-12">
+          <header className="border-b border-gray-200 mx-14">
             <div className="px-4 sm:px-6 md:px-8 py-4">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 ">
                 {title}
               </h1>
               {description && (
@@ -86,11 +86,11 @@ export default function AdminLayout({ children, title, description }) {
           </header>
 
           {/* ✅ THE FIX: solid white background on main so tables/cards are always readable */}
-          <main className="flex-1 overflow-auto bg-white">
-            <div className="max-w-6xl mx-auto w-full p-6">
-              {children}
-            </div>
-          </main>
+         <main className="flex-1 overflow-auto bg-transparent">
+  <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    {children}
+  </div>
+</main>
 
         </div>
       </div>
