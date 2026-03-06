@@ -90,6 +90,5 @@ export async function updateLead(type, id, payload) {
     console.error("UPDATE API ERROR:", res.status, data);
     throw new Error(data?.message || `Update failed (${res.status})`);
   }
-
   return data;
 }

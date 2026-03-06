@@ -58,6 +58,7 @@ const allowedOrigins = [
 
 ];
 
+
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (mobile apps, curl, Postman, server-to-server)
