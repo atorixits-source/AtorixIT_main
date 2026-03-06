@@ -1,20 +1,13 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  "https://atorixit-main.onrender.com";
 
 /**
  * Admin Leads API
- * Shared by Admin + HR
  */
 
-// const BASE_URL =
-//   process.env.NEXT_PUBLIC_API_BASE_URL ||
-//   "https://atorix-backend-server.onrender.com";
-
-/* ================= ENDPOINT HELPER ================= */
-
 function getEndpoint(type, id) {
-
   switch (type) {
-
     case "business":
       return `${BASE_URL}/api/business-leads/${id}`;
 
@@ -31,16 +24,29 @@ function getEndpoint(type, id) {
   }
 }
 
+/* ================= TOKEN ================= */
+
+function getToken() {
+  if (typeof window === "undefined") return null;
+
+  return (
+    localStorage.getItem("atorix_auth_token") ||
+    sessionStorage.getItem("atorix_auth_token")
+  );
+}
+
 /* ================= DELETE ================= */
 
 export async function deleteLead(type, id) {
-
   const endpoint = getEndpoint(type, id);
+
+  const token = getToken();
 
   const res = await fetch(endpoint, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
   });
@@ -61,13 +67,15 @@ export async function deleteLead(type, id) {
 /* ================= UPDATE ================= */
 
 export async function updateLead(type, id, payload) {
-
   const endpoint = getEndpoint(type, id);
+
+  const token = getToken();
 
   const res = await fetch(endpoint, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
     body: JSON.stringify(payload),

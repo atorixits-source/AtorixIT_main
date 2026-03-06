@@ -182,8 +182,8 @@ export default function UserManagement() {
   return (
     <ProtectedRoute>
       <AdminLayout title="User Management" description="Manage system users and their permissions.">
-        <div className="bg-white dark:bg-gray-600 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden w-full">
-          <div className="bg-white dark:bg-[#1e293b] rounded-xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-white dark:bg-gray-800  dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden w-full">
+          <div className="bg-white dark:bg-gray-800  dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
 
             {/* Header */}
            <div className="px-4 sm:px-3 sm:px-4 md:px-6 py-3 md:py-4 border-b border-gray-200 dark:border-gray-700 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
@@ -194,7 +194,7 @@ export default function UserManagement() {
                   placeholder="Search users..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#1e293b] -800 text-gray-900 dark:text-white dark:text-gray-100  text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800  dark:bg-[#1e293b] -800 text-gray-900 dark:text-white dark:text-gray-100  text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
               <Button onClick={() => { setApiError(null); setShowAddUserModal(true); }} className="flex items-center gap-2 self-end sm:self-auto">
@@ -204,15 +204,15 @@ export default function UserManagement() {
 
             {/* Table */}
             {loadingUsers ? (
-              <div className="py-16 text-center bg-white">
+              <div className="py-16 text-center bg-white dark:bg-gray-800 ">
                 <Loader2 className="animate-spin w-6 h-6 mx-auto mb-2 text-indigo-500" />
                 <p className="text-sm text-gray-500">Loading users...</p>
               </div>
             ) : (
               <div className="w-full overflow-x-auto">
-                <table className="min-w-full bg-white dark:bg-gray-800">
+                <table className="min-w-full bg-white dark:bg-gray-800  dark:bg-gray-800">
                   <thead>
-                    <tr className="bg-white dark:bg-[#1e293b] -900 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#1e293b] -800">
+                    <tr className="bg-white dark:bg-gray-800  dark:bg-[#1e293b] -900 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#1e293b] -800">
                       <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Name</th>
                       <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Email</th>
                       <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Role</th>
@@ -220,13 +220,13 @@ export default function UserManagement() {
                       <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white">
+                  <tbody className="bg-white dark:bg-gray-800">
                     {filteredUsers.length === 0 ? (
-                      <tr><td colSpan={5} className="px-6 py-12 text-center text-sm text-gray-500 bg-white">No users found.</td></tr>
+                      <tr><td colSpan={5} className="px-6 py-12 text-center text-sm text-gray-500 bg-white dark:bg-gray-800 ">No users found.</td></tr>
                     ) : (
                       filteredUsers.map((user) => (
-                        <tr key={user._id} className=" border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap bg-white">
+                        <tr key={user._id} className="dark:text-white text-gray-800  border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-800">
+                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap bg-white dark:bg-gray-800  dark:bg-gray-800">
                             <div className="flex items-center gap-2 sm:gap-3">
                               <div
                                 className="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
@@ -237,8 +237,8 @@ export default function UserManagement() {
                               <span className="text-sm font-medium text-gray-900 dark:text-white">{user.name}</span>
                             </div>
                           </td>
-                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white">{user.email}</td>
-                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap bg-white">
+                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white dark:bg-gray-800 ">{user.email}</td>
+                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap bg-white dark:bg-gray-800  dark:bg-gray-800">
                             <span className={`px-2.5 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                               user.role === USER_ROLES.SUPER_ADMIN ? "bg-purple-100 text-purple-800"
                               : user.role === USER_ROLES.HR_MODE ? "bg-blue-100 text-blue-800"
@@ -247,8 +247,8 @@ export default function UserManagement() {
                               {ROLE_LABELS[user.role] || user.role}
                             </span>
                           </td>
-                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white">{user.location || "—"}</td>
-                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-right bg-white">
+                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white dark:bg-gray-800 ">{user.location || "—"}</td>
+                          <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-right bg-white dark:bg-gray-800 ">
                             <button onClick={() => handleEditUser(user)} className="text-indigo-600 hover:text-indigo-900 mr-4 transition-colors">
                               <Edit className="w-4 h-4 inline" />
                             </button>
@@ -280,7 +280,7 @@ export default function UserManagement() {
       overflow-y-auto
       rounded-xl
       shadow-2xl
-      bg-white
+      bg-white dark:bg-gray-800 
       dark:bg-[#1e293b]
       border border-gray-200 dark:border-gray-700
     ">
@@ -336,7 +336,7 @@ export default function UserManagement() {
                   rounded-lg
                   border
                   ${errors[key] ? "border-red-500" : "border-gray-300 dark:border-gray-600"}
-                  bg-white dark:bg-gray-800
+                  bg-white dark:bg-gray-800  dark:bg-gray-800
                   text-gray-900 dark:text-white
                   focus:ring-2 focus:ring-indigo-500
                   focus:border-indigo-500
@@ -369,7 +369,7 @@ export default function UserManagement() {
               rounded-lg
               border
               ${errors.role ? "border-red-500" : "border-gray-300 dark:border-gray-600"}
-              bg-white dark:bg-gray-800
+              bg-white dark:bg-gray-800  dark:bg-gray-800
               text-gray-900 dark:text-white
               focus:ring-2 focus:ring-indigo-500
               outline-none
@@ -398,7 +398,7 @@ export default function UserManagement() {
             value={userForm.location}
             onChange={(e) => setUserForm({ ...userForm, location: e.target.value })}
             placeholder="e.g. New York, USA"
-            className="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
+            className="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800  dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
           />
         </div>
 
@@ -427,7 +427,7 @@ export default function UserManagement() {
 
           <button
             onClick={closeModal}
-            className="w-full sm:w-auto px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+            className="w-full sm:w-auto px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800  dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             Cancel
           </button>
@@ -455,7 +455,7 @@ export default function UserManagement() {
         {/* Delete Modal */}
         {showDeleteModal && userToDelete && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white dark:bg-[#1e293b] -900 rounded-lg shadow-xl gap-2 sm:gap-3w-full max-w-md sm:max-w-lg p-4 sm:p-5 md:p-6">
+            <div className="bg-white dark:bg-gray-800  dark:bg-[#1e293b] -900 rounded-lg shadow-xl gap-2 sm:gap-3w-full max-w-md sm:max-w-lg p-4 sm:p-5 md:p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Delete User</h3>
               <p className="text-sm text-white mb-6">
                 Are you sure you want to delete <strong className="text-gray-900 dark:text-white">{userToDelete.name}</strong>? This cannot be undone.
@@ -464,7 +464,7 @@ export default function UserManagement() {
                 <button
                   onClick={() => setShowDeleteModal(false)}
                   disabled={isDeleting}
-                  className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50"
+                  className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 dark:text-gray-300 dark:text-gray-300 bg-white dark:bg-gray-800  hover:bg-gray-50 disabled:opacity-50"
                 >
                   Cancel
                 </button>
