@@ -430,16 +430,16 @@ function AdminDashboardContent() {
                               key={lead?._id || i}
                               className="hover:bg-gray-50 dark:hover:bg-[#334155]"
                             >
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">{lead?.name || 'N/A'}</td>
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap   text-gray-700 dark:text-gray-300">
+                          <td className="px-3 min-[768px]:px-6 py-4  font-medium text-gray-900 dark:text-white">{lead?.name || 'N/A'}</td>
+                          <td className="px-3 min-[768px]:px-6 py-4    text-gray-700 dark:text-gray-300">
                             {activeTab === 'business' ? (lead?.company || 'N/A') : (lead?.position || 'N/A')}
                           </td>
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap   text-gray-700 dark:text-gray-300">{lead?.email || 'N/A'}</td>
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap   text-gray-700 dark:text-gray-300">{lead?.phone || 'N/A'}</td>
-                            <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap text-gray-500 dark:text-gray-400">
+                          <td className="px-3 min-[768px]:px-6 py-4    text-gray-700 dark:text-gray-300">{lead?.email || 'N/A'}</td>
+                          <td className="px-3 min-[768px]:px-6 py-4    text-gray-700 dark:text-gray-300">{lead?.phone || 'N/A'}</td>
+                            <td className="px-3 min-[768px]:px-6 py-4  text-gray-500 dark:text-gray-400">
                                                         {lead?.createdAt ? new Date(lead.createdAt).toLocaleDateString() : 'N/A'}
                                                       </td> 
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap">
+                          <td className="px-3 min-[768px]:px-6 py-4 ">
                             <span className={`px-2 inline-flex text-xs font-semibold rounded-full ${
                               lead?.status === 'new' ? 'bg-green-100 text-green-800'
                               : lead?.status === 'contacted' ? 'bg-blue-100 text-blue-800'
@@ -454,7 +454,7 @@ function AdminDashboardContent() {
 
                           
 
-                          <td className="px-3 min-[768px]:px-6 py-4 whitespace-nowrap">
+                          <td className=" min-[768px]:px-6 py-4 whitespace-nowrap">
                             <LeadActions
                               lead={lead}
                               type={activeTab === "business" ? "business" : "job"}

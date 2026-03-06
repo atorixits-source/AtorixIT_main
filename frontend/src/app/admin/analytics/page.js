@@ -213,11 +213,11 @@ const paginatedActivities = activities.slice(
       <AdminLayout title="Analytics" description="View detailed analytics and insights.">
 
         {/* Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <MetricCard title="Total Leads" value={metrics.totalLeads} change="+12%" icon={<Users className="w-6 h-6" />} color="blue" />
-          <MetricCard title="New Leads" value={metrics.newLeads} change="+5%" icon={<Users className="w-6 h-6" />} color="purple" />
-          <MetricCard title="Contacted" value={metrics.contactedLeads} change="+8%" icon={<Clock className="w-6 h-6" />} color="green" />
-          <MetricCard title="Qualified" value={metrics.qualifiedLeads} change={`${metrics.conversionRate}%`} icon={<CheckCircle className="w-6 h-6" />} color="indigo" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10" >
+          <MetricCard className="pl-10 pr-10" title="Total Leads" value={metrics.totalLeads} change="+12%" icon={<Users className="w-7 h-6" />} color="blue" />
+          <MetricCard className="pl-10 pr-10" title="New Leads" value={metrics.newLeads} change="+5%" icon={<Users className="w-7 h-6" />} color="purple" />
+          <MetricCard className="pl-10 pr-10" title="Contacted" value={metrics.contactedLeads} change="+8%" icon={<Clock className="w-7 h-6" />} color="green" />
+          <MetricCard className="pl-10 pr-10" title="Qualified" value={metrics.qualifiedLeads} change={`${metrics.conversionRate}%`} icon={<CheckCircle className="w-7 h-6" />} color="indigo" />
         </div>
 
         {/* Charts Row */}
