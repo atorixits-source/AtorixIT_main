@@ -225,7 +225,7 @@ export default function UserManagement() {
                       <tr><td colSpan={5} className="px-6 py-12 text-center text-sm text-gray-500 bg-white">No users found.</td></tr>
                     ) : (
                       filteredUsers.map((user) => (
-                        <tr key={user._id} className="bg-white border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                        <tr key={user._id} className=" border-b border-gray-100 hover:bg-gray-50 transition-colors">
                           <td className="px-3 sm:px-4 md:px-6 py-3 md:py-4 whitespace-nowrap bg-white">
                             <div className="flex items-center gap-2 sm:gap-3">
                               <div
