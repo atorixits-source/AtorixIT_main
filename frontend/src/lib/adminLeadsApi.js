@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001" || "https://atorix-backend-server.onrender.com";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://atorixit-main.onrender.com";
 
 /**
  * Admin Leads API
