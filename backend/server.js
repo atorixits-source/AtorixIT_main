@@ -53,6 +53,9 @@ const allowedOrigins = [
   'https://atorix-it-main-frontend.vercel.app',
   'https://www.atorixit.com',
   'https://atorixit.com',
+  'https://atorixit-main.onrender.com',
+  'https://atorixitmain.vercel.app',
+
 ];
 
 const corsOptions = {
