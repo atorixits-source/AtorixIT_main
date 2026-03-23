@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <AuthProvider>
             <ChatProvider>
 
